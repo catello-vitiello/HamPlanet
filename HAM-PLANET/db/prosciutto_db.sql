@@ -43,6 +43,7 @@ CREATE TABLE prodotto
     peso DOUBLE,
     tipo varchar(60), -- prosciutto crudo/cotto, salame napoli/milano, vaschette, formaggi
     descrizione VARCHAR(300),
+    image MEDIUMBLOB,
     PRIMARY KEY(IAN)
 );
 
