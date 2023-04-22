@@ -37,6 +37,9 @@ public class ClienteControl extends HttpServlet {
 
 		String chiave = request.getParameter("chiave");
 
+		/********************************************************/
+		/*						REGISTRAZIONE					*/
+		/********************************************************/
 		if (email != null && pass != null && nome != null && cognome != null && sesso != null && indirizzo != null
 				&& cellulare != null) {
 			try {
@@ -51,6 +54,9 @@ public class ClienteControl extends HttpServlet {
 			}
 		}
 
+		/********************************************************/
+		/*						ELIMINAZIONE					*/
+		/********************************************************/
 		if (chiave != null) {
 			try {
 				model.deleteCliente(chiave);
@@ -62,6 +68,9 @@ public class ClienteControl extends HttpServlet {
 			}
 		}
 
+		/********************************************************/
+		/*						LOGIN							*/
+		/********************************************************/
 		if (email != null && pass != null) {
 			utils.UtilityClass.print("login");
 			try {
@@ -74,6 +83,7 @@ public class ClienteControl extends HttpServlet {
 					requestDispatcher.forward(request, response);
 					return;
 				} else {
+					response.sendRedirect("Admin.html"); //riga da eliminare --> solo per test
 					//response.sendRedirect(""); /*Se l'utente non esiste la response reindirizza alla pagina di login*/
 					return;
 				}

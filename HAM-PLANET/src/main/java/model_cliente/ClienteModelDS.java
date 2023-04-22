@@ -100,6 +100,40 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 	}
 	
 	/********************************************************/
+	/*						GET BY EMAIL					*/
+	/********************************************************/
+	public ClienteBean getByEmail(String email) throws SQLException{
+		
+		Connection connection = null;
+		java.sql.Statement stm = null;
+		String sql = "SELECT pass FROM cliente WHERE e_mail = " + email;
+		ClienteBean bean = new ClienteBean();
+		
+		try {
+			connection = ds.getConnection();
+			stm = connection.createStatement();
+			ResultSet rs = stm.executeQuery(sql);
+			
+			while(rs.next()) {
+				bean.setEmail(rs.getString("e_mail"));
+				bean.setPass(rs.getString("pass"));
+				bean.setNome(rs.getString("nome"));
+				bean.setCognome(rs.getString("cognome"));
+				bean.setSesso(rs.getString("sesso").charAt(0));
+				bean.setIndirizzo(rs.getString("indirizzo"));
+				bean.setCellulare(rs.getString("cellulare"));
+			}
+			
+		}finally {
+			if(stm != null)
+				stm.close();
+			if(connection != null)
+				connection.close();
+		}
+		return bean;
+	}
+	
+	/********************************************************/
 	/*						DELETE							*/
 	/********************************************************/
 
@@ -140,7 +174,7 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 			preparedStatement = connection.prepareStatement(sql);
 			
 			preparedStatement.setString(1, email);
-			preparedStatement.setString(2, password);
+			preparedStatement.setString(2, utils.CifraPassword.toHash(password));
 			utils.UtilityClass.print(">.LOGIN cliente: " + preparedStatement);
 			ResultSet rs = preparedStatement.executeQuery();
 			ClienteBean cb = new ClienteBean();
