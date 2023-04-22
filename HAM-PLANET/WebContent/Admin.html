@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>REGISTRAZIONE</title>
+
+<style>
+.flex-container {
+	display: flex;
+	justify-content: space-around;
+}
+
+.flex-container>div {
+	outline: solid black 5px;
+	background-color: red;
+	margin: 10px;
+	padding: 20px;
+	font-size: 30px;
+	text-align: center;
+	color: white;
+}
+</style>
+
+</head>
+<body>
+
+
+	<div class="flex-container">
+		<div>
+			<h3>REGISTRAZIONE</h3>
+			<form action="ClienteControl" method="post">
+				Nome<br> <input type="text" name="nome" required><br>
+				Cognome<br> <input type="text" name="cognome" required><br>
+				Email<br> <input type="text" name="email" required><br>
+				Password<br> <input type="password" name="pass" required><br>
+				Sesso<br> <input type="text" name="sesso" placeholder="M/F"
+					maxlength="1" required><br> Indirizzo<br> <input
+					type="text" name="indirizzo" required><br> Cellulare<br>
+				<input type="text" name="cellulare" maxlength="10" required><br>
+				<input type="submit" value="REGISTRATI">
+			</form>
+		</div>
+		<div>
+			<h3>ELIMINAZIONE UTENTE</h3>
+			<form action="ClienteControl" method="post">
+				Email<br> <input type="text" name="chiave" required><br>
+				<input type="submit" value="ELIMINA">
+			</form>
+		</div>
+		<div>
+			<h3>LOG-IN</h3>
+			<form action="ClienteControl" method="post">
+				Email<br> <input type="text" name="email" required><br>
+				Password<br> <input type="password" name="pass" required><br>
+				<input type="submit" value="LOG IN">
+			</form>
+		</div>
+		<div>
+			<h3>ELIMINA ORDINE</h3>
+			<form action="OrdineControl" method="post">
+				Inserisci id dell'ordine da eliminare<br>
+				<input type="text" name="key"><br>
+				<input type="submit" value="ELIMINA">
+			</form>
+		</div>
+		<div>
+			<h3>VISTA DATI</h3>
+			<form action="Filter" method="post">
+				<select name="servizio">
+					<option value="cliente">cliente</option>
+					<option value="ordine">ordine</option>
+				</select><br> <input type="submit" value="VEDI">
+			</form>
+		</div>
+	</div>
+</body>
+</html>

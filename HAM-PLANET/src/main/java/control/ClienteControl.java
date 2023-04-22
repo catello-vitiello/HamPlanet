@@ -53,7 +53,7 @@ public class ClienteControl extends HttpServlet {
 		if (chiave != null) {
 			try {
 				model.deleteCliente(chiave);
-				//response.sendRedirect(""); /*Dopo che l'admin ha eliminato un utente viene reindirizzato alla pagina di amministratore*/
+				response.sendRedirect("Admin.html"); /*Dopo che l'admin ha eliminato un utente viene reindirizzato alla pagina di amministratore*/
 				return;
 			} catch (SQLException e) {
 				utils.UtilityClass.print(e);

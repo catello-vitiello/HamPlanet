@@ -69,7 +69,7 @@
 	
 	<hr>
 	<p align="center">
-	<a href="" >BACK</a> <!-- Per tornare alla pagina amministrtore -->
+	<a href="Admin.html" >BACK</a> <!-- Per tornare alla pagina amministrtore -->
 	
 </body>
 </html>
