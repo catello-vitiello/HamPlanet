@@ -42,6 +42,7 @@ public class ClienteControl extends HttpServlet {
 			try {
 				char sex = sesso.charAt(0);
 				model.insert(email, pass, nome, cognome, sex, indirizzo, cellulare);
+				response.sendRedirect("Admin.html"); // riga da eliminare ---> solo per test
 				//response.sendRedirect(""); /*dopo la registrazione ti reindirizza verso l'area di login*/
 				return;
 			} catch (SQLException e) {

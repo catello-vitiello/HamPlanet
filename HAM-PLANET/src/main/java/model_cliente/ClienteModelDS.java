@@ -78,9 +78,9 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(sql);
-			
+
 			preparedStatement.setString(1, email);
-			preparedStatement.setString(2, pass);
+			preparedStatement.setString(2, utils.CifraPassword.toHash(pass));
 			preparedStatement.setString(3, nome);
 			preparedStatement.setString(4, cognome);
 			preparedStatement.setString(5, s.toString());
