@@ -22,7 +22,7 @@ public class ClienteControl extends HttpServlet {
 
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		ClienteModelDS model = new ClienteModelDS(ds);
-
+		
 		String servizio = request.getParameter("servizio");
 
 		String email, pass, nome, cognome, indirizzo;
@@ -38,7 +38,7 @@ public class ClienteControl extends HttpServlet {
 		String chiave = request.getParameter("chiave");
 
 		/********************************************************/
-		/*						REGISTRAZIONE					*/
+		/* REGISTRAZIONE */
 		/********************************************************/
 		if (email != null && pass != null && nome != null && cognome != null && sesso != null && indirizzo != null
 				&& cellulare != null) {
@@ -46,7 +46,8 @@ public class ClienteControl extends HttpServlet {
 				char sex = sesso.charAt(0);
 				model.insert(email, pass, nome, cognome, sex, indirizzo, cellulare);
 				response.sendRedirect("Admin.html"); // riga da eliminare ---> solo per test
-				//response.sendRedirect(""); /*dopo la registrazione ti reindirizza verso l'area di login*/
+				// response.sendRedirect(""); /*dopo la registrazione ti reindirizza verso
+				// l'area di login*/
 				return;
 			} catch (SQLException e) {
 				utils.UtilityClass.print(e);
@@ -55,12 +56,15 @@ public class ClienteControl extends HttpServlet {
 		}
 
 		/********************************************************/
-		/*						ELIMINAZIONE					*/
+		/* ELIMINAZIONE */
 		/********************************************************/
 		if (chiave != null) {
 			try {
 				model.deleteCliente(chiave);
-				response.sendRedirect("Admin.html"); /*Dopo che l'admin ha eliminato un utente viene reindirizzato alla pagina di amministratore*/
+				response.sendRedirect("Admin.html"); /*
+														 * Dopo che l'admin ha eliminato un utente viene reindirizzato
+														 * alla pagina di amministratore
+														 */
 				return;
 			} catch (SQLException e) {
 				utils.UtilityClass.print(e);
@@ -69,7 +73,7 @@ public class ClienteControl extends HttpServlet {
 		}
 
 		/********************************************************/
-		/*						LOGIN							*/
+		/* LOGIN */
 		/********************************************************/
 		if (email != null && pass != null) {
 			utils.UtilityClass.print("login");
@@ -83,8 +87,9 @@ public class ClienteControl extends HttpServlet {
 					requestDispatcher.forward(request, response);
 					return;
 				} else {
-					response.sendRedirect("Admin.html"); //riga da eliminare --> solo per test
-					//response.sendRedirect(""); /*Se l'utente non esiste la response reindirizza alla pagina di login*/
+					response.sendRedirect("Admin.html"); // riga da eliminare --> solo per test
+					// response.sendRedirect(""); /*Se l'utente non esiste la response reindirizza
+					// alla pagina di login*/
 					return;
 				}
 			} catch (SQLException e) {
@@ -94,9 +99,10 @@ public class ClienteControl extends HttpServlet {
 		}
 
 		/********************************************************/
-		/*		VISUALIZZAZIONE DELLA TABELLA CLIENTI			*/
+		/* VISUALIZZAZIONE DELLA TABELLA CLIENTI */
 		/********************************************************/
 		if (servizio != null && servizio.equals("cliente")) {
+
 			try {
 				request.setAttribute("clienti", model.selectAll());
 			} catch (SQLException e) {
