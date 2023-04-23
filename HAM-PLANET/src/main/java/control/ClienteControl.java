@@ -38,7 +38,7 @@ public class ClienteControl extends HttpServlet {
 		String chiave = request.getParameter("chiave");
 
 		/********************************************************/
-		/* REGISTRAZIONE */
+		/* 					REGISTRAZIONE	 					*/
 		/********************************************************/
 		if (email != null && pass != null && nome != null && cognome != null && sesso != null && indirizzo != null
 				&& cellulare != null) {
@@ -56,7 +56,7 @@ public class ClienteControl extends HttpServlet {
 		}
 
 		/********************************************************/
-		/* ELIMINAZIONE */
+		/* 						ELIMINAZIONE 					*/
 		/********************************************************/
 		if (chiave != null) {
 			try {
@@ -73,7 +73,7 @@ public class ClienteControl extends HttpServlet {
 		}
 
 		/********************************************************/
-		/* LOGIN */
+		/* 						LOGIN 							*/
 		/********************************************************/
 		if (email != null && pass != null) {
 			utils.UtilityClass.print("login");
@@ -99,7 +99,7 @@ public class ClienteControl extends HttpServlet {
 		}
 
 		/********************************************************/
-		/* VISUALIZZAZIONE DELLA TABELLA CLIENTI */
+		/* 		VISUALIZZAZIONE DELLA TABELLA CLIENTI 			*/
 		/********************************************************/
 		if (servizio != null && servizio.equals("cliente")) {
 
