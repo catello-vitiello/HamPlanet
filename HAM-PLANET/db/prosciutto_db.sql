@@ -41,9 +41,9 @@ CREATE TABLE prodotto
 	IAN INT NOT NULL,
     prezzo DOUBLE,
     peso DOUBLE,
-    tipo varchar(60), -- prosciutto crudo/cotto, salame napoli/milano, vaschette, formaggi
     descrizione VARCHAR(300),
     image MEDIUMBLOB,
+    nomeProdotto VARCHAR(60),
     PRIMARY KEY(IAN)
 );
 
