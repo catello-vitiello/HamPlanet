@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import model_cliente.ClienteBean;
@@ -82,7 +83,10 @@ public class ClienteControl extends HttpServlet {
 				ClienteBean n = model.tryLogIn(email, pass);
 				utils.UtilityClass.print("Test: " + n.getNome() + " " + n.getSesso());
 				if (n.getNome() != null) {
-					request.setAttribute("user", n);
+					
+					HttpSession session = request.getSession();
+					session.setAttribute("user", n);
+					utils.UtilityClass.print("ID sessione: " + session.getId()); //controllo su id sessione --> riga da eliminare
 					RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/Login.jsp");
 					requestDispatcher.forward(request, response);
 					return;

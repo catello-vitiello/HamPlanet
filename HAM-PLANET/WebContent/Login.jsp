@@ -3,7 +3,7 @@
     pageEncoding="ISO-8859-1"%>
     
 <%
-	ClienteBean user = (ClienteBean) request.getAttribute("user");
+	ClienteBean user = (ClienteBean) session.getAttribute("user");
 	if(user == null){
 		response.sendRedirect("Admin.html");
 		return;
@@ -21,12 +21,13 @@
 	<%
 		if(user.getSesso() == 'M' || user.getSesso() == 'm'){
 	%>
-		BENVENUTO <%= user.getNome() %>
+		BENVENUTO <%= user.getNome() %><br>
+		Il tuo ID sessione: <%= session.getId() %>
 	<% } else{ %>
 		BENVENUTA <%= user.getNome() %>
 	<% } %>
 	
 	<hr>
-	<a href="Admin.html">BACK</a>
+	<a href="Admin.html">LOG-OUT</a>
 </body>
 </html>
