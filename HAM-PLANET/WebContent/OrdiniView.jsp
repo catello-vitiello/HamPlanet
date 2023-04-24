@@ -19,7 +19,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>View degli ordini</title>
-<link href="OrdineView.css" rel="stylesheet" type="text/css">
+<link href="VisualizzazioneView.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -64,7 +64,7 @@
 
 	<hr>
 	<p align="center">
-	<a href="FormClientehtml.html" >BACK</a>
+	<a href="Admin.html" >BACK</a>
 
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@page import="model_composto.CompostoBean"%>
 <%@page import="model_prodotto.ProdottoBean"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Collection"%>
@@ -6,9 +7,9 @@
     
 <%
 
-	Collection<?> prodotti = (Collection<?>) request.getAttribute("prodotti");
-	if(prodotti == null){
-		response.sendRedirect("ProdottoControl");
+	Collection<?> composti = (Collection<?>) request.getAttribute("composti");
+	if(composti == null){
+		response.sendRedirect("CompostoControl");
 		return;
 	}
 
@@ -18,38 +19,35 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Prodotti View</title>
+<title>Composto ordine View</title>
 <link href="VisualizzazioneView.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	
-	<h1>LISTA PRODOTTI</h1>
+	<h1>LISTA ORDINI DETTAGLIATI</h1>
 	<table>
 		<tr>
-			<td>IAN</td>
-			<td>PREZZO</td>
-			<td>PESO</td>
-			<td>DESCRIZIONE</td>
-			<td>IMMAGINE</td>
-			<td>NOME PRODOTTO</td>
+			<td>ID COMPOSTO</td>
+			<td>ID ORDINE DI RIFERIMENTO</td>
+			<td>IAN PRODOTTO</td>
+			<td>TOTALE DA PAGARE</td>
+			<td>QUANTITÀ PRODOTTO</td>
 		</tr>
 		
 		<%
 		
-			String vuoto = null;
-			if(prodotti != null && prodotti.size()>0){
-				Iterator<?> iterator = prodotti.iterator();
+			if(composti != null && composti.size()>0){
+				Iterator<?> iterator = composti.iterator();
 				while(iterator.hasNext()){
-					ProdottoBean bean = (ProdottoBean)iterator.next();
+					CompostoBean bean = (CompostoBean)iterator.next();
 		%>
 		
 			<tr>
-				<td><%= bean.getIAN() %></td>
+				<td><%= bean.getId_c() %></td>
+				<td><%= bean.getId_ordine() %></td>
+				<td><%= bean.getIan_prodotto() %></td>
 				<td><%= bean.getPrezzo() %></td>
-				<td><%= bean.getPeso() %></td>
-				<td><%= bean.getDescrizione() %></td>
-				<td><%= vuoto %></td>
-				<td><%= bean.getNomeProdotto().toString() %></td>
+				<td><%= bean.getQuantity() %></td>
 			</tr>
 		
 		<%

@@ -32,6 +32,10 @@ public class Filter extends HttpServlet {
 			requestDispatcher.forward(request, response);
 			return;
 		}
-
+		if (servizio.equals("composto")) {
+			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/CompostoControl");
+			requestDispatcher.forward(request, response);
+			return;
+		}
 	}
 }
