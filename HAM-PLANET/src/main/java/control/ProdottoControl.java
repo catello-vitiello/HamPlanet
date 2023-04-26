@@ -28,7 +28,6 @@ public class ProdottoControl extends HttpServlet {
 				request.setAttribute("prodotti", model.selectAll_NoImage());
 			} catch (SQLException e) {
 				utils.UtilityClass.print(e);
-				e.printStackTrace();
 			}
 
 			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/ProdottoView.jsp");

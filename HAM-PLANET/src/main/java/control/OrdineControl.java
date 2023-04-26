@@ -39,7 +39,6 @@ public class OrdineControl extends HttpServlet {
 				model.insert(data, stato, metodoP, email);
 			} catch (SQLException e) {
 				utils.UtilityClass.print(e);
-				e.printStackTrace();
 			}
 
 		}
@@ -54,7 +53,6 @@ public class OrdineControl extends HttpServlet {
 				return;
 			} catch (SQLException e) {
 				utils.UtilityClass.print(e);
-				e.printStackTrace();
 			}
 
 		}
@@ -64,7 +62,6 @@ public class OrdineControl extends HttpServlet {
 				request.setAttribute("ordini", model.getAll());
 			} catch (SQLException e) {
 				utils.UtilityClass.print(e);
-				e.printStackTrace();
 			}
 
 			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/OrdiniView.jsp");

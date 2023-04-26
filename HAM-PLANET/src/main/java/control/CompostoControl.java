@@ -29,7 +29,6 @@ public class CompostoControl extends HttpServlet {
 				request.setAttribute("composti", model.selectAll());
 			} catch (SQLException e) {
 				utils.UtilityClass.print(e);
-				e.printStackTrace();
 			}
 
 			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/CompostoView.jsp");

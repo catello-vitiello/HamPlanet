@@ -50,8 +50,7 @@ public class ClienteControl extends HttpServlet {
 				// l'area di login*/
 				return;
 			} catch (SQLException e) {
-				utils.UtilityClass.print(e);
-				e.printStackTrace();
+				utils.UtilityClass.print(e);	
 			}
 		}
 
@@ -67,8 +66,7 @@ public class ClienteControl extends HttpServlet {
 														 */
 				return;
 			} catch (SQLException e) {
-				utils.UtilityClass.print(e);
-				e.printStackTrace();
+				utils.UtilityClass.print(e);	
 			}
 		}
 
@@ -93,8 +91,7 @@ public class ClienteControl extends HttpServlet {
 					return;
 				}
 			} catch (SQLException e) {
-				utils.UtilityClass.print(e);
-				e.printStackTrace();
+				utils.UtilityClass.print(e);		
 			}
 		}
 
@@ -107,7 +104,6 @@ public class ClienteControl extends HttpServlet {
 				request.setAttribute("clienti", model.selectAll());
 			} catch (SQLException e) {
 				utils.UtilityClass.print(e);
-				e.printStackTrace();
 			}
 
 			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/ClienteView.jsp");
