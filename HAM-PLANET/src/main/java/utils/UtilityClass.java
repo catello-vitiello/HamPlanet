@@ -16,7 +16,6 @@ public class UtilityClass {
 	
 	public static void print(Exception exception) {
 		UtilityClass.print("Exception: " + exception.getMessage());
-		exception.printStackTrace();
 	}
 	
 }

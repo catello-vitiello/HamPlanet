@@ -88,9 +88,8 @@ public class ClienteBean implements Serializable{
 	/****************************************************************************/
 
 	public String toString() {
-		String s = getClass().getName() + "[e-mail= " + email + ", password= " + pass + ", nome= " + nome + ", cognome= " + cognome
+		 return getClass().getName() + "[e-mail= " + email + ", password= " + pass + ", nome= " + nome + ", cognome= " + cognome
 				+ ", sesso= " + sesso + ", indirizzo= " + indirizzo + ", cellulare= " + cellulare + "]";
-		return s;
 	}
 	
 }

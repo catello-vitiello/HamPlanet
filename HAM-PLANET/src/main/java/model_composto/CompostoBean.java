@@ -69,8 +69,7 @@ public class CompostoBean implements Serializable {
 	/****************************************************************************/
 
 	public String toString() {
-		String s = getClass().getName() + "[id composto=" + id_c + ",id ordine= " + id_ordine + ",ian prodotto= "
+		return getClass().getName() + "[id composto=" + id_c + ",id ordine= " + id_ordine + ",ian prodotto= "
 				+ ian_prodotto + ",quantità= " + quantity + ",prezzo= " + prezzo + "]";
-		return s;
 	}
 }
