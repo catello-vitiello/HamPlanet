@@ -48,6 +48,7 @@ public class ClienteControl extends HttpServlet {
 
 			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/ClienteView.jsp");
 			requestDispatcher.forward(request, response);
+			return;
 		}
 
 		/********************************************************/
