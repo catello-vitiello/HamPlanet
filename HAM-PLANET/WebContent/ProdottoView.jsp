@@ -48,7 +48,7 @@
 				<td><%= bean.getPrezzo() %></td>
 				<td><%= bean.getPeso() %></td>
 				<td><%= bean.getDescrizione() %></td>
-				<td><%= vuoto %></td>
+				<td><img src="" onerror="this.src='img/p.png'" width="40" height="40"></td>
 				<td><%= bean.getNomeProdotto().toString() %></td>
 			</tr>
 		
