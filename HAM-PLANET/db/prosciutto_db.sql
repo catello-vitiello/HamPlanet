@@ -42,7 +42,7 @@ CREATE TABLE prodotto
     prezzo DOUBLE,
     peso DOUBLE,
     descrizione VARCHAR(300),
-    image MEDIUMBLOB,
+    image VARCHAR(255),
     nomeProdotto VARCHAR(60),
     PRIMARY KEY(IAN)
 );
