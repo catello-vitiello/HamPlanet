@@ -105,13 +105,13 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 	public ClienteBean getByEmail(String email) throws SQLException{
 		
 		Connection connection = null;
-		java.sql.Statement stm = null;
+		PreparedStatement stm = null;
 		String sql = "SELECT pass FROM cliente WHERE e_mail = " + email;
 		ClienteBean bean = new ClienteBean();
 		
 		try {
 			connection = ds.getConnection();
-			stm = connection.createStatement();
+			stm = connection.prepareStatement(sql);
 			ResultSet rs = stm.executeQuery(sql);
 			
 			while(rs.next()) {
