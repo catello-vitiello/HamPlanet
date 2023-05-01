@@ -106,12 +106,13 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 		
 		Connection connection = null;
 		PreparedStatement stm = null;
-		String sql = "SELECT pass FROM cliente WHERE e_mail = " + email;
+		String sql = "SELECT pass FROM cliente WHERE e_mail = ?";
 		ClienteBean bean = new ClienteBean();
 		
 		try {
 			connection = ds.getConnection();
 			stm = connection.prepareStatement(sql);
+			stm.setString(1, email);
 			ResultSet rs = stm.executeQuery();
 			
 			while(rs.next()) {
