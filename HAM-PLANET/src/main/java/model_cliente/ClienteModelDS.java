@@ -112,7 +112,7 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 		try {
 			connection = ds.getConnection();
 			stm = connection.prepareStatement(sql);
-			ResultSet rs = stm.executeQuery(sql);
+			ResultSet rs = stm.executeQuery();
 			
 			while(rs.next()) {
 				bean.setEmail(rs.getString("e_mail"));
