@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/AreaUtente.jsp");
 				requestDispatcher.forward(request, response);
 				} else {
-				response.sendRedirect("Admin.html"); // riga da eliminare --> solo per test
+				response.sendRedirect("Login.jsp"); // riga da eliminare --> solo per test
 				// response.sendRedirect(""); /*Se l'utente non esiste la response reindirizza
 				// alla pagina di login*/
 				return;

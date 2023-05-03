@@ -28,6 +28,6 @@
 	<% } %>
 	
 	<hr>
-	<a href="Admin.html">LOG-OUT</a>
+	<a href="Login.jsp">LOG-OUT</a>
 </body>
 </html>
