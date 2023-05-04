@@ -1,5 +1,8 @@
 package model_prodotto;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -112,5 +115,42 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 				connection.close();
 		}
 
+	}
+	
+	
+	/********************************************************/
+	/* 						INSERT IMAGE					*/
+	/********************************************************/
+	@Override
+	public void addImageToProduct(int ian, File file) throws SQLException {
+
+		try {
+			File file2 = new File(file.getPath());
+			FileInputStream fis = new FileInputStream(file2);
+
+			Connection connection = null;
+			PreparedStatement preparedStatement = null;
+			String sql = "UPDATE  prodotto SET image = ? WHERE IAN = ?";
+			
+			try {
+				connection = ds.getConnection();
+				preparedStatement = connection.prepareStatement(sql);
+				preparedStatement.setBinaryStream(1, fis, (int) file2.length());
+				preparedStatement.setInt(2, ian);
+
+				utils.UtilityClass.print("Inserimento immagine in prodotto " + preparedStatement.toString());
+				preparedStatement.executeUpdate();
+
+			} finally {
+
+				if (preparedStatement != null)
+					preparedStatement.close();
+				if (connection != null)
+					connection.close();
+
+			}
+		} catch (FileNotFoundException e) {
+			utils.UtilityClass.print(e);
+		}
 	}
 }
