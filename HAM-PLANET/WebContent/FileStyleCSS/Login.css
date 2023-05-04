@@ -178,7 +178,7 @@ form{
 
 #buttonLogin:focus{
     background: #fff;
-    border: 2px solid white;
+    border: none;
 }
 
 
