@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="ISO-8859-1">
-<title>REGISTRAZIONE</title>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>REGISTRAZIONE</title>
 
-<style>
-.flex-container {
-	display: flex;
-	justify-content: space-around;
-}
-
-.flex-container>div {
-	outline: solid black 5px;
-	background-color: red;
-	margin: 10px;
-	padding: 20px;
-	font-size: 30px;
-	text-align: center;
-	color: white;
-}
-
-a{
-	text-decoration: none;
-	color: black;
-	transition: all .4s;
-}
-
-a:hover{
-	color: white;
-}
-
-</style>
-
-</head>
-<body>
+		<!-- STILE DELLA PAGINA -->
+		<style>
+		.flex-container {
+			display: flex;
+			justify-content: space-around;
+		}
+		
+		.flex-container>div {
+			outline: solid black 5px;
+			background-color: red;
+			margin: 10px;
+			padding: 20px;
+			font-size: 30px;
+			text-align: center;
+			color: white;
+		}
+		
+		a{
+			text-decoration: none;
+			color: black;
+			transition: all .4s;
+		}
+		
+		a:hover{
+			color: white;
+		}
+		
+		</style>
+		
+	</head>
+	<body>
 
 
 	<div class="flex-container">
+	
+		<!--###########   SEZIONE DI REGISTRAZIONE   ###########-->
 		<div>
 			<h3>REGISTRAZIONE!</h3>
 			<form action="ClienteControl" method="post">
@@ -51,6 +54,8 @@ a:hover{
 				<input type="submit" value="REGISTRATI">
 			</form>
 		</div>
+		
+		<!--###########   SEZIONE PER ELIMNARE UTENTE   ###########-->
 		<div>
 			<h3>ELIMINAZIONE UTENTE</h3>
 			<form action="ClienteControl" method="post">
@@ -58,11 +63,15 @@ a:hover{
 				<input type="submit" value="ELIMINA">
 			</form>
 		</div>
+		
+		<!--###########   SEZIONE LOGIN   ###########-->
 		<div>
 			<h3>LOG-IN</h3>
 				<a href="Login.jsp">Vai alla pagina di login</a>
-			</form>
 		</div>
+		
+		
+		<!--###########   SEZIONE PER ELIMINARE UN ORDINE   ###########-->
 		<div>
 			<h3>ELIMINA ORDINE</h3>
 			<form action="OrdineControl" method="post">
@@ -71,6 +80,9 @@ a:hover{
 				<input type="submit" value="ELIMINA">
 			</form>
 		</div>
+		
+		
+		<!--###########   SEZIONE VEDERE TABELLE   ###########-->
 		<div>
 			<h3>VISTA DATI</h3>
 			<form action="Filter" method="post">
@@ -82,6 +94,7 @@ a:hover{
 				</select><br> <input type="submit" value="VEDI">
 			</form>
 		</div>
+		
 	</div>
-</body>
+	</body>
 </html>
