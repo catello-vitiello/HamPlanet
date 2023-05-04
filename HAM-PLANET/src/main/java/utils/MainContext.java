@@ -18,7 +18,7 @@ public class MainContext implements ServletContextListener {
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		UtilityClass.print("Startup Web Application");
+		UtilityClass.print("------------------------------------------>	Startup Web Application	<------------------------------------------");
 
 		ServletContext context = sce.getServletContext();
 		DataSource ds = null;
@@ -34,13 +34,13 @@ public class MainContext implements ServletContextListener {
 				try {
 					con = ds.getConnection();
 					DatabaseMetaData metaData = con.getMetaData();
-					UtilityClass.print("DMS name: " + metaData.getDatabaseProductName());
-					UtilityClass.print("DMS version: " + metaData.getDatabaseProductVersion());
+					UtilityClass.print("---------->	DMS name: " + metaData.getDatabaseProductName() + "	<----------");
+					UtilityClass.print("---------->	DMS version: " + metaData.getDatabaseProductVersion() + "	<----------");
 
 				} finally {
 					if (con != null) {
 						con.close();
-						UtilityClass.print("CONNESSIONE CHIUSA");
+						UtilityClass.print("----------------------->	CONNESSIONE CHIUSA	<-----------------------");
 					}
 				}
 			} catch (SQLException e) {
