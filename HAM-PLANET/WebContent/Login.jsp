@@ -25,16 +25,31 @@
                 <p id="sott">Gestisci il tuo account Ham Planet.</p>
                 
 
-                <!--EMAIL-->
+				<!--EMAIL-->
                 <div class="inputbox">
-                    <input  type="text" name="email" required>
-                    <label for="">Email</label>
+                    <input  type="text"  required>
+                    <div class="testo">
+                        <label class="uno">E</label>
+                        <label class="due">m</label>
+                        <label class="tre">a</label>
+                        <label class="quattro">i</label>
+                        <label class="cinque">l</label>
+                    </div>
                 </div>
 
                 <!--PASSWORD-->
                 <div class="inputbox">
-                    <input  type="password" name="pass" required>
-                    <label for="">Password</label>
+                    <input  type="password" required>
+                    <div class="testo">
+                        <label class="uno">P</label>
+                        <label class="due">a</label>
+                        <label class="tre">s</label>
+                        <label class="quattro">s</label>
+                        <label class="cinque">w</label>
+                        <label class="sei">o</label>
+                        <label class="sette">r</label>
+                        <label class="otto">d</label>
+                    </div>
                 </div>
 
                 <!--PASSWORD DIMENTICATA-->

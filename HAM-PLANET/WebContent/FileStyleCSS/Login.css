@@ -76,7 +76,6 @@ form{
 }
 
 
-/*############### EMAIL E PASSWORD ###############*/
 .inputbox{
     position: relative;
     display: flex;
@@ -94,48 +93,68 @@ form{
     border-radius: 20px;
     padding: 0 10px;
     caret-color: #7d1e11;
-    caret: 2px;
     transition: .3s;
     
 }
 
-.inputbox label{
+/*####  TESTO  ####*/
+.testo{
+    display: flex;
+    flex-direction: row;
     position: absolute;
-    top: 7px;
+    top: 5px;
     left: 10px;
-    font-weight: 500;
     pointer-events: none;
-    transition: .3s;
 }
 
+.testo label{
+    transition: all .4s;
+}
 
+/*####  PASSO SOPRA IL MOUSE  ####*/
+.inputbox input:hover{ 
+    background: black;
+}
 
-.inputbox input:focus,
-.inputbox input:valid{
+.inputbox input:hover + .testo label{ 
+    color: white;
+}
+
+/*####  SCRIVO INPUT  ####*/
+.inputbox input:focus{ 
     background: black;
     color: white;
 }
 
-.inputbox input:focus ~ label,
-.inputbox input:valid ~ label{
-    transform: translateY(-27px);
-    color: black;
-    font-weight: 500;
-}
-
-.inputbox input:focus:hover ~ label,
-.inputbox input:hover:valid ~ label{
+.inputbox input:focus + .testo label{
     color: black;
 }
 
+.inputbox input:focus ~ .testo .uno,
+.inputbox input:valid ~ .testo .uno {transform: translateY(-35px);transition-delay: 0ms;}
+.inputbox input:focus ~ .testo .due, 
+.inputbox input:valid ~ .testo .due {transform: translateY(-35px);transition-delay: 50ms;}
+.inputbox input:focus ~ .testo .tre, 
+.inputbox input:valid ~ .testo .tre{transform: translateY(-35px);transition-delay: 100ms;}
+.inputbox input:focus ~ .testo .quattro, 
+.inputbox input:valid ~ .testo .quattro{transform: translateY(-35px);transition-delay: 150ms;}
+.inputbox input:focus ~ .testo .cinque, 
+.inputbox input:valid ~ .testo .cinque{transform: translateY(-35px);transition-delay: 200ms;}
+.inputbox input:focus ~ .testo .sei, 
+.inputbox input:valid ~ .testo .sei{transform: translateY(-35px);transition-delay: 250ms;}
+.inputbox input:focus ~ .testo .sette, 
+.inputbox input:valid ~ .testo .sette{transform: translateY(-35px);transition-delay: 300ms;}
+.inputbox input:focus ~ .testo .otto,
+.inputbox input:valid ~ .testo .otto {transform: translateY(-35px);transition-delay: 350ms;}
 
-.inputbox input:hover{
+
+.inputbox input:valid{ 
     background: black;
     color: white;
 }
 
-.inputbox input:hover ~ label{
-    color: white;
+.inputbox input:valid + .testo label{  
+    color: black;
 }
 
 
