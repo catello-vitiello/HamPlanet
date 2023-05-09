@@ -54,7 +54,7 @@
                         <label class="sette">r</label>
                         <label class="otto">d</label>
                     </div>
-                    <img id="img" src="./Icon/eyes_show_BLACK.png" alt="show" onclick="showPwd()" height="10px">
+                    <img id="img" src="./Icon/eyes_show_BLACK.png" alt="show" onclick="showPwd()">
                 </div>
 
                 <!--PASSWORD DIMENTICATA-->

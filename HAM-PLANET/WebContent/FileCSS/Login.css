@@ -157,8 +157,18 @@ form{
     color: black;
 }
 
+/*###############   IMMAGINE  ###############*/
+#img{
+	position: absolute;
+    height: 30px;
+    width: 30px;
+    top: 4.5%;
+    right: 2%;
+    cursor: pointer;
+}
 
-/*############### PASSWORD DIMENTICA ###############*/
+
+/*###############   PASSWORD DIMENTICA   ###############*/
 .forgotPass a{
     text-decoration: none;
     color: white;
