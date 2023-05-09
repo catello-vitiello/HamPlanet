@@ -6,7 +6,7 @@
 <html>
     <head>
         <title>Gestisci il tuo ID HamPlanet</title>
-        <link rel="stylesheet" href="./FileStyleCSS/Login.css">
+        <link rel="stylesheet" href="./FileCSS/Login.css">
         <link rel="shortcut icon" href=""> <!-- AGGIUNGERE PERCORSO LOGO PICCOLO -->
     </head>
 
@@ -39,7 +39,11 @@
 
                 <!--PASSWORD-->
                 <div class="inputbox">
-                    <input  type="password" required>
+                    <input id="pwd" onpointerover="changeColor(0)"
+                                    onpointerleave="changeColor(1)"
+                                    onclick="changeColor(2)"
+                                    onblur="changeColor(3)"
+                                    type="password" required>
                     <div class="testo">
                         <label class="uno">P</label>
                         <label class="due">a</label>
@@ -50,6 +54,7 @@
                         <label class="sette">r</label>
                         <label class="otto">d</label>
                     </div>
+                    <img id="img" src="./Icon/eyes_show_BLACK.png" alt="show" onclick="showPwd()" height="10px">
                 </div>
 
                 <!--PASSWORD DIMENTICATA-->
