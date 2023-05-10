@@ -127,7 +127,7 @@
 
 				<!--EMAIL-->
                 <div class="inputbox">
-                    <input  type="text"  required>
+                    <input  type="text" name="email" required>
                     <div class="testo">
                         <label class="uno">E</label>
                         <label class="due">m</label>
@@ -143,7 +143,8 @@
                                     onpointerleave="changeColor(1)"
                                     onclick="changeColor(2)"
                                     onblur="changeColor(3)"
-                                    type="password" required>
+                                    type="password" 
+                                    name="pass" required>
                     <div class="testo">
                         <label class="uno">P</label>
                         <label class="due">a</label>
