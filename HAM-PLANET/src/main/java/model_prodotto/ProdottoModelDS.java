@@ -11,6 +11,8 @@ import java.util.Collection;
 import java.util.LinkedList;
 import javax.sql.DataSource;
 
+import java.sql.Blob;
+
 public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 
 	private DataSource ds = null;
@@ -152,5 +154,45 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 		} catch (FileNotFoundException e) {
 			utils.UtilityClass.print(e);
 		}
+		
 	}
+	
+	
+	/********************************************************/
+	/* 						GET IMAGE					    */
+	/********************************************************/
+	
+	
+	public byte[] getImageByKey(int id) throws SQLException{
+
+        byte[] imageBytes = null;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet rs = null;
+        String sql = "SELECT image FROM prodotto WHERE IAN = ?";
+
+        try {
+            connection = ds.getConnection();
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                // Leggi l'immagine dal risultato della query
+                Blob imageBlob = rs.getBlob("image");
+               imageBytes = imageBlob.getBytes(1, (int)imageBlob.length());
+             }
+
+        } finally {
+            if (preparedStatement != null)
+                preparedStatement.close();
+            if (connection != null)
+                connection.close();
+        }
+
+        return imageBytes;
+
+    }
+
+	
 }

@@ -12,4 +12,6 @@ public interface ProdottoModel<T> {
 	public void delete(int IAN)throws SQLException;
 
 	public void addImageToProduct(int ian,File file)throws SQLException;
+	
+	public byte[] getImageByKey(int id)throws SQLException;
 }
