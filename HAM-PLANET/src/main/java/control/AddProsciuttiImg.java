@@ -27,7 +27,7 @@ public class AddProsciuttiImg extends HttpServlet {
 		try {
 			//inserimento manuale del file
 			//succesivamente verrà inserito un modo per fare inserire il file da interfaccia grafica
-			model.addImageToProduct(1, new File("C:/Users/UtenTe/OneDrive/Desktop/Progetto_TSW/Documentazione/fotoProsciutti/spagnolo.jpg"));
+			model.addImageToProduct(2, new File("C:/Users/mario/Downloads/parmacotto.jpg"));
 		}catch(SQLException e){
 			utils.UtilityClass.print(e);
 		}

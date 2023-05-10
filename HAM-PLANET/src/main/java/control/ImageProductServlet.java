@@ -31,7 +31,7 @@ public class ImageProductServlet extends HttpServlet {
 	   try {
 		out.write(modelDS.getImageByKey(ian));
 	} catch (IOException | SQLException e) {
-		e.printStackTrace();
+		utils.UtilityClass.print(e);
 	}
 	   
 	   
