@@ -9,9 +9,58 @@
         <link rel="stylesheet" href="./FileCSS/Login.css">
 		<script type="text/javascript">
 
-        /** FUNZIONE MOSTRA/NASCONDI PASSWORD */
+
+		/** FUNZIONE PER CAMBIARE ICONA EMAIL */
+		var num = 0;
+		var mom = false;
+		function changeIcon(numero){
+		    var box = document.getElementById('email');
+		    var input = document.getElementById('email').value;
+		    var letter = document.getElementById('img_email');
+
+		    num = numero;
+
+		    /**##################################### ZERO ################################## */
+		    if (num == 0){
+		        letter.src = "./Icon/email_WHITE.png";
+		    }
+
+		    /**##################################### UNO ################################## */
+		    else if (num == 1){
+		        if (input === '' && mom == false){
+		            letter.src = "./Icon/email_BLACK.png";
+		        }
+		        else{
+		            letter.src = "./Icon/email_WHITE.png";
+		        }
+		    }
+		    
+
+		    /**##################################### DUE ################################## */
+		    else if (num == 2){
+		        letter.src = "./Icon/email_WHITE.png"
+		        mom = true;
+		    }
 
 
+		    /**##################################### TRE ################################## */  
+		    else if (num == 3){
+		        if(input === ''){
+		            letter.src = "./Icon/email_BLACK.png";
+		        }
+		        else{
+		            letter.src = "./Icon/email_WHITE.png"
+		        }
+		        mom = false;
+		    }
+		}
+		 
+		 
+		 
+		 
+		 
+		 
+		/** FUNZIONE MOSTRA/NASCONDI PASSWORD */
        function showPwd(){
            var input = document.getElementById('pwd');
            var eyes = document.getElementById('img');
@@ -158,7 +207,11 @@
 
 				<!--EMAIL-->
                 <div class="inputbox">
-                    <input  type="text" name="email" required>
+                	<input id="email" onpointerover="changeIcon(0)"
+                                      onpointerleave="changeIcon(1)"
+                                      onclick="changeIcon(2)"
+                                      onblur="changeIcon(3)"
+                                      type="text"  name="email" required>
                     <div class="testo">
                         <label class="uno">E</label>
                         <label class="due">m</label>
@@ -166,6 +219,7 @@
                         <label class="quattro">i</label>
                         <label class="cinque">l</label>
                     </div>
+                    <img id="img_email" src="./Icon/email_BLACK.png" alt="show">
                 </div>
 
                 <!--PASSWORD-->
