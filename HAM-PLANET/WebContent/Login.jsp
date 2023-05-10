@@ -16,13 +16,44 @@
            var input = document.getElementById('pwd');
            var eyes = document.getElementById('img');
 
-           if(input.type == "password"){
-               input.type = "text";
-               eyes.src = "./Icon/eyes_hidden_BLACK.png";
-           }
-           else{
-               input.type = "password";
-               eyes.src = "./Icon/eyes_show_BLACK.png";
+           if(input.value === ''){
+               if(input.type == "password"){
+                   if (eyes.src.toString("eyes_show_BLACK.png")){
+                       eyes.src = "./Icon/eyes_hidden_BLACK.png";
+                   }
+                   else{
+                       eyes.src = "./Icon/eyes_hidden_WHITE.png";
+                   }
+                   input.type = "text";
+               }
+               else{
+                   if (eyes.src.toString("eyes_hidden_BLACK.png")){
+                       eyes.src = "./Icon/eyes_show_BLACK.png";
+                   }
+                   else{
+                       eyes.src = "./Icon/eyes_show_WHITE.png";
+                   }
+                   input.type = "password";
+               }
+           }else{
+               if(input.type == "password"){
+                   if (eyes.src.toString("eyes_show_BLACK.png")){
+                       eyes.src = "./Icon/eyes_hidden_WHITE.png";
+                   }
+                   else{
+                       eyes.src = "./Icon/eyes_hidden_BLACK.png";
+                   }
+                   input.type = "text";
+               }
+               else{
+                   if (eyes.src.toString("eyes_hidden_BLACK.png")){
+                       eyes.src = "./Icon/eyes_show_WHITE.png";
+                   }
+                   else{
+                       eyes.src = "./Icon/eyes_show_BLACK.png";
+                   }
+                   input.type = "password";
+               }
            }
        }
 
