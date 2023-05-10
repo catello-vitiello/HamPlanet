@@ -7,6 +7,106 @@
     <head>
         <title>Gestisci il tuo ID HamPlanet</title>
         <link rel="stylesheet" href="./FileCSS/Login.css">
+		<script type="text/javascript">
+
+        /** FUNZIONE MOSTRA/NASCONDI PASSWORD */
+
+
+       function showPwd(){
+           var input = document.getElementById('pwd');
+           var eyes = document.getElementById('img');
+
+           if(input.type == "password"){
+               input.type = "text";
+               eyes.src = "./Icon/eyes_hidden_BLACK.png";
+           }
+           else{
+               input.type = "password";
+               eyes.src = "./Icon/eyes_show_BLACK.png";
+           }
+       }
+
+
+
+
+       var num = 0;
+       var mom = false;
+       function changeColor(numero){
+           var box = document.getElementById('pwd');
+           var input = document.getElementById('pwd').value;
+           var eyes = document.getElementById('img');
+
+           num = numero;
+
+           /**##################################### ZERO ################################## */
+           if (num == 0){
+               if ( eyes.src.toString("eyes_show_BLACK.png") && box.type == "password"){
+                   eyes.src = "./Icon/eyes_show_WHITE.png";
+               }
+               else if (eyes.src.toString("eyes_hidden_BLACK.png") && box.type == "text"){
+                   eyes.src = "./Icon/eyes_hidden_WHITE.png";
+               }
+           }
+
+
+           /**##################################### UNO ################################## */
+           else if (num == 1){
+               if (input === '' && mom == false){
+                   if ( eyes.src.toString("eyes_show_WHITE.png") && box.type == "password"){
+                       eyes.src = "./Icon/eyes_show_BLACK.png";
+                   }
+                   else if (eyes.src.toString("eyes_hidden_WHITE.png") && box.type == "text"){
+                       eyes.src = "./Icon/eyes_hidden_BLACK.png";
+                   }
+               }
+               else{
+                   if ( eyes.src.toString("eyes_show_BLACK.png") && box.type == "password"){
+                       eyes.src = "./Icon/eyes_show_WHITE.png";
+                   }
+                   else if (eyes.src.toString("eyes_hidden_BLACK.png") && box.type == "text"){
+                       eyes.src = "./Icon/eyes_hidden_WHITE.png";
+                   }
+               }
+           }
+           
+
+
+           /**##################################### DUE ################################## */
+           else if (num == 2){
+               mom = true;
+               if ( eyes.src.toString("eyes_show_BLACK.png") && box.type == "password"){
+                   eyes.src = "./Icon/eyes_show_WHITE.png";
+               }
+               else if (eyes.src.toString("eyes_hidden_BLACK.png") && box.type == "text"){
+                   eyes.src = "./Icon/eyes_hidden_WHITE.png";
+               }
+           }
+
+
+
+           /**##################################### TRE ################################## */  
+           else if (num == 3){
+               if(input === ''){
+                   if ( eyes.src.toString("eyes_show_WHITE.png") && box.type == "password"){
+                       eyes.src = "./Icon/eyes_show_BLACK.png";
+                   }
+                   else if (eyes.src.toString("eyes_hidden_WHITE.png") && box.type == "text"){
+                       eyes.src = "./Icon/eyes_hidden_BLACK.png";
+                   }
+               }
+               else{
+                   if ( eyes.src.toString("eyes_show_BLACK.png") && box.type == "password"){
+                       eyes.src = "./Icon/eyes_show_WHITE.png";
+                   }
+                   else if (eyes.src.toString("eyes_hidden_BLACK.png") && box.type == "text"){
+                       eyes.src = "./Icon/eyes_hidden_WHITE.png";
+                   }
+               }
+               mom = false;
+           }
+           
+       }
+</script>
         <link rel="shortcut icon" href=""> <!-- AGGIUNGERE PERCORSO LOGO PICCOLO -->
     </head>
 
