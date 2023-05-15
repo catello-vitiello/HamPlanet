@@ -74,8 +74,9 @@ form{
 
 /*###############   LOGO   ###############*/
 #logo{
-    margin: 0 0 10px 0;
-    height: 120px;
+    height: 250px;
+    margin: -60px;
+    margin-bottom: -40px;
 }
 
 

@@ -82,7 +82,7 @@ function changeIcon(numero){
 		 
 		 
 		 
-		/** FUNZIONE MOSTRA/NASCONDI PASSWORD */
+/** FUNZIONE MOSTRA/NASCONDI PASSWORD */
        function showPwd(){
            var input = document.getElementById('pwd');
            var eyes = document.getElementById('img_pass');

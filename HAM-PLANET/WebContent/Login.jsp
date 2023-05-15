@@ -6,8 +6,8 @@
 <html>
     <head>
         <title>Gestisci il tuo ID HamPlanet</title>
-        <link rel="stylesheet" href="./FileCSS/Login.css?ts=<?=time()?>&quot">
-		<script type="text/javascript" src="./FileJavaScript/Login.js?ts=<?=time()?>&quot"></script>
+        <link rel="stylesheet" href="./FileCSS/Login.css">
+		<script type="text/javascript" src="./FileJavaScript/Login.js"></script>
         <link rel="shortcut icon" href=""> <!-- AGGIUNGERE PERCORSO LOGO PICCOLO -->
     </head>
 
@@ -17,7 +17,7 @@
             <form action="ClienteControl" method="post"> 
 
                 <!--LOGO-->
-                <img id="logo" src="./Icon/logo_HamPlanet_BLACK.png" alt="Ham Planet" height="130x">
+                <img id="logo" src="./Icon/logo_HamPlanet_BLACK.svg" alt="Ham Planet" height="130x">
                 
                 
                 <!--TITOLO-->
