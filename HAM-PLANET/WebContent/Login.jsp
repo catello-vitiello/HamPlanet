@@ -8,7 +8,7 @@
         <title>Gestisci il tuo ID HamPlanet</title>
         <link rel="stylesheet" href="./FileCSS/Login.css">
 		<script type="text/javascript" src="./FileJavaScript/Login.js"></script>
-        <link rel="shortcut icon" href=""> <!-- AGGIUNGERE PERCORSO LOGO PICCOLO -->
+        <link rel="Website Icon" type="png" href="./Icon/logo_HamPlanet_RED.png"> 
     </head>
 
 <!-- ##############   BODY   ##############-->
