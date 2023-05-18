@@ -7,14 +7,22 @@
 </head>
 <body>
 	<section>
-        <img class="img" src="./img/Error404_Maialino.png" id="maialino"/>
-    </section>
-    <section class="notFound">
-        <h1> 404</h1>
-        <h4> PROSCIUTTO NOT FOUND</h4>
-        <h6>La pagina non è stata trovata!</h6>
-        <a id="back_home" href="Admin.html">RITORNA ALLA HOME</a>    
-    </section>
-
+		<img class="img" src="./img/Error404_Maialino.png" id="maialino" />
+	</section>
+	<section class="notFound">
+		<h1>404</h1>
+		<h4>PROSCIUTTO NOT FOUND</h4>
+		<h6>La pagina non è stata trovata!</h6>
+		<a id="back_home" href="Admin.html">RITORNA ALLA HOME</a>
+	</section>
+	<script>
+		document.addEventListener('keydown',
+		function(event) {
+			if (event.keyCode === 32) {
+				var url = './ErrorPage/Errore_404_v2/404_v2.html'; // Imposta l'URL della pagina HTML da caricare
+				window.location.replace(url);
+			}
+		});
+	</script>
 </body>
 </html>

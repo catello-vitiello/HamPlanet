@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap');
+
+body {
+    width: auto;
+    height: auto;
+
+    max-height: 95vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    font-family: 'Roboto Mono', monospace;
+    transform: scale(0.85);
+    transform-origin: center;
+    border: 5px solid red;
+    border-radius: 77px;
+    padding: 0.4%;
+    margin-top: 0;
+}
+
+h1 {
+    text-align: center;
+    align-content: center;
+    color: red;
+    margin-top: -10px;
+    background: white;
+    border: 5px solid red;
+    border-radius: 25px;
+}
+
+hr {
+    width: 80%;
+    border: 10px dashed red;
+    border-radius: 5px;
+}
+
+a {
+    color: red;
+    background: black;
+    border-radius: 35px;
+    padding: 15px 18px;
+    font-size: 20px;
+    text-decoration: none;
+    margin-top: 25px;
+    font-weight: 600;
+}
+
+.divP {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.immagini {
+    position: absolute;
+    z-index: -1;
+}
+
+
+.imgg {
+    width: 130px;
+    height: 130px;
+    margin: 10px;
+}
+
+#slot {
+    width: 750px;
+}
+
+/*Stile per la generazione dei coriandoli*/
+.confetti {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: yellowgreen;
+    
+}
+
+.confettini {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: blue;
+}
+
+.confettini3 {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.confettini2 {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-image: url("HelloPuorkIcon.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
