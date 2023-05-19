@@ -76,7 +76,7 @@
 
                 <!--LINK SE NON HAI UN ACCOUONT-->
                 <div class="forReg">
-                    <p>Non hai un account? <a href="">Crea subito il tuo.</a></p> <!-- AGGIUNGERE LINK PAGINA REGISTRAZIONE -->
+                    <p>Non hai un account? <a href="./Register.jsp">Crea subito il tuo.</a></p> <!-- AGGIUNGERE LINK PAGINA REGISTRAZIONE -->
                 </div>
 			
             </form>
