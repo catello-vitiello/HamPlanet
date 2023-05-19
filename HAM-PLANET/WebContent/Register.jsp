@@ -33,7 +33,7 @@
 
                     <!--NOME-->
                     <div class="inputbox" id="nome">
-                        <input type="text" name="nome" required>
+                        <input id="inNome" oninput="firstLetterUpper()" type="text" name="nome" required>
                         <div class="testo">
                             <label class="uno">N</label>
                             <label class="due">o</label>
@@ -44,7 +44,7 @@
                     &nbsp;&nbsp;&nbsp;
                     <!--COGNOME-->
                     <div class="inputbox" id="cognome">
-                        <input type="text" name="cognome" required>
+                        <input id="inCognome" oninput="firstLetterUpper()" type="text" name="cognome" required>
                         <div class="testo">
                             <label class="uno">C</label>
                             <label class="due">o</label>

@@ -335,6 +335,7 @@ hr{
     border: none;
     color: white;
     cursor: pointer;
+    transition: all .5s;
 }
 
 
@@ -345,7 +346,6 @@ hr{
     align-items: center;
     justify-content: center;
     background: white;
-    
     border-radius: 25px;
 }
 
@@ -357,6 +357,7 @@ hr{
     border: none;
     color: white;
     cursor: pointer;
+    transition: all .5s;
 }
 
 

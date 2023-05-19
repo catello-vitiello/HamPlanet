@@ -655,7 +655,13 @@ function changeSex(buttonType){
         document.getElementById('woman').style.fontSize = '13px';
         document.getElementById('none').style.fontSize = '13px';
 
-        imageSex.src = "./Icon/choose_male.png";
+        setTimeout(function(){
+					imageSex.src = "./Icon/choose_male.png";
+        			imageSex.style.opacity = 0.2}, 150);
+        setTimeout(function(){imageSex.style.opacity = 0.4}, 180);
+        setTimeout(function(){imageSex.style.opacity = 0.6}, 210);
+        setTimeout(function(){imageSex.style.opacity = 0.8}, 240);
+        setTimeout(function(){imageSex.style.opacity = 1}, 270);
     }
 
     //woman
@@ -672,7 +678,13 @@ function changeSex(buttonType){
         document.getElementById('woman').style.fontSize = '15px';
         document.getElementById('none').style.fontSize = '13px';
 
-        imageSex.src = './Icon/choose_female.png';
+        setTimeout(function(){
+						imageSex.src = './Icon/choose_female.png';
+        				imageSex.style.opacity = 0.2}, 150);
+        setTimeout(function(){imageSex.style.opacity = 0.4}, 180);
+        setTimeout(function(){imageSex.style.opacity = 0.6}, 210);
+        setTimeout(function(){imageSex.style.opacity = 0.8}, 240);
+        setTimeout(function(){imageSex.style.opacity = 1}, 270);
     }
 
     //none
@@ -689,7 +701,13 @@ function changeSex(buttonType){
         document.getElementById('woman').style.fontSize = '13px';
         document.getElementById('none').style.fontSize = '14px';
 
-        imageSex.src = './Icon/choose_none.png';
+        setTimeout(function(){
+					imageSex.src = './Icon/choose_none.png';
+        			imageSex.style.opacity = 0.2}, 150);
+        setTimeout(function(){imageSex.style.opacity = 0.4}, 180);
+        setTimeout(function(){imageSex.style.opacity = 0.6}, 210);
+        setTimeout(function(){imageSex.style.opacity = 0.8}, 240);
+        setTimeout(function(){imageSex.style.opacity = 1}, 270);
     }
 
 }
@@ -722,9 +740,19 @@ function controlCaracter(typeCar){
 
     //paese
     else if (typeCar === 2){
+        if (paese.value.length == 1){
+            paese.value = paese.value.toUpperCase();
+        }
+
         if ( (/[^a-zA-Z]/.test(paese.value))){   
             paese.value = paese.value.substring(0,paese.value.length-1);
         }
+        if (paese.value.length > 1){
+        	var iniziale = paese.value.substring(0,1);
+    	    var finale = paese.value.substring(1,paese.value.length).toLowerCase();
+	        paese.value = iniziale + finale;
+    	}
+
     }
 
     //provincia
@@ -732,6 +760,8 @@ function controlCaracter(typeCar){
         if ( (/[^a-zA-Z]/.test(provincia.value))){   
             provincia.value = provincia.value.substring(0,provincia.value.length-1);
         }
+
+        provincia.value = provincia.value.toUpperCase();
     }
 
 
@@ -740,12 +770,7 @@ function controlCaracter(typeCar){
         if ( (/[^0-9]/.test(cap.value))){   
             cap.value = cap.value.substring(0,cap.value.length-1);
         }
-    }
-
-
-
-
-    
+    }    
 }
 
 
@@ -823,3 +848,33 @@ function changeColorPos(numero){
     }
     
 }
+
+
+
+
+
+//PRIMA LETTERA MAGGIORE DEL NOME/COGNOME
+function firstLetterUpper(){
+    var nome = document.getElementById('inNome');
+    var cognome = document.getElementById('inCognome');
+
+    if (nome.value.length == 1){
+        nome.value = nome.value.toUpperCase();
+    }
+    else if (nome.value.length > 1){
+        var iniziale = nome.value.substring(0,1);
+        var finale = nome.value.substring(1,nome.value.length).toLowerCase();
+        nome.value = iniziale + finale;
+    }
+
+    if (cognome.value.length == 1){
+        cognome.value = cognome.value.toUpperCase();
+    }
+    else if (cognome.value.length > 1){
+        var iniziale = cognome.value.substring(0,1);
+        var finale = cognome.value.substring(1,cognome.value.length).toLowerCase();
+        cognome.value = iniziale + finale;
+    }
+}
+
+
