@@ -1,0 +1,577 @@
+@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css?family=Poppins');  /*FULL SITE*/
+@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap'); /*TITOLO*/
+@import url('https://fonts.googleapis.com/css2?family=Monomaniac+One&display=swap'); /*CARTA BANCA*/
+
+
+*{
+    margin: 0;
+	padding: 0;
+    font-family: 'Poppins';
+}
+
+/*#########################   BODY   #########################*/
+
+body{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+
+
+    overflow: hidden;
+}
+
+
+
+/*#########################   BOX AREA   #########################*/
+.boxArea{
+    width: calc(100vw - 10vh);
+    height: 90vh;
+    display: flex;
+    position: relative;
+
+
+}
+
+
+
+/*##########################################################################################*/
+/*######################                PARTE SINISTRA                ######################*/
+/*##########################################################################################*/
+.left{
+    height: 100%;
+    width: 28%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-right: 3%;
+
+    background-image: url("C:\\Users\\catel\\Desktop\\background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+}
+
+.top,
+.down{
+    height: 45%;
+    width: 100%;
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.down{
+    justify-content: flex-start;
+}
+
+
+/*@@@  IMMAGINE  @@@*/
+#UserIcon{
+    height: 70%;
+    width: auto;
+}
+
+
+/*@@@  BENVENUTO  @@@*/
+.top span{
+    height: 15%;
+    width: auto;
+    display: flex;
+    align-items: center;
+
+}
+
+#Welcome{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/*@@@  NOME - COGNOME  @@@*/
+#Nome{
+    font-size: 23px;
+    font-weight: 600;
+    color: #7d1e11;
+}
+
+/*@@@  BARRA  @@@*/
+.left hr{
+    width: 80%;
+    border: 2px solid black;
+    border-radius: 2px;
+
+    margin: 5%;
+}
+
+
+/*@@@  LISTA SEZIONI  @@@*/
+.listSez{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background: #ffffff44;
+    border-radius: 20px;
+
+}
+
+.listSez button{
+    background: transparent;
+    outline: none;
+    border: none;
+    margin-left: 10%;
+    cursor: pointer;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+}
+
+
+
+
+/*bottone default*/
+#infPers{
+    font-weight: 600;
+}
+
+/*@@@  LOG OUT  @@@*/
+#LogOut{
+    height: 50px;
+    width: 80%;
+    margin: 4% 0 2%;
+
+    background: white;
+    border: none;
+    font-weight: 800;
+
+    border-radius: 25px;
+}
+
+
+/*#########################   PARTE DESTRA   #########################*/
+.right{
+    height: 100%;
+    width: 69%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+
+    
+
+    background: #cccccc56;
+
+
+    border-radius: 20px;
+}
+
+
+/*@@@  TITOLO  @@@*/
+.title{
+    position: absolute;
+    top: 4%;
+    left: 4%;
+    
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 1.5px; 
+
+    font-family: 'Nabla', 'Poppins', cursive;
+    border-radius: 25px;
+    text-shadow: 2px 2px 6px black;
+}
+
+
+
+
+/*@@@  CONTATORE CARTE CREDITO  @@@*/
+.listSez ul:nth-child(3){
+    display: flex;
+}
+
+
+
+
+
+
+/*##########################################################################################*/
+/*######################                PARTE DESTRA                ########################*/
+/*##########################################################################################*/
+
+
+
+
+/*#########################   DETTAGLI PERSONALI   #########################*/
+#one{
+    position: relative;
+    display: flex; /*va messo display*/
+    flex-direction: column;
+    overflow: hidden;
+
+    transition-property: opacity;
+    transition-duration: .5s;
+    
+}
+
+
+
+/***   PRIMO RIGO   ***/
+.rigo{
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    width: 90%;
+    margin-top: 4%;
+}
+
+
+
+
+
+
+
+/*@@@  NOME  @@@*/
+.boxCampi, .boxAddress{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.boxAddress{
+    width: 100%;
+}
+
+
+
+/*box testo*/
+.boxTitVal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.boxTitVal p:nth-child(1){
+    color: #d02b0f;
+    font-weight: 800;
+    font-size: 13px;
+}
+
+.boxTitVal p:nth-child(2){
+    color: black;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+/*Icona*/
+.Icon{
+    height: 70px;
+    width: auto;
+}
+
+.IconPencil{
+    height: 20px;
+    width: auto;
+    margin: 10px;
+}
+
+
+
+/*@@@  DATA DI NASCITA  @@@*/
+
+
+/*@@@  NUMERO DI TELEFONO  @@@*/
+
+
+/*@@@  SESSO  @@@*/
+
+
+/*@@@  BARRA  @@@*/
+#one hr{
+    width: calc(100% - 10vh);
+    border: 2px solid transparent;
+    background: linear-gradient(to right,rgba(0, 0, 0, 0) 0%, #d02d0e, #faa202, #e87a09, #f79d01, #d4350d, rgba(0, 0, 0, 0) 100%);
+    background-size: 100% 4px;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    border-radius: 2px;
+    margin: 2%;
+}
+
+
+/*@@@  EMAIL  @@@*/
+
+
+/*@@@  PASSWORD  @@@*/
+
+/*@@@ INDIRIZZO  @@@*/
+.boxVia, .boxPaese, .boxProv, .boxCap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.boxVia{width: 40%;}
+
+.boxPaese{width: 15%;}
+
+.boxProv, .boxCap{width: 13%;}
+
+
+.boxVia p:nth-child(1), 
+.boxPaese p:nth-child(1), 
+.boxProv p:nth-child(1), 
+.boxCap p:nth-child(1){
+    color: #d02b0f;
+    font-weight: 800;
+    font-size: 13px;
+}
+
+.boxVia p:nth-child(2), 
+.boxPaese p:nth-child(2), 
+.boxProv p:nth-child(2), 
+.boxCap p:nth-child(2){
+    color: black;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+
+/*#########################   ORDINI   #########################*/
+#two{
+    display: none;
+    transition-property: opacity;
+    transition-duration: .5s;
+
+    border: 2px solid forestgreen;
+}
+
+/*#########################   INDIRIZZI   #########################*/
+#three{
+    display: none;
+    flex-direction: column;
+    transition-property: opacity;
+    transition-duration: .5s;
+    overflow: hidden;
+
+    align-items: center;
+    justify-content: baseline;
+
+}
+
+
+.boxNumCard{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    background: #D9D9D9;
+    border-radius: 25px;
+    padding: 0 10px;
+}
+
+.boxNumCard p{
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.866);
+}
+
+#CarteSalvate{
+    font-weight: 900;
+    color: black;
+    background: rgba(0, 0, 0, 0.251);
+    border-radius: 20px;
+    margin: 0 10px;
+    padding: 0 8px;
+    width: 8px;
+    text-align: center;
+}
+
+
+
+
+.boxCarte{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-auto-rows: 50%;
+
+
+    width: 90%;
+    height: 85%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    margin-top: 5%;
+}
+
+/*################  CARD CON DATI   #####################*/
+.card{
+    height: 100%;
+    width: 100%;
+
+    background-image: url("C:\\Users\\catel\\Desktop\\HamPlanetBankCard_RED.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% auto;
+
+    display: flex;
+    position: relative;
+    z-index: 5;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s;
+}
+
+
+.card:hover,
+.addCard:hover{
+    background-size: 95% auto;
+}
+
+.card:hover .iconRemoveCard{
+    opacity: 100%;
+}
+
+
+.content{
+    height: auto;
+    width: 90%;
+}
+
+
+.iconRemoveCard{
+    position: absolute;
+    height: 38px;
+    width: auto;
+    top: 0;
+    right: 1%;
+    opacity: 0;
+    transition: opacity .4s;
+}
+
+.content p{
+    font-family: 'Monomaniac One', sans-serif;
+}
+
+.NameExpiration{
+    display: flex;
+    flex-direction: column;
+
+    margin: 9px 0 0;
+
+    align-items: end;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+
+/*@@@  NUMERO DI CARTA  @@@*/
+#numberCard{
+    margin: 34% 0 0;
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 4px;
+    color: white;
+}
+
+
+/*@@@  NOME  @@@*/
+#owner{
+    font-size: 14px;
+    width: 65%;
+    text-align: center;
+    letter-spacing: 2px;
+    color: white;
+
+}
+
+/*@@@  VALID THRU  @@@*/
+#valid{
+    font-size: 7px;
+    letter-spacing: 2px;
+    text-align: center;
+    color: white;
+    margin: 2px 4px 0;
+}
+
+/*@@@  MESE/ANNO  @@@*/
+#monthyear{
+    position: relative;
+    width: 41%;
+    font-size: 6px;
+    letter-spacing: 2px;
+    text-align: center;
+    color: white;
+    
+}
+
+
+/*@@@  SCADENZA  @@@*/
+#expiration{
+    color: white;
+    text-align: center;
+}
+
+
+
+
+
+/*###############   CARTA VUOTA    ###################*/
+.addCard{
+    height: 100%;
+    width: 100%;
+    border: 2px solid red;
+
+    background-image: url("C:\\Users\\catel\\Desktop\\AddCard.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% auto;
+    
+    transition: all .4s; 
+}
+
+
+/*@@@   SCROLL-BAR LATERALE   @@@*/
+.boxCarte::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+.boxCarte::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #b7b7b7;
+    margin: 20px;
+    z-index: 4;
+
+}
+.boxCarte::-webkit-scrollbar-thumb {
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.5, #a520ca), color-stop(1, #2681cc));
+    border-radius: 10px;
+    z-index: 4;
+}
+
+
+
+
+
+
+
+
+
+
