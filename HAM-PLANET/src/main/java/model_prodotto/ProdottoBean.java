@@ -8,9 +8,7 @@ public class ProdottoBean implements Serializable {
 	private int IAN;
 	private String descrizione, nomeProdotto;
 	private double peso, prezzo;
-	//campo per l'immagine
-	private String path;
-
+	
 	public ProdottoBean() {
 
 	}
@@ -64,13 +62,7 @@ public class ProdottoBean implements Serializable {
 		this.nomeProdotto = nomeProdotto;
 	}
 	
-	public String getPath() {
-		return path;
-	}
 	
-	public void setPath(String newPath) {
-		this.path = newPath;
-	}
 
 	/****************************************************************************/
 	/* 								TOSTRING 									*/
@@ -78,7 +70,7 @@ public class ProdottoBean implements Serializable {
 
 	public String toString() {
 		 return getClass().getName() + "[IAN= " + IAN + ", descrizione= " + descrizione + ", peso= " + peso
-				+ ", prezzo= " + prezzo + ", nome prodotto= " + nomeProdotto + ", path= " + path +"]";
+				+ ", prezzo= " + prezzo + ", nome prodotto= " + nomeProdotto + "]";
 	}
 
 }
