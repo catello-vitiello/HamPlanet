@@ -51,7 +51,7 @@ body{
 
     margin-right: 3%;
 
-    background-image: url("C:\\Users\\catel\\Desktop\\background.jpg");
+    background-image: url("../img/backgroundUserPageLeft.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -213,7 +213,7 @@ body{
 /*#########################   DETTAGLI PERSONALI   #########################*/
 #one{
     position: relative;
-    display: flex; /*va messo display*/
+    display: flex;
     flex-direction: column;
     overflow: hidden;
 
@@ -420,7 +420,7 @@ body{
     height: 100%;
     width: 100%;
 
-    background-image: url("C:\\Users\\catel\\Desktop\\HamPlanetBankCard_RED.png");
+    background-image: url("../img/HamPlanetBankCard_RED.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 90% auto;
@@ -535,9 +535,8 @@ body{
 .addCard{
     height: 100%;
     width: 100%;
-    border: 2px solid red;
 
-    background-image: url("C:\\Users\\catel\\Desktop\\AddCard.png");
+    background-image: url("../img/HamPlanetBankCardAdd.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 90% auto;

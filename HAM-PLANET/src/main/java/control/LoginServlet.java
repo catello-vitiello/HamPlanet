@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("user", n);
 				utils.UtilityClass.print("ID sessione: " + session.getId()); //controllo su id sessione --> riga da eliminare
-				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/AreaUtente.jsp");
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/UserArea.jsp");
 				requestDispatcher.forward(request, response);
 				} else {
 				response.sendRedirect("Login.jsp"); // riga da eliminare --> solo per test
