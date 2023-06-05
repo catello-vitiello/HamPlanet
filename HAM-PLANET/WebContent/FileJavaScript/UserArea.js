@@ -87,45 +87,183 @@ function changePage (value){
         document.getElementById('order').style.fontWeight = 300;
         document.getElementById('creditCard').style.fontWeight = 600;
         
+        createCardDinamic();
     }
 }
 
 
 
+//#################################################################################################################
+//##########################         CREAZIONE DI TUTTE LE CARTE DINAMICAMENTE        #############################
+//#################################################################################################################
+function createCardDinamic(){
+	var carteRegistrate = parseInt(document.getElementById('CarteSalvate').textContent);
+        
+    //recuperare oggetto contenitore
+    var boxCarte = document.getElementById("contenitoreCarte");
+        
+    boxCarte.innerHTML = '';
+
+    for (var contatore = 1; contatore <= carteRegistrate ; contatore++){
+
+
+        //creazione carta
+        var card = document.createElement('div'); 
+        card.className = 'card'; 
+        card.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) + 1);
+        
+        //icona per rimuovere
+        var icon = document.createElement('img'); 
+        icon.className = 'iconRemoveCard'; 
+        icon.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) +1) +'_remove'; 
+        icon.onclick = function() {confermaEliminazione(this)}; 
+        icon.src = "./Icon/removeX_RED.png";
+        
+        //contenitore content
+        var content = document.createElement('div'); 
+        content.className = 'content';
+        
+        //numero della carta
+        var numberCard = document.createElement('p'); 
+        numberCard.className = 'numberCard'; 
+        numberCard.innerHTML = '****  ****  ****  777' + i++;            //prendere dal db
+        
+        //contenitore scritte
+        var NameExpiration = document.createElement('div'); 
+        NameExpiration.className = 'NameExpiration';
+        
+        //scritta mese/anno
+        var monthyear = document.createElement('p'); 
+        monthyear.className = 'monthyear'; 
+        monthyear.innerHTML = 'MESE/ANNO';
+        
+        //rigo
+        var row = document.createElement('div'); 
+        row.className = 'row';
+        
+        //proprietario
+        var owner = document.createElement('p'); 
+        owner.className = 'owner'; 
+        owner.innerHTML = 'VITIELLO CATELLO'                        //prendere dal db
+        
+        //scritta VALID THRU
+        var valid = document.createElement('p'); 
+        valid.className = 'valid'; 
+        valid.innerHTML = 'VALID'+'<br>'+ 'THRU';
+        
+        //scadena
+        var expiration = document.createElement('p');
+        expiration.className = 'expiration'; 
+        expiration.innerHTML = '19/12';                         //prendere dal db
+
+
+        row.appendChild(owner), row.appendChild(valid), row.appendChild(expiration);
+        NameExpiration.appendChild(monthyear); NameExpiration.appendChild(row);
+        content.appendChild(numberCard); content.appendChild(NameExpiration);
+        card.appendChild(icon); card.appendChild(content);
+
+
+        //Aggiungi l'elemento all'elemento genitore 
+        boxCarte.insertBefore(card, boxCarte.childNodes[boxCarte.childNodes.length - 3]);
+        
+
+
+    }
+    
+    
+    var addCards = document.createElement('div');
+    addCards.className = 'addCard';
+	addCards.onclick = function(){
+		addCard(this);
+	};
+	
+    
+    boxCarte.appendChild(addCards);
+	
+}
+
+
+
+
+
+
+
 
 //#################################################################################################################
-//##########################         AGGIUNGERE ELEMENTI DINAMICAMENTE        #####################################
+//##########################         AGGIUNGERE UNA CARTA NUOVA DINAMICAMENTE        ##############################
 //#################################################################################################################
-var i=1
-function addCard(){
+	var i=1
 
-    // Step 1: Recupera il riferimento all'elemento genitore
+function addCard(oggetto){
+	
+	
+    //recupera il riferimento all'elemento genitore
     var boxCarte = document.getElementById("contenitoreCarte");
 
-    var card = document.createElement('div'); card.className = 'card'; card.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) + 1);
-    var icon = document.createElement('img'); icon.className = 'iconRemoveCard'; icon.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) +1) +'_remove'; icon.onclick = function() {confermaEliminazione(this)}; icon.src = "./Icon/removeX_RED.png";
-    var content = document.createElement('div'); content.className = 'content';
-    var numberCard = document.createElement('p'); numberCard.id = 'numberCard'; numberCard.innerHTML = '****  ****  ****  777' + i++;
-    var NameExpiration = document.createElement('div'); NameExpiration.className = 'NameExpiration';
-    var monthyear = document.createElement('p'); monthyear.id = 'monthyear'; monthyear.innerHTML = 'MESE/ANNO';
-    var row = document.createElement('div'); row.className = 'row';
-    var owner = document.createElement('p'); owner.id = 'owner'; owner.innerHTML = 'NOME COGNOME'
-    var valid = document.createElement('p'); valid.id = 'valid'; valid.innerHTML = 'VALID'+'<br>'+ 'THRU';
-    var expiration = document.createElement('p'); expiration.id = 'expiration'; expiration.innerHTML = '19/12';
+    //creazione carta
+        var card = document.createElement('div'); 
+        card.className = 'card'; 
+        card.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) + 1);
+        
+        //icona per rimuovere
+        var icon = document.createElement('img'); 
+        icon.className = 'iconRemoveCard'; 
+        icon.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) +1) +'_remove'; 
+        icon.onclick = function() {confermaEliminazione(this)}; 
+        icon.src = "./Icon/removeX_RED.png";
+        
+        //contenitore content
+        var content = document.createElement('div'); 
+        content.className = 'content';
+        
+        //numero della carta
+        var numberCard = document.createElement('p'); 
+        numberCard.className = 'numberCard'; 
+        numberCard.innerHTML = '****  ****  ****  777' + i++;            //prendere dal db
+        
+        //contenitore scritte
+        var NameExpiration = document.createElement('div'); 
+        NameExpiration.className = 'NameExpiration';
+        
+        //scritta mese/anno
+        var monthyear = document.createElement('p'); 
+        monthyear.className = 'monthyear'; 
+        monthyear.innerHTML = 'MESE/ANNO';
+        
+        //rigo
+        var row = document.createElement('div'); 
+        row.className = 'row';
+        
+        //proprietario
+        var owner = document.createElement('p'); 
+        owner.className = 'owner'; 
+        owner.innerHTML = 'VITIELLO CATELLO'                        //prendere dal db
+        
+        //scritta VALID THRU
+        var valid = document.createElement('p'); 
+        valid.className = 'valid'; 
+        valid.innerHTML = 'VALID'+'<br>'+ 'THRU';
+        
+        //scadena
+        var expiration = document.createElement('p');
+        expiration.className = 'expiration'; 
+        expiration.innerHTML = '19/12';                         //prendere dal db
 
 
-    row.appendChild(owner), row.appendChild(valid), row.appendChild(expiration);
-    NameExpiration.appendChild(monthyear); NameExpiration.appendChild(row);
-    content.appendChild(numberCard); content.appendChild(NameExpiration);
-    card.appendChild(icon); card.appendChild(content);
+        row.appendChild(owner), row.appendChild(valid), row.appendChild(expiration);
+        NameExpiration.appendChild(monthyear); NameExpiration.appendChild(row);
+        content.appendChild(numberCard); content.appendChild(NameExpiration);
+        card.appendChild(icon); card.appendChild(content);
 
 
-    // Step 4: Aggiungi l'elemento all'elemento genitore 
-    boxCarte.insertBefore(card, boxCarte.childNodes[boxCarte.childNodes.length - 3]);
+
+
+	    //aggiungi l'elemento all'elemento genitore 
+    	boxCarte.insertBefore(card, boxCarte.childNodes[boxCarte.childNodes.length - 1]);
     
     
-    // Incrementare il contatore delle carte
-    document.getElementById('CarteSalvate').innerHTML = parseInt(document.getElementById('CarteSalvate').textContent) + 1; 
+	    // Incrementare il contatore delle carte
+    	document.getElementById('CarteSalvate').innerHTML = parseInt(document.getElementById('CarteSalvate').textContent) + 1; 
 
 
 }
@@ -289,7 +427,7 @@ function createOrderDinamic(){
             var itemPrezzo = document.createElement('div');
             itemPrezzo.className = 'itemPrezzo';
             var iPr1 = document.createElement('h3');
-            iPr1.textContent = '€';
+            iPr1.innerHTML = '&euro;';
             var costoProdotto = document.createElement('h3');
             costoProdotto.textContent = '00,00'                         //recuperare prezzo da db
             console.log('creo prezzo');
@@ -320,7 +458,7 @@ function createOrderDinamic(){
             var itemQuantita = document.createElement('div');
             itemQuantita.className = 'itemQuantita';
             var iPr2 = document.createElement('p');
-            iPr2.textContent = 'Quantità:'
+            iPr2.innerHTML = 'Quantit'+'\u00E0'+':';
             var quantitaProdotto = document.createElement('h4');
             quantitaProdotto.textContent = '3'                          //recuperare quantita acquistata da db
             console.log('creo quantità');
@@ -362,7 +500,7 @@ function createOrderDinamic(){
 
         //aggiungo prezzo
         var priceText = document.createElement('p');
-        priceText.textContent = 'Totale €';
+        priceText.innerHTML = 'Totale &euro;';
         var priceNum = document.createElement('h4');
         priceNum.textContent = ' 99,99' ;                   //prendere valore da db
 

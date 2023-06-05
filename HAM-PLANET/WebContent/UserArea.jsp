@@ -43,7 +43,7 @@
                 <!--PARTE SOTTO-->
                 <div class="down">
                     <div class="listSez">
-                        <ul><button id="infPers" onclick="changePage(0)">Informazioni Personali</button></ul>
+                        <ul><button id="infPers" onclick="changePage(0)">Dati Personali</button></ul>
                         <ul><button id="order" onclick="changePage(1)">Ordini</button></ul>
                         <ul><button id="creditCard" onclick="changePage(2)">Carte</button><p id="CarteSalvate"><%= nCard %></p></ul>   <!-- STRINGA DA RECUPERARE DAL DB -->
                     </div>
@@ -249,68 +249,9 @@
             <div id="three" class="right">
                 <p class="title">Carte</p>
 
-                
-
-        
+                        
                 <div id="contenitoreCarte" class="boxCarte">
 
-
-
-                    <!--CARTA 1-->
-                    <div id="cardN1" class="card">
-                        <img id="cardN1_remove" class="iconRemoveCard" onclick="confermaEliminazione(this)" src="./Icon/removeX_RED.png" alt="X">
-                        
-                        <div class="content">
-
-                            <!--NUMERO CARTA-->
-                            <p id="numberCard">****  ****  ****  1234</p>
-                            <div class="NameExpiration">
-
-                                <!--SCRITTA MESE/ANNO-->
-                                <p id="monthyear">MESE/ANNO</p>
-                                <div class="row">
-
-                                    <!--COGNOME NOME-->
-                                    <p id="owner">COGNOME NOME</p>
-                                    
-                                    <!--SCRITTA VALID THRU-->
-                                    <p id="valid">VALID<br>THRU</p>
-                                    
-                                    <!--DATA SCADENZA-->
-                                    <p id="expiration">00/00</p>
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-
-                    <!--CARTA 2-->
-                    <div id="cardN2" class="card">
-                        <img id="cardN2_remove" class="iconRemoveCard" onclick="confermaEliminazione(this)" src="./Icon/removeX_RED.png" alt="X">
-                        <div class="content">
-
-                            <!--NUMERO CARTA-->
-                            <p id="numberCard">****  ****  ****  1234</p>
-                            <div class="NameExpiration">
-
-                                <!--SCRITTA MESE/ANNO-->
-                                <p id="monthyear">MESE/ANNO</p>
-                                <div class="row">
-
-                                    <!--COGNOME NOME-->
-                                    <p id="owner">COGNOME NOME</p>
-                                    
-                                    <!--SCRITTA VALID THRU-->
-                                    <p id="valid">VALID<br>THRU</p>
-                                    
-                                    <!--DATA SCADENZA-->
-                                    <p id="expiration">00/00</p>
-                                </div>
-                            </div>
-                        </div>   
-                    </div>
-
-
-                    <div class="addCard" onclick="addCard()"></div>
 
                 </div>
                 

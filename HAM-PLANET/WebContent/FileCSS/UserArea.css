@@ -687,7 +687,7 @@ body{
 
 
 /*@@@  NUMERO DI CARTA  @@@*/
-#numberCard{
+.numberCard{
     margin: 34% 0 0;
     font-size: 22px;
     text-align: center;
@@ -697,7 +697,7 @@ body{
 
 
 /*@@@  NOME  @@@*/
-#owner{
+.owner{
     font-size: 14px;
     width: 65%;
     text-align: center;
@@ -707,7 +707,7 @@ body{
 }
 
 /*@@@  VALID THRU  @@@*/
-#valid{
+.valid{
     font-size: 7px;
     letter-spacing: 2px;
     text-align: center;
@@ -716,7 +716,7 @@ body{
 }
 
 /*@@@  MESE/ANNO  @@@*/
-#monthyear{
+.monthyear{
     position: relative;
     width: 41%;
     font-size: 6px;
@@ -728,7 +728,7 @@ body{
 
 
 /*@@@  SCADENZA  @@@*/
-#expiration{
+.expiration{
     color: white;
     text-align: center;
 }
@@ -746,6 +746,8 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: 90% auto;
+    
+    cursor: pointer;
     
     transition: all .4s; 
 }
