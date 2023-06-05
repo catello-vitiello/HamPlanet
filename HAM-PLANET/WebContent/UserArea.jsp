@@ -4,6 +4,7 @@
 
 <%
 	ClienteBean user = (ClienteBean) session.getAttribute("user");
+	String nCard = request.getAttribute("Ncard").toString();
 
 	if (user == null){
 		response.sendRedirect("Admin.html");
@@ -44,7 +45,7 @@
                     <div class="listSez">
                         <ul><button id="infPers" onclick="changePage(0)">Informazioni Personali</button></ul>
                         <ul><button id="order" onclick="changePage(1)">Ordini</button></ul>
-                        <ul><button id="creditCard" onclick="changePage(2)">Carte</button><p id="CarteSalvate">6</p></ul>   <!-- STRINGA DA RECUPERARE DAL DB -->
+                        <ul><button id="creditCard" onclick="changePage(2)">Carte</button><p id="CarteSalvate"><%= nCard %></p></ul>   <!-- STRINGA DA RECUPERARE DAL DB -->
                     </div>
 
                     <!--BOTTONE LOGOUT-->
@@ -244,7 +245,7 @@
 
                 <!--Numero Carte-->
                 <div class="boxNumCard">
-                    <p>Carte Registrate:&nbsp;&nbsp;</p><p id="CarteSalvate">6</p>
+                    <p>Carte Registrate:&nbsp;&nbsp;</p><p id="CarteSalvate"><%= nCard %></p>
                 </div>
 
         
