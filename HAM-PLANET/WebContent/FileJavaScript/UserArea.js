@@ -126,7 +126,7 @@ function createCardDinamic(){
         //numero della carta
         var numberCard = document.createElement('p'); 
         numberCard.className = 'numberCard'; 
-        numberCard.innerHTML = '****  ****  ****  777' + i++;            //prendere dal db
+        numberCard.innerHTML = '****  ****  ****  777' + i++;            //prendere numero carta dal db
         
         //contenitore scritte
         var NameExpiration = document.createElement('div'); 
@@ -144,7 +144,7 @@ function createCardDinamic(){
         //proprietario
         var owner = document.createElement('p'); 
         owner.className = 'owner'; 
-        owner.innerHTML = 'VITIELLO CATELLO'                        //prendere dal db
+        owner.innerHTML = 'VITIELLO CATELLO'                        //prendere nome proprietario dal db
         
         //scritta VALID THRU
         var valid = document.createElement('p'); 
@@ -154,7 +154,7 @@ function createCardDinamic(){
         //scadena
         var expiration = document.createElement('p');
         expiration.className = 'expiration'; 
-        expiration.innerHTML = '19/12';                         //prendere dal db
+        expiration.innerHTML = '19/12';                         //prendere scadenza dal db
 
 
         row.appendChild(owner), row.appendChild(valid), row.appendChild(expiration);
