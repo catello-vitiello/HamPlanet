@@ -33,7 +33,7 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 	public Collection<ProdottoBean> selectAll_NoImage() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String sql = "SELECT * FROM prodotto";
+		String sql = "SELECT * FROM prodotto WHERE visualizza=1";
 		Collection<ProdottoBean> prodotti = new LinkedList<ProdottoBean>();
 		try {
 
@@ -61,6 +61,45 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 		}
 
 		return prodotti;
+	}
+	
+	/********************************************************/
+	/* 				SELECT ALL NON DISPONIBILI 				*/
+	/********************************************************/
+	public Collection<ProdottoBean> selectAll_NoImage_NotAvailable() throws SQLException{
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		String sql = "SELECT * FROM prodotto WHERE visualizza=0";
+		Collection<ProdottoBean> prodotti = new LinkedList<ProdottoBean>();
+		try {
+
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			utils.UtilityClass.print(">.SELECT ALL SU PRODOTTI NON IN VENDITA" + preparedStatement);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			while (rs.next()) {
+				ProdottoBean pb = new ProdottoBean();
+				pb.setIAN(rs.getInt("IAN"));
+				pb.setDescrizione(rs.getString("descrizione"));
+				pb.setPeso(rs.getDouble("peso"));
+				pb.setPrezzo(rs.getDouble("prezzo"));
+				pb.setNomeProdotto(rs.getString("nomeProdotto"));
+
+				prodotti.add(pb);
+			}
+		} finally {
+
+			if (preparedStatement != null)
+				preparedStatement.close();
+			if (connection != null)
+				connection.close();
+		}
+
+		return prodotti;
+
+		
 	}
 
 	/********************************************************/

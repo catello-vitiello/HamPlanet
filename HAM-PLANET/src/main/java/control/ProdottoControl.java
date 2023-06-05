@@ -29,6 +29,7 @@ public class ProdottoControl extends HttpServlet {
 			
 			try {
 				request.setAttribute("prodotti", model.selectAll_NoImage());
+				request.setAttribute("prodotti_no", model.selectAll_NoImage_NotAvailable());
 			} catch (SQLException e) {
 				utils.UtilityClass.print(e);
 			}

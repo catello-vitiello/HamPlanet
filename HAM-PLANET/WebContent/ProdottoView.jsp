@@ -7,6 +7,7 @@
 <%
 
 	Collection<?> prodotti = (Collection<?>) request.getAttribute("prodotti");
+	Collection<?> prodotti_no = (Collection<?>) request.getAttribute("prodotti_no");
 	if(prodotti == null){
 		response.sendRedirect("ProdottoControl");
 		return;
@@ -59,6 +60,51 @@
 		
 			<tr>
 				<td colspan="3">NON CI SONO PRODOTTI</td>
+			</tr>
+		
+		<%
+			}
+		%>
+	</table>
+	
+	<!-- VISUALIZZA PRODOTTI NON IN VENDITA -->
+	<hr>
+	
+		<h1>LISTA PRODOTTI NON DISPONIBILI</h1>
+	<table>
+		<tr>
+			<td>IAN</td>
+			<td>PREZZO</td>
+			<td>PESO</td>
+			<td>DESCRIZIONE</td>
+			<td>IMMAGINE</td>
+			<td>NOME PRODOTTO</td>
+		</tr>
+		
+		<%
+		
+			if(prodotti_no != null && prodotti_no.size()>0){
+				Iterator<?> iterator = prodotti_no.iterator();
+				while(iterator.hasNext()){
+					ProdottoBean bean = (ProdottoBean)iterator.next();
+		%>
+		
+			<tr>
+				<td><%= bean.getIAN() %></td>
+				<td><%= bean.getPrezzo() %></td>
+				<td><%= bean.getPeso() %></td>
+				<td><%= bean.getDescrizione() %></td>
+				<td><img src="./ImageProductServlet?id=<%= bean.getIAN() %>" onerror="this.src='img/p.png'" width="40" height="40"></td>
+				<td><%= bean.getNomeProdotto().toString() %></td>
+			</tr>
+		
+		<%
+				}
+			} else {
+		%>
+		
+			<tr>
+				<td colspan="3">NON CI SONO PRODOTTI NON IN VENDITA</td>
 			</tr>
 		
 		<%
