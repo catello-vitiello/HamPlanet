@@ -21,7 +21,10 @@ public class ProdottoControl extends HttpServlet {
 		ProdottoModelDS model = new ProdottoModelDS(ds);
 		
 		String servizio = request.getParameter("servizio");
-		
+	
+		/********************************************************/
+		/* 				VEDI PRODOTTI SENZA IMMAGINE		    */
+		/********************************************************/
 		if(servizio != null && servizio.equals("prodotto")) {
 			
 			try {
@@ -34,6 +37,27 @@ public class ProdottoControl extends HttpServlet {
 			requestDispatcher.forward(request, response);
 			
 		}
+		
+		/********************************************************/
+		/* 				 INSERT SENZA IMMAGINE		   			*/
+		/********************************************************/
+		 if(servizio.equals("insert") && servizio!= null) {
+
+	            int ian = Integer.parseInt(request.getParameter("id"));
+	            double prezzo = Double.parseDouble(request.getParameter("prezzo"));
+	            double peso = Double.parseDouble(request.getParameter("peso"));
+	            String nomeString = request.getParameter("nomeProdotto");
+	            String desc = "descrizione";
+
+	            try {
+	                model.insert_NoImage(ian, desc, peso, prezzo, nomeString);
+	                response.sendRedirect("./Administrator.jsp");
+	                return;
+	            } catch (SQLException e) {
+	                utils.UtilityClass.print(e);
+	            }
+
+	        }
 		
 	}
 

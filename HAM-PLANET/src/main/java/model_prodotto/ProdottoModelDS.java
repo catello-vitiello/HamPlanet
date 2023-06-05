@@ -180,8 +180,12 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
             if (rs.next()) {
                 // Leggi l'immagine dal risultato della query
                 Blob imageBlob = rs.getBlob("image");
-               imageBytes = imageBlob.getBytes(1, (int)imageBlob.length());
-             }
+                //inserimento controllo per vedere se l'immagine esiste
+                if(imageBlob != null)
+                	imageBytes = imageBlob.getBytes(1, (int)imageBlob.length());
+                else
+                	return null;
+            }
 
         } finally {
             if (preparedStatement != null)

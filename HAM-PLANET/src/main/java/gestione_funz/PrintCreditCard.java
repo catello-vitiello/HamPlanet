@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.LinkedList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +24,8 @@ public class PrintCreditCard extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String op = request.getParameter("op");
-		String email = request.getParameter("email");
+		String op = (String) request.getAttribute("op");
+		String email = (String) request.getAttribute("email");
 
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		CercaCarteModelDS modelDS = new CercaCarteModelDS(ds);
@@ -40,12 +42,19 @@ public class PrintCreditCard extends HttpServlet {
 			}
 			if (op.equals("number")) {
 				// out.println("\nNumero carte");
-				out.println(modelDS.getNumCarte(email));
+				request.setAttribute("Ncard", modelDS.getNumCarte(email));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
+		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/UserArea.jsp");
+        requestDispatcher.forward(request, response);
+
 	}
 
+	 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	        doGet(req, resp);
+	    }
+	
 }
