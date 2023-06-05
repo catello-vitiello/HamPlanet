@@ -48,6 +48,7 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 				cb.setSesso(rs.getString("sesso").charAt(0));
 				cb.setIndirizzo(rs.getString("indirizzo"));
 				cb.setCellulare(rs.getString("cellulare"));
+				cb.setData_nascita(rs.getString("data_nascita"));
 
 				clienti.add(cb);
 			}
@@ -167,7 +168,7 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String sql = "select nome, cognome, cellulare, e_mail, sesso from cliente where e_mail = ? and pass = ?";
+		String sql = "select nome, cognome, cellulare, e_mail, data_nascita, indirizzo, sesso FROM cliente WHERE e_mail = ? and pass = ?";
 		
 		try {
 			
@@ -185,6 +186,8 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 				cb.setCognome(rs.getString("cognome"));
 				cb.setCellulare(rs.getString("cellulare"));
 				cb.setEmail(rs.getString("e_mail"));
+				cb.setData_nascita(rs.getString("data_nascita"));
+				cb.setIndirizzo(rs.getString("indirizzo"));
 			}
 			
 			return cb;

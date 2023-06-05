@@ -32,7 +32,8 @@
 			<td>COGNOME</td>
 			<td>SESSO</td>
 			<td>INDIRIZZO</td>
-			<td>CELLULARE</td>
+			<td>CELLULARE</td>7
+			<td>DATA DI NASCITA</td>
 		</tr>
 		
 		<%
@@ -51,6 +52,7 @@
 				<td><%= bean.getSesso() %></td>
 				<td><%= bean.getIndirizzo().toString() %></td>
 				<td><%= bean.getCellulare().toString() %></td>
+				<td><%= bean.getData_nascita().toString() %></td>
 			</tr>
 		
 		<%

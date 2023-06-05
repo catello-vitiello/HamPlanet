@@ -90,7 +90,7 @@
                                 <!--Titolo-->
                                 <p>Data di nascita</p>
                                 <!--Valore-->
-                                <p>23-05-2000</p>
+                                <p><%= user.getData_nascita() %></p>
                             </div>
 
                         </div>
@@ -195,7 +195,7 @@
                             <!--Titolo-->
                             <p>Via</p>
                             <!--Valore-->
-                            <p>Via Roma</p>
+                            <p><%= user.getIndirizzo() %></p>
                         </div>
 
                         <div class="boxPaese">
