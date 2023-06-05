@@ -22,6 +22,9 @@ CREATE TABLE cliente
     indirizzo VARCHAR(60) NOT NULL,
     cellulare VARCHAR(10) NOT NULL,
     data_nascita VARCHAR(60),
+    paese VARCHAR(60),
+    provincia VARCHAR(60),
+    cap VARCHAR(60)
     
     PRIMARY KEY(e_mail)
 );
