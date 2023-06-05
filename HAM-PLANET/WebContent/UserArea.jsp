@@ -247,9 +247,11 @@
 
 <!--################################   CARTE  ########################################################################-->
             <div id="three" class="right">
+            
+            	<!-- TITOLO -->
                 <p class="title">Carte</p>
 
-                        
+				<!-- CONTENITORE OGGETTI -->
                 <div id="contenitoreCarte" class="boxCarte">
 
 
