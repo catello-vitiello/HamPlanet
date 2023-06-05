@@ -21,6 +21,7 @@ CREATE TABLE cliente
     sesso 	  char NOT NULL,
     indirizzo VARCHAR(60) NOT NULL,
     cellulare VARCHAR(10) NOT NULL,
+    data_nascita VARCHAR(60),
     
     PRIMARY KEY(e_mail)
 );
@@ -44,6 +45,7 @@ CREATE TABLE prodotto
     descrizione VARCHAR(300),
     image MEDIUMBLOB,
     nomeProdotto VARCHAR(60),
+    visualizza INT NOT NULL, -- inserire 0 per non visualizzare il prodotto, 1 altrimenti
     PRIMARY KEY(IAN)
 );
 
@@ -57,4 +59,25 @@ CREATE TABLE composto
     PRIMARY KEY(id_c),
     FOREIGN KEY(id_ordine) REFERENCES ordine(id) ON DELETE CASCADE,
     FOREIGN KEY(ian_prodotto) REFERENCES prodotto(IAN) ON DELETE CASCADE
+);
+
+CREATE TABLE carta
+(
+	nomeTitolare VARCHAR(60),
+    cognomeTitolare VARCHAR(60),
+    numeroCarta VARCHAR(16) NOT NULL,
+    scadenza VARCHAR(60),
+    cvv INT,
+    visualizza INT NOT NULL, -- inserire 0 per non visualizzare la carta, 1 altrimenti
+    PRIMARY KEY(numeroCarta)
+);
+
+CREATE TABLE Ha
+(
+	id_ha INT AUTO_INCREMENT,
+    email_u VARCHAR(60) NOT NULL,
+    n_card VARCHAR(16) NOT NULL,
+    PRIMARY KEY(id_ha),
+    FOREIGN KEY(email_u) REFERENCES cliente(e_mail) ON DELETE CASCADE,
+    FOREIGN KEY(n_card) REFERENCES carta(numeroCarta) ON DELETE CASCADE
 );
