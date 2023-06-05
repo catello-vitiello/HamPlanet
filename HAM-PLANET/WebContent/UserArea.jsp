@@ -235,18 +235,21 @@
             </div>
 
 <!--################################   ORDINI  ########################################################################-->
-            <div id="two"  class="right">
-                <p class="title">Ordini</p>
+            <div id="two" class="right">
+           		
+           		<!-- TITOLO -->
+           		<p class="title">Ordini</p>
+
+				<!-- CONTENITORE ORDINI -->
+            	<div id="boxOrder" class="boxOrdini"></div>
+
             </div>
 
 <!--################################   CARTE  ########################################################################-->
             <div id="three" class="right">
                 <p class="title">Carte</p>
 
-                <!--Numero Carte-->
-                <div class="boxNumCard">
-                    <p>Carte Registrate:&nbsp;&nbsp;</p><p id="CarteSalvate"><%= nCard %></p>
-                </div>
+                
 
         
                 <div id="contenitoreCarte" class="boxCarte">
@@ -283,110 +286,6 @@
                     <!--CARTA 2-->
                     <div id="cardN2" class="card">
                         <img id="cardN2_remove" class="iconRemoveCard" onclick="confermaEliminazione(this)" src="./Icon/removeX_RED.png" alt="X">
-                        <div class="content">
-
-                            <!--NUMERO CARTA-->
-                            <p id="numberCard">****  ****  ****  1234</p>
-                            <div class="NameExpiration">
-
-                                <!--SCRITTA MESE/ANNO-->
-                                <p id="monthyear">MESE/ANNO</p>
-                                <div class="row">
-
-                                    <!--COGNOME NOME-->
-                                    <p id="owner">COGNOME NOME</p>
-                                    
-                                    <!--SCRITTA VALID THRU-->
-                                    <p id="valid">VALID<br>THRU</p>
-                                    
-                                    <!--DATA SCADENZA-->
-                                    <p id="expiration">00/00</p>
-                                </div>
-                            </div>
-                        </div>   
-                    </div>
-
-                    <!--CARTA 3-->
-                    <div id="cardN3" class="card">
-                        <img id="cardN3_remove" class="iconRemoveCard" onclick="confermaEliminazione(this)" src="./Icon/removeX_RED.png" alt="X">
-                        <div class="content">
-
-                            <!--NUMERO CARTA-->
-                            <p id="numberCard">****  ****  ****  1234</p>
-                            <div class="NameExpiration">
-
-                                <!--SCRITTA MESE/ANNO-->
-                                <p id="monthyear">MESE/ANNO</p>
-                                <div class="row">
-
-                                    <!--COGNOME NOME-->
-                                    <p id="owner">COGNOME NOME</p>
-                                    
-                                    <!--SCRITTA VALID THRU-->
-                                    <p id="valid">VALID<br>THRU</p>
-                                    
-                                    <!--DATA SCADENZA-->
-                                    <p id="expiration">00/00</p>
-                                </div>
-                            </div>
-                        </div>   
-                    </div>
-
-                    <!--CARTA 4-->
-                    <div id="cardN4" class="card">
-                        <img id="cardN4_remove" class="iconRemoveCard" onclick="confermaEliminazione(this)" src="./Icon/removeX_RED.png" alt="X">
-                        <div class="content">
-
-                            <!--NUMERO CARTA-->
-                            <p id="numberCard">****  ****  ****  1234</p>
-                            <div class="NameExpiration">
-
-                                <!--SCRITTA MESE/ANNO-->
-                                <p id="monthyear">MESE/ANNO</p>
-                                <div class="row">
-
-                                    <!--COGNOME NOME-->
-                                    <p id="owner">COGNOME NOME</p>
-                                    
-                                    <!--SCRITTA VALID THRU-->
-                                    <p id="valid">VALID<br>THRU</p>
-                                    
-                                    <!--DATA SCADENZA-->
-                                    <p id="expiration">00/00</p>
-                                </div>
-                            </div>
-                        </div>   
-                    </div>
-
-                    <!--CARTA 5-->
-                    <div id="cardN5" class="card">
-                        <img id="cardN5_remove" class="iconRemoveCard" onclick="confermaEliminazione(this)" src="./Icon/removeX_RED.png" alt="X">
-                        <div class="content">
-
-                            <!--NUMERO CARTA-->
-                            <p id="numberCard">****  ****  ****  1234</p>
-                            <div class="NameExpiration">
-
-                                <!--SCRITTA MESE/ANNO-->
-                                <p id="monthyear">MESE/ANNO</p>
-                                <div class="row">
-
-                                    <!--COGNOME NOME-->
-                                    <p id="owner">COGNOME NOME</p>
-                                    
-                                    <!--SCRITTA VALID THRU-->
-                                    <p id="valid">VALID<br>THRU</p>
-                                    
-                                    <!--DATA SCADENZA-->
-                                    <p id="expiration">00/00</p>
-                                </div>
-                            </div>
-                        </div>   
-                    </div>
-
-                    <!--CARTA 6-->
-                    <div id="cardN6" class="card">
-                        <img id="cardN5_remove" class="iconRemoveCard" onclick="confermaEliminazione(this)" src="./Icon/removeX_RED.png" alt="X">
                         <div class="content">
 
                             <!--NUMERO CARTA-->

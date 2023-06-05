@@ -348,13 +348,234 @@ body{
 }
 
 
+
 /*#########################   ORDINI   #########################*/
 #two{
     display: none;
     transition-property: opacity;
     transition-duration: .5s;
+}
 
-    border: 2px solid forestgreen;
+
+/*@@@   FORMATO GRIGLIA   @@@*/
+.boxOrdini{
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+
+
+    width: 92%;
+    height: 85%;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    margin-top: 5%;
+    border-radius: 30px;
+
+
+}
+
+
+
+
+/*@@@   GRANDEZZA ORDINE   @@@*/
+.order{
+    width: 99%;
+    height: auto;
+    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background:  linear-gradient(white, white) padding-box,
+                 linear-gradient(to left, #d0280e, #f9a302) border-box;
+    border: 4px solid transparent;
+    border-radius: 34px;
+
+}
+
+
+
+/*@@@   TESTA E PIEDE DELL'ORDINE    @@@*/
+.parteSopra, .parteSotto{
+    width: 97%;
+    height: 50px;
+    display: flex;
+}
+
+
+.parteSopra{
+    justify-content: space-between;
+
+}
+
+.orderID, .orderData, .orderNumberProduct{
+    width: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 120%;
+
+    gap: 15px;
+}
+
+
+.parteSotto{
+    justify-content: end;
+    font-size: 120%;
+    gap: 0.5%;
+}
+
+
+
+
+/*@@@   LISTA ELEMENTI    @@@*/
+.listaItem{
+    width: 100%;
+    min-height: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listaItem hr{
+    width: 95%;
+
+    border: 1px solid #c2c2c2;
+    border-radius: 2px;
+
+}
+
+
+/*@@@   SINGOLO PRODOTTO    @@@*/
+.item{
+    width: 97%;
+    height: 150px;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    margin: 20px 0;
+
+}
+
+
+
+
+/*  SFONDO ORDINE */
+.backgroundOrder{
+    width: 100%;
+    height: auto;
+    
+    z-index: 3;
+    position: absolute;
+}
+
+/*PARTE SINISTRA*/
+.leftOrder{
+    height: 99%;
+    width: 17%;
+    z-index: 2;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('D:\\Document\\catello\\HamPlanet\\Product\\prosciutto_crudo_01.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+
+}
+
+
+/*PARTE DESTRA*/
+.rightOrder{
+    height: 100%;
+    width: 83%;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+/*RIGO*/
+.orderRow{
+    height: 30%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderRow2{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* TITOLO DEL PRODOTTO*/
+.itemNome, .itemPrezzo{
+    height: 100%;
+    width: auto;
+    display: flex;
+}
+
+/*DESCRIZIONE PRODOTTO*/
+.itemDescription{
+    height: 100%;
+    width: 70%;
+    font-size: 90%;
+}
+
+
+.itemNome, .itemDescription{margin-left: 2%;}
+
+
+/*QUANTITA*/
+.itemQuantita{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 90%;
+    color: gray;
+}
+
+
+.itemPrezzo, .itemQuantita {gap: 10px;}
+
+
+
+
+
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   SCROLL-BAR LATERALE   @@@@@@@@@@@@@@@@@@@@@@@@@@@@ò@@@*/
+.boxOrdini::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 10px;
+    z-index: 4;
+}
+
+.boxOrdini::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #b7b7b7;
+    margin: 20px;
+    z-index: 4;
+
+}
+.boxOrdini::-webkit-scrollbar-thumb {
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.5, #a520ca), color-stop(1, #2681cc));
+    border-radius: 10px;
+    z-index: 4;
 }
 
 /*#########################   INDIRIZZI   #########################*/
@@ -371,21 +592,6 @@ body{
 }
 
 
-.boxNumCard{
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    background: #D9D9D9;
-    border-radius: 25px;
-    padding: 0 10px;
-}
-
-.boxNumCard p{
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.866);
-}
 
 #CarteSalvate{
     font-weight: 900;
@@ -394,7 +600,7 @@ body{
     border-radius: 20px;
     margin: 0 10px;
     padding: 0 8px;
-    width: 8px;
+    width: auto;
     text-align: center;
 }
 
