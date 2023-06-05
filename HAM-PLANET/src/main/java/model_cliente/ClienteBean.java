@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class ClienteBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private String email, pass, nome, cognome, indirizzo;
+	private String email, pass, nome, cognome, indirizzo, data_nascita;
 	private char sesso;
 	private String cellulare;
 	
@@ -79,8 +79,12 @@ public class ClienteBean implements Serializable{
 		this.cellulare = cellulare;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public String getData_nascita() {
+		return data_nascita;
+	}
+
+	public void setData_nascita(String data_nascita) {
+		this.data_nascita = data_nascita;
 	}
 
 	/****************************************************************************/
@@ -89,7 +93,7 @@ public class ClienteBean implements Serializable{
 
 	public String toString() {
 		 return getClass().getName() + "[e-mail= " + email + ", password= " + pass + ", nome= " + nome + ", cognome= " + cognome
-				+ ", sesso= " + sesso + ", indirizzo= " + indirizzo + ", cellulare= " + cellulare + "]";
+				+ ", sesso= " + sesso + ", indirizzo= " + indirizzo + ", cellulare= " + cellulare + ", data di nascita= " + data_nascita + "]";
 	}
 	
 }
