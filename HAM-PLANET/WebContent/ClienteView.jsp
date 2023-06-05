@@ -34,6 +34,9 @@
 			<td>INDIRIZZO</td>
 			<td>CELLULARE</td>7
 			<td>DATA DI NASCITA</td>
+			<td>PAESE</td>
+			<td>PROVINCIA</td>
+			<td>CAP</td>
 		</tr>
 		
 		<%
@@ -53,6 +56,9 @@
 				<td><%= bean.getIndirizzo().toString() %></td>
 				<td><%= bean.getCellulare().toString() %></td>
 				<td><%= bean.getData_nascita().toString() %></td>
+				<td><%= bean.getPaese().toString() %></td>
+				<td><%= bean.getProvincia().toString() %></td>
+				<td><%= bean.getCap().toString() %></td>
 			</tr>
 		
 		<%

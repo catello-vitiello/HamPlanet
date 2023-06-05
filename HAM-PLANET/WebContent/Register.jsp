@@ -219,7 +219,7 @@
                                                 onpointerleave="changeColorPos(1)"
                                                 onclick="changeColorPos(2)"
                                                 onblur="changeColorPos(3)" 
-                                                name="Indirizzo" required>
+                                                name="indirizzo" required>
                     <div class="testo">
                         <label class="uno">V</label>
                         <label class="due">i</label>
@@ -273,7 +273,7 @@
                     </div>
                 </div>
                 
-
+				<input type="text" value="insert" name ="service" hidden>
 
                 <!--BOTTONE REGISTRAZIONE-->
                 <button id="buttonReg" type="submit">Registrati</button>

@@ -49,6 +49,9 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 				cb.setIndirizzo(rs.getString("indirizzo"));
 				cb.setCellulare(rs.getString("cellulare"));
 				cb.setData_nascita(rs.getString("data_nascita"));
+				cb.setPaese(rs.getString("paese"));
+				cb.setProvincia(rs.getString("provincia"));
+				cb.setCap(rs.getString("cap"));
 
 				clienti.add(cb);
 			}
@@ -69,11 +72,11 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 	
 	@Override
 	public void insert(String email, String pass, String nome, String cognome, char sesso, String indirizzo,
-			String cellulare) throws SQLException {
+			String cellulare, String data_nascita, String paese, String provincia, String cap) throws SQLException {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String sql = "INSERT INTO cliente VALUES (?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO cliente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		Character s = sesso;
 
 		try {
@@ -87,6 +90,10 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 			preparedStatement.setString(5, s.toString());
 			preparedStatement.setString(6, indirizzo);
 			preparedStatement.setString(7, cellulare);
+			preparedStatement.setString(8, data_nascita);
+			preparedStatement.setString(9, paese);
+			preparedStatement.setString(10, provincia);
+			preparedStatement.setString(11, cap);
 			
 			utils.UtilityClass.print(">.INSERT " + preparedStatement);
 			preparedStatement.executeUpdate();
@@ -168,7 +175,8 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String sql = "select nome, cognome, cellulare, e_mail, data_nascita, indirizzo, sesso FROM cliente WHERE e_mail = ? and pass = ?";
+		String sql = "select nome, cognome, cellulare, e_mail, data_nascita, indirizzo, sesso, paese, provincia, cap"
+				+ " FROM cliente WHERE e_mail = ? and pass = ?";
 		
 		try {
 			
@@ -188,6 +196,9 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 				cb.setEmail(rs.getString("e_mail"));
 				cb.setData_nascita(rs.getString("data_nascita"));
 				cb.setIndirizzo(rs.getString("indirizzo"));
+				cb.setPaese(rs.getString("paese"));
+				cb.setProvincia(rs.getString("provincia"));
+				cb.setCap(rs.getString("cap"));
 			}
 			
 			return cb;

@@ -16,6 +16,8 @@
         <div class="form-box">
             <form action="ClienteControl" method="post"> 
 
+				<input type="text" value="login" name ="service" hidden>
+
                 <!--LOGO-->
                 <img id="logo" src="./Icon/logo_HamPlanet_BLACK.svg" alt="Ham Planet" height="130x">
                 

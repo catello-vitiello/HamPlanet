@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class ClienteBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
-	private String email, pass, nome, cognome, indirizzo, data_nascita;
+	private String email, pass, nome, cognome, indirizzo, data_nascita, paese, provincia, cap;
 	private char sesso;
 	private String cellulare;
 	
@@ -13,7 +13,7 @@ public class ClienteBean implements Serializable{
 		
 	}
 	
-	public ClienteBean(String email, String pass, String nome, String cognome, char sesso, String indirizzo, String cellulare) {
+	public ClienteBean(String email, String pass, String nome, String cognome, char sesso, String indirizzo, String cellulare, String data_nascita, String paese, String provincia, String cap) {
 		this.email = email;
 		this.pass = pass;
 		this.nome = nome;
@@ -21,6 +21,11 @@ public class ClienteBean implements Serializable{
 		this.sesso = sesso;
 		this.indirizzo = indirizzo;
 		this.cellulare = cellulare;
+		this.data_nascita= data_nascita;
+		this.paese= paese;
+		this.provincia= provincia;
+		this.cap=cap;
+		
 	}
 	
 	public String getEmail() {
@@ -86,6 +91,30 @@ public class ClienteBean implements Serializable{
 	public void setData_nascita(String data_nascita) {
 		this.data_nascita = data_nascita;
 	}
+	
+	public String getPaese() {
+		return paese;
+	}
+
+	public void setPaese(String paese) {
+		this.paese = paese;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+
+	public String getCap() {
+		return cap;
+	}
+
+	public void setCap(String cap) {
+		this.cap = cap;
+	}
 
 	/****************************************************************************/
 	/* 								TOSTRING									*/
@@ -93,7 +122,9 @@ public class ClienteBean implements Serializable{
 
 	public String toString() {
 		 return getClass().getName() + "[e-mail= " + email + ", password= " + pass + ", nome= " + nome + ", cognome= " + cognome
-				+ ", sesso= " + sesso + ", indirizzo= " + indirizzo + ", cellulare= " + cellulare + ", data di nascita= " + data_nascita + "]";
+				+ ", sesso= " + sesso + ", indirizzo= " + indirizzo + ", cellulare= " + cellulare + ", data di nascita= " + data_nascita + 
+				", paese= " + paese + ", provincia= " + provincia + ", cap= " + cap
+				+  "]";
 	}
 	
 }

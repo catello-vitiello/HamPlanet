@@ -32,6 +32,17 @@ public class ClienteControl extends HttpServlet {
 		nome = request.getParameter("nome");
 		cognome = request.getParameter("cognome");
 		indirizzo = request.getParameter("indirizzo");
+		
+		String data_nascita, paese, provincia, cap;
+		data_nascita = request.getParameter("anno") + "-" + request.getParameter("mese") + "-" + request.getParameter("giorno");
+		if(data_nascita != null)
+			utils.UtilityClass.print(data_nascita.toString());
+		paese = request.getParameter("paese");
+		provincia = request.getParameter("provincia");
+		cap = request.getParameter("cap");
+		String service = request.getParameter("service");
+		if(service != null)
+			utils.UtilityClass.print(service.toString());
 
 		String chiave = request.getParameter("chiave");
 		
@@ -54,11 +65,10 @@ public class ClienteControl extends HttpServlet {
 		/********************************************************/
 		/* 					REGISTRAZIONE	 					*/
 		/********************************************************/
-		if (email != null && pass != null && nome != null && cognome != null && sesso != null && indirizzo != null
-				&& cellulare != null) {
+		if (service.equals("insert")) {
 			try {
 				char sex = sesso.charAt(0);
-				model.insert(email, pass, nome, cognome, sex, indirizzo, cellulare);
+				model.insert(email, pass, nome, cognome, sex, indirizzo, cellulare, data_nascita, paese, provincia, cap);
 				response.sendRedirect("Admin.html"); // riga da eliminare ---> solo per test
 				// response.sendRedirect(""); /*dopo la registrazione ti reindirizza verso
 				// l'area di login*/
@@ -85,7 +95,7 @@ public class ClienteControl extends HttpServlet {
 		/********************************************************/
 		/* 						LOGIN 							*/
 		/********************************************************/
-		if (email != null && pass != null) {
+		if (email != null && pass != null && service.equals("login")) {
 			utils.UtilityClass.print("login");
 			
 			request.setAttribute("email", email);

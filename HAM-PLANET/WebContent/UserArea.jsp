@@ -203,7 +203,7 @@
                             <!--Titolo-->
                             <p>Paese</p>
                             <!--Valore-->
-                            <p>Roma</p>
+                            <p><%= user.getPaese() %></p>
                         </div>
 
                         <div class="boxProv">
@@ -211,7 +211,7 @@
                             <!--Titolo-->
                             <p>Provincia</p>
                             <!--Valore-->
-                            <p>RO</p>
+                            <p><%= user.getProvincia() %></p>
                         </div>
 
                         <div class="boxCap">
@@ -219,7 +219,7 @@
                             <!--Titolo-->
                             <p>Cap</p>
                             <!--Valore-->
-                            <p>00100</p>
+                            <p><%= user.getCap() %></p>
                         </div>
 
                         <!--Icona Matita-->
