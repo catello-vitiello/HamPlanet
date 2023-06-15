@@ -783,6 +783,350 @@ body{
 
 
 
+/*###############################   MODIFICA NUMERO   ###############################*/
+#modifyNumber{
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    bottom: 0;
+
+    padding: 2%;
+    opacity: 0;
+    z-index: 10;
+    transition: all .7s;
+
+    background-image: url("./img/backModify.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 30px;
+}
+
+
+/*@@@   FORM   @@@*/
+#modifyNumber form,
+#modifyPass form,
+#modifyAddress form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition: all .5s;
+
+}
+
+
+/*@@@   TITOLO   @@@*/
+#titleModify0,
+#titleModify1,
+#titleModify2{
+    height: 35px;
+    width: auto;
+
+    color: white;
+    font-size: 0px;
+    font-weight: 700;
+    font-family: 'Geologica', sans-serif;
+
+    pointer-events: none;
+
+    transition: all .7s;
+}
+
+
+/*@@@   INPUTBOX   @@@*/
+.inputbox{
+    height: 50px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s;
+
+
+    margin: 4% 0;
+}
+
+.inputbox input{
+    height: 35px;
+    width: 100%;
+    outline: none;
+    border: none;
+    text-align: left;
+    padding: 0 14% 0 4%;
+    font-size: 15px;
+    caret-color: #7d1e11;
+
+    transition: all .5s;
+
+
+    background: linear-gradient(to right, #d0280e, #ff8800);
+    color: white;
+
+
+    border-radius: 17.5px;
+}
+
+
+/*@@@   BUTTON   @@@*/
+.buttonSubmitModify{
+    height: 35px;
+    width: 30%;
+
+
+    cursor: pointer;
+    transition: all .4s;
+
+    outline: none;
+    border: none;
+    border-radius: 17.5px;
+    font-weight: 700;
+
+    color: white;
+    border: 2px solid white;
+    background: transparent;
+}
+
+.buttonSubmitModify:hover{
+    background: white;
+    color: #7d1e11;
+}
+
+
+
+/*@@@   ICONA ANNULLAMENTO OPERAZIONE   @@@*/
+#annullOperation_0,
+#annullOperation_1,
+#annullOperation_2{
+    height: 0;
+    width: auto;
+    position: absolute;
+    rotate: 45deg;
+    top: 0;    
+    right: 0;
+    transition: all .5s ease, rotate 1s;
+    cursor: pointer;
+
+    z-index: 11;
+}
+
+
+
+/*###############################   MODIFICA PASSWORD   ###############################*/
+#modifyPass{
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 2%;
+    bottom: 0;
+
+    opacity: 0;
+    z-index: 10;
+    transition: all .7s;
+
+    background-image: url("./img/backModifyPass.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+
+}
+
+#modifyPass hr {
+    margin: 1% 0;
+    width: 90%;
+    height: 0.5px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    background: rgb(123, 123, 123);
+}
+
+/*scritta*/
+.inputbox label{
+    position: absolute;
+    letter-spacing: 4px;
+    pointer-events: none;
+    font-size: 16px;
+    
+    transition: all .5s;
+}
+
+
+
+
+/*colora bordo quando inserisco input*/
+.inputbox input:focus,
+.inputbox input:valid{
+    border: 2px solid white;
+}
+
+/*sposto testo quando inserisco input oppure ci passo sopra*/
+.inputbox:hover label,
+.inputbox input:focus + label,
+.inputbox input:valid + label{
+    transform: translateY(-140%);
+    font-size: 14px;
+    letter-spacing: 0;
+}
+
+
+/*immagine occhio*/
+.img_pass {
+    height: 7%;
+    width: auto;
+    scale: 0;
+
+    position: absolute;
+    right: 14%;
+
+    transition: all .5s;
+
+    cursor: pointer;
+}
+
+.inputbox:hover img,
+.inputbox input:focus ~ img,
+.inputbox input:valid ~ img{
+    scale: 1;
+}
+
+
+
+/*messaggi errore*/
+#mess0, #mess1, #mess2{
+    height: auto;
+    width: auto;
+    position: absolute;
+    font-size: 76%;
+    font-weight: 300;
+    color: red;
+    border-radius: 10px;
+    padding: 0 2%;
+    scale: 0;
+
+    transition: all .5s;
+}
+
+
+/*@@@   LISTA COSE DA RISPETTARE   @@@*/
+#ToDoList{
+    height: 250px;
+    width: 230px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    top: 58%;
+    border-radius: 10px;
+    padding: 3%;
+    background-image: url("./img/"boxRequestV1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    scale: 0;
+}
+
+#passTit, #securityTit, #evitTit {
+    color: black;
+    font-weight: 500;
+    font-size: 80%;
+    margin: 1%;
+}
+
+#evitTit{
+    text-align: center;
+}
+
+#lunghezza, #number, #special, #uppercase{
+    color: gray;
+    font-weight: 400;
+    font-size: 80%;
+    padding-left: 1%;
+}
+
+
+/*@@@@@   PROGRESS BAR   @@@@@*/
+.progress{
+    height: 5%;
+    width: 100%;
+    background: #ddd;
+    border-radius: 20px;
+    margin: 2%;
+}
+
+#progress-done{
+    height: 100%;
+    width: 0;
+    background: linear-gradient(to left, #d0280e, #faa202);
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 0 3px -5px #d0280e, 0 3px 150px #faa202;
+    transition: width .5s ease;
+}
+
+
+
+
+
+/*###############################   MODIFICA INDIRIZZO   ###############################*/
+#modifyAddress{
+    height: 0;
+    width: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 2% 2.8%;
+    bottom: 0;
+
+    opacity: 0;
+    z-index: 10;
+    transition: all .7s;
+
+    background-image: url("./img/backModifyAddress.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 30px;
+}
+
+
+#modifyAddress .inputbox{
+    width: 100%;
+}
+
+#modifyAddress label{
+    font-size: 15px;
+}
+
+.inputboxNC{
+    display: flex;
+    width: 100%;
+}
+
+
+#via, #paese, #provincia, #cap{
+    text-align: center;
+    padding: 0 5%;
+}
+
+
+
+
 
 
 
