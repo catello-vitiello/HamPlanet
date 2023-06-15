@@ -394,7 +394,7 @@ function createOrderDinamic(){
             //creo sfondo
             var backOrd = document.createElement('img');
             backOrd.className = 'backgroundOrder';
-            backOrd.src = 'C:\\Users\\catel\\Desktop\\HamPlanet_ORDER_V2.png'  
+            backOrd.src = './img/HamPlanet_ORDER.png'  
             console.log('creo sfondo prodotto');
 
             //parte sinistra con immagine
