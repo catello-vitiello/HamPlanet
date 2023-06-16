@@ -521,3 +521,720 @@ function createOrderDinamic(){
 }
 
 
+
+
+//#####################################################################################
+//##############         MODIFICA CAMPI INFORMAZIONI PERSONALI        #################
+//#####################################################################################
+function changeValue(value){
+	
+	
+    
+    //per evitare che clicca altro
+    document.getElementById('contenitore').style.pointerEvents = 'none';
+
+    
+    //NUMERO DI TELEFONO
+    if (value == 0){
+	
+        //FAR COMPARIRE FORM
+        var box = document.getElementById('modifyNumber');      //box che deve visualizzare [cambiare]
+        
+        //icona x annullamento
+        var x = document.getElementById('annullOperation_0');
+        
+        
+        //effetto blur sfondo
+        document.getElementById('contenitore').style.filter = 'blur(10px)';
+        
+        //dispay flex
+        box.style.display = 'flex';
+        document.getElementById('formModifyNumber').style.display = 'flex';
+        
+        
+        
+        //mostrare finestra
+        box.style.opacity = '100';
+        
+        //dimensioni
+        setTimeout(function(){ 
+            box.style.bottom = 'calc(50% - 75px)';
+            box.style.height = '150px'; 
+            box.style.width = '350px'; 
+            document.getElementById('titleModify0').style.fontSize = '20px';
+            
+            //icona x annullamento
+            x.style.height = '19%';
+
+        }, 80)
+
+        setTimeout(function(){
+            x.style.rotate = '360deg'
+        },150)
+        
+        
+
+    }
+
+
+
+    
+    //PASSWORD
+    else if (value == 1){
+
+        //oggetto contenitore
+        var box = document.getElementById('modifyPass');
+        
+        //icona x annullamento
+        var x = document.getElementById('annullOperation_1');
+        
+        //effetto blur sfondo
+        document.getElementById('contenitore').style.filter = 'blur(10px)';
+        
+        //dispay flex
+        box.style.display = 'flex';
+        document.getElementById('formModifyPass').style.display = 'flex';
+        
+        //mostrare finestra
+        box.style.opacity = '100';
+        
+        //dimensioni
+        setTimeout(function(){ 
+            box.style.bottom = 'calc(50% - 175px)';
+            box.style.height = '350px'; 
+            box.style.width = '350px'; 
+            document.getElementById('titleModify1').style.fontSize = '20px';
+            
+            //icona x annullamento
+            x.style.height = '9.5%';
+
+        }, 80)
+
+        setTimeout(function(){
+            x.style.rotate = '360deg'
+        },150)
+        
+        
+    }
+
+
+    
+    //INDIRIZZO
+    else if (value == 2){
+        //oggetto contenitore
+        var box = document.getElementById('modifyAddress');
+        
+        //icona x annullamento
+        var x = document.getElementById('annullOperation_2');
+        
+        //effetto blur sfondo
+        document.getElementById('contenitore').style.filter = 'blur(10px)';
+        
+        //dispay flex
+        box.style.display = 'flex';
+        document.getElementById('formModifyAddress').style.display = 'flex';
+        
+        //mostrare finestra
+        box.style.opacity = '100';
+        
+        //dimensioni
+        setTimeout(function(){ 
+            box.style.bottom = 'calc(50% - 125px)';
+            box.style.height = '250px'; 
+            box.style.width = '350px'; 
+            document.getElementById('titleModify2').style.fontSize = '20px';
+            
+            //icona x annullamento
+            x.style.height = '13.3%';
+
+        }, 80)
+
+        setTimeout(function(){
+            x.style.rotate = '360deg'
+        },150)
+    }
+
+}
+
+
+
+
+
+
+//#####################################################################################
+//###################         CONTROLLA SE INPUT E' VALIDO        #####################
+//#####################################################################################
+var campo_valid = false
+var requiredPoint = 0
+
+
+function controlCaracter(typeCar){
+    var tel = document.getElementById('tel');
+
+    
+    //numero telefonico
+    if (typeCar == 0){
+        if ( (/[^0-9]/.test(tel.value))){   
+            tel.value = tel.value.substring(0,tel.value.length-1);
+            campo_valid = false;
+        }
+        
+        if (tel.value.length == 9 || tel.value.length == 10){
+            campo_valid = true;
+        }
+    }
+
+
+    else if (typeCar == 1){
+
+        //controllo per css se il campo è vuoto
+
+        var pass0 = document.getElementById('pass0').value;
+        var pass1 = document.getElementById('pass1').value;
+        var pass2 = document.getElementById('pass2').value;
+
+        //controllo se un campo è vuoto
+        if (pass0 == ''){
+            campo_valid = false
+        }
+        if (pass1 == ''){
+            campo_valid = false
+        }
+        if (pass2 == ''){
+            campo_valid = false
+        }
+
+
+
+        //------------------------------------------------------> controllo se la vecchia password è quella giusta
+
+
+
+        //controllo se le password sono uguali
+        if (pass1 == pass2 && pass1 != ''){
+            campo_valid = true;
+        } else {
+            campo_valid = false;
+        }
+
+
+        
+        //controllo sulla fotmattazione della password
+
+        var pass = document.getElementById('pass1');
+        var progressBar = document.getElementById('progress-done');
+    
+        var larghezza = 0;
+        
+        //controlla lunghezza
+        if (pass.value.length >= 8){
+            document.getElementById('lunghezza').style.color = '#007d1b'; //metto a verde
+            larghezza = larghezza + 25;
+        }
+        else{
+            document.getElementById('lunghezza').style.color = 'gray';   //metto a grigio     
+        }
+    
+        //controlla numero
+        if (/[1234567890]/.test(pass.value)){
+            document.getElementById('number').style.color = '#007d1b'; //metto a verde
+            larghezza = larghezza + 25;
+        }
+        else{
+            document.getElementById('number').style.color = 'gray';   //metto a grigio
+        }
+        
+        //controlla carattere speciale
+        if (/[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(pass.value)){
+            document.getElementById('special').style.color = '#007d1b'; //metto a verde
+            larghezza = larghezza + 25;
+        }
+        else{
+            document.getElementById('special').style.color = 'gray';   //metto a grigio
+        }
+        
+        
+        //controlla lettera maiuscola
+        if (/[A-Z]/.test(pass.value)){
+            document.getElementById('uppercase').style.color = '#007d1b'; //metto a verde
+            larghezza = larghezza + 25;
+        }
+        else{
+            document.getElementById('uppercase').style.color = 'gray';   //metto a grigio
+        }
+    
+        if (requiredPoint < 100){campo_valid = false}
+
+        requiredPoint = larghezza;
+        progressBar.style.width = larghezza +'%';
+       
+    }    
+
+    else if (typeCar == 2){
+
+    }
+}
+
+
+//#####################################################################################
+//#################         CONTROLLO FORMATTAZIONE PASSWORD        ####################
+//#####################################################################################
+function attribRequest (){
+
+    //oggetto lista
+    var toDoList = document.getElementById('ToDoList');
+    
+    //nascondere quello che c'è prima
+    document.getElementById('mess1').style.scale = 0;
+    document.getElementById('mess1').style.transform = 'translateY(0)';
+    
+    //mostrare lista
+    toDoList.style.scale = 1;
+    
+}
+
+
+function attribRequestHidden (){
+    
+    var toDoList = document.getElementById('ToDoList');
+
+    //nascondere lista
+    toDoList.style.scale = 0;  
+
+    
+}
+
+
+
+
+
+
+
+//#####################################################################################
+//#################         MOSTRARE/NASCONDERE LA PASSWORD        ####################
+//#####################################################################################
+function showPwd(num){
+    var eyes = document.getElementById(('eyesIcon' + num));
+
+    //creo id in base a quello dell'occhio
+    var boxPass = document.getElementById(('pass' + num));
+
+    //se occhio è aperto, quindi password visibile metto invisibile
+    if (boxPass.type == 'text'){
+        boxPass.type = 'password';
+        eyes.src = './Icon/eyes_hidden2_WHITE.png'
+    }
+
+    //se occhio è chiuso, quindi password invisibile metto visibile
+    else if (boxPass.type == 'password'){
+        boxPass.type = 'text';
+        eyes.src = './Icon/eyes_show_WHITE.png'
+    }
+}
+
+
+
+
+
+
+
+//#####################################################################################
+//#####################         RIMPICCIOLIRE LA FINESTRA        ######################
+//#####################################################################################
+var clicked = false;
+function resizeWindow(event, value){
+
+    //controllo se è finstra modifica numero
+    if (event.target.id.substring(event.target.id.length -1, event.target.id.length) == 0){
+        
+        //contenitore
+        var box = document.getElementById('modifyNumber');
+        
+        //form
+        var form = document.getElementById('formModifyNumber');
+        
+        //bottone x
+        var buttonX = document.getElementById('annullOperation_0');
+        
+        //titolo
+        var titolo = document.getElementById('titleModify0');
+    }
+
+    //controllo se è finestra modifica password
+    else if ( event.target.id.substring(event.target.id.length -1, event.target.id.length) == 1 ){
+        
+        //contenitore
+        var box = document.getElementById('modifyPass');
+        
+        //form
+        var form = document.getElementById('formModifyPass');
+        
+        //bottone x
+        var buttonX = document.getElementById('annullOperation_1');
+        
+        //titolo
+        var titolo = document.getElementById('titleModify1');
+    }
+
+
+    //controllo se è finestra modifica indirizzo
+    else if (event.target.id.substring(event.target.id.length -1, event.target.id.length) == 2){
+        //contenitore
+        var box = document.getElementById('modifyAddress');
+        
+        //form
+        var form = document.getElementById('formModifyAddress');
+        
+        //bottone x
+        var buttonX = document.getElementById('annullOperation_2');
+        
+        //titolo
+        var titolo = document.getElementById('titleModify2');
+    }
+
+
+
+
+    //non inviare la form subito
+    event.preventDefault(); 
+
+
+    if (campo_valid == true || value == 'annull'){
+	
+        if(event.target.id == 'buttonInvio_1')
+
+
+        buttonX.style.scale = '0';
+
+        //cambiare dimensioni form
+        form.style.opacity = '0';
+
+        setTimeout(function(){
+            box.style.padding = '2%'
+            box.style.bottom = '50%'
+            box.style.height = '0';
+            box.style.width = '0';
+            titolo.style.fontSize = '0px';
+            box.style.filter = 'none';
+
+        },400)
+  
+        
+        //mostrare iconcina faccina
+        setTimeout(function(){
+
+            //per fare in modo che clicchi una sola volta
+            if(!clicked){
+                var iconaOK = document.createElement('img');
+    
+                if (value == 'annull'){
+                    iconaOK.src = "./Icon/noWink_WHITE.png"
+                } 
+                else {
+                    iconaOK.src = "./Icon/wink_WHITE.png"
+                }
+                iconaOK.style.display = 'absolute';
+                iconaOK.style.height = '100px'
+                iconaOK.style.top = '0'
+    
+                box.appendChild(iconaOK);
+                
+                clicked = true;
+            }
+        },700)
+        
+    }
+
+    
+    if (campo_valid == true){
+	
+	
+	
+	  closeWindow(buttonX, form, box, titolo, value);
+
+        //inviare la form dopo 500ms
+        setTimeout(function(){
+
+            //invia form
+            form.submit();
+        }, 2000)
+        
+    }
+
+    else if (campo_valid == false){
+
+        var pass0 = document.getElementById('pass0');
+        var pass1 = document.getElementById('pass1');
+        var pass2 = document.getElementById('pass2');
+
+        var mess0 = document.getElementById('mess0');
+        var mess1 = document.getElementById('mess1');
+        var mess2 = document.getElementById('mess2');
+
+        
+        
+        
+        //vede se uno dei campi è vuoto
+        if (pass0.value == '' || pass1.value == '' || pass2.value == ''){
+            if (pass0.value == ''){
+                mess0.style.scale = 1;
+                mess0.style.transform = 'translateY(150%)';
+                mess0.innerHTML = 'Inserire Password';
+                setTimeout(function(){mess0.style.scale = 0;}, 1500)
+            }
+
+            if (pass1.value == ''){
+                
+                document.getElementById('ToDoList').style.scale = 0;
+                document.getElementById('ToDoList').style.transform = 'translateY(0)'
+
+                mess1.style.scale = 1;
+                mess1.style.transform = 'translateY(150%)';
+                mess1.innerHTML = 'Inserire Password';
+                setTimeout(function(){mess1.style.scale = 0;}, 1500)
+            }
+
+            if (pass2.value == ''){
+                mess2.style.scale = 1;
+                mess2.style.transform = 'translateY(150%)';
+                mess2.innerHTML = 'Inserire Password';
+                setTimeout(function(){mess2.style.scale = 0;}, 1500)
+            }
+        }
+
+
+
+        //se password vecchia corrisponde con quella originale
+        else if (false){
+            
+            //----------------------------------------------------> aggiungere controllo sulla vecchia password dal DB
+            
+            mess0.style.scale = 1;
+            mess0.style.transform = 'translateY(150%)';
+            mess0.innerHTML = 'Password sbagliata';
+            setTimeout(function(){mess0.style.scale = 0;}, 1500)
+        }
+
+
+
+        //se password non rispetta valori
+        else if (requiredPoint < 100){
+            mess1.style.scale = 1;
+            mess1.style.transform = 'translateY(150%)';
+            mess1.innerHTML = 'Password non valida';
+            setTimeout(function(){mess1.style.scale = 0;}, 1500)
+        }
+
+        //password diverse
+        if (pass1.value != pass2.value){
+
+            //effetto vibrazione
+            pass1.style.transform = 'translateX(-4%)'; pass2.style.transform = 'translateX(-4%)';
+            setTimeout(function(){ pass1.style.transform = 'translateX(4%)'; pass2.style.transform = 'translateX(4%)' },100)
+            setTimeout(function(){ pass1.style.transform = 'translateX(-4%)'; pass2.style.transform = 'translateX(-4%)' },200)
+            setTimeout(function(){ pass1.style.transform = 'translateX(4%)'; pass2.style.transform = 'translateX(4%)' },300)
+            setTimeout(function(){ pass1.style.transform = 'translateX(0%)'; pass2.style.transform = 'translateX(0%)' },400)
+            
+            //messaggio popup
+            mess2.style.scale = 1;
+            mess2.style.transform = 'translateY(150%)'
+            mess2.innerHTML = 'La password non corrisponde';
+            
+
+            setTimeout(function(){mess2.style.scale = 0}, 1500)
+        }
+
+
+		if(value == 'annull'){
+			setTimeout(function(){
+            	location.reload();
+        	}, 2000)	
+		}
+    }
+
+
+}
+
+
+
+//#####################################################################################
+//#######################         INVIO FORM INDIRIZZO        #########################
+//#####################################################################################
+
+function submitModifyAddress (event, operation) {
+
+    //contenitore
+    var box = document.getElementById('modifyAddress');
+        
+    //form
+    var form = document.getElementById('formModifyAddress');
+    
+    //bottone x
+    var buttonX = document.getElementById('annullOperation_2');
+    
+    //titolo
+    var titolo = document.getElementById('titleModify2');
+
+
+    
+    
+    //PER ANNULLARE LA FORM
+    if (operation == 'annull'){
+        closeWindow(buttonX, form, box, titolo, operation);
+        
+        setTimeout(function(){
+            box.style.opacity = 0;
+            document.getElementById('contenitore').style.filter = 'none';
+            
+            
+            //non inviare la form subito
+            event.preventDefault(); 
+            location.reload();
+        }, 1500)
+    }
+    
+
+
+
+    //PER INVIARE LA FORM CON MODIFICHE
+    else if( operation == 'submit'){
+        
+        //non inviare la form subito
+        event.preventDefault();
+        
+        
+        //controllo se campi non sono vuoti
+        if (fieldVoid()){
+            //chiusura finestra
+            closeWindow(buttonX, form, box, titolo, operation);
+            
+            setTimeout(function(){
+                box.style.opacity = 0;
+                document.getElementById('contenitore').style.filter = 'none';
+                
+                //inviare la form subito
+                form.submit();
+            }, 1500)
+        }
+            
+
+        
+    }
+
+}
+
+
+
+
+//#####################################################################################
+//##################         FUNZIONE PER CHIUDERE FINESTRA        ####################
+//#####################################################################################
+
+function closeWindow(buttonX, form, box, titolo, operation){
+	
+    buttonX.style.scale = '0';
+
+        //cambiare dimensioni form
+        form.style.opacity = '0';
+
+        setTimeout(function(){
+            box.style.padding = '2%'
+            box.style.bottom = '50%'
+            box.style.height = '0';
+            box.style.width = '0';
+            titolo.style.fontSize = '0px';
+            box.style.filter = 'none';
+
+        },400)
+  
+        
+        //mostrare iconcina faccina
+        setTimeout(function(){
+
+            //per fare in modo che clicchi una sola volta
+            if(!clicked){
+                var iconaOK = document.createElement('img');
+    
+                if (operation == 'annull'){
+                    iconaOK.src = "./Icon/noWink_WHITE.png"
+                } 
+                else {
+                    iconaOK.src = "./Icon/Wink_WHITE.png"
+                }
+                iconaOK.style.display = 'absolute';
+                iconaOK.style.height = '100px'
+                iconaOK.style.top = '0'
+    
+                box.appendChild(iconaOK);
+                
+                clicked = true;
+            }
+        },700)
+}
+
+
+
+
+
+
+//#####################################################################################
+//#################         FUNZIONE CONTROLLA SE CAMPI VUOTI        ##################
+//#####################################################################################
+
+function fieldVoid(){
+    var via = document.getElementById('via');
+    var paese = document.getElementById('paese');
+    var provincia = document.getElementById('provincia');
+    var cap = document.getElementById('cap');
+
+    if(via.value != '' && paese.value != '' && provincia.value != '' && cap.valid != ''){
+        return true;
+    }
+}
+
+
+
+
+
+
+//#####################################################################################
+//#####################         CONTROLLO CAMPI INDIRIZZO        ######################
+//#####################################################################################
+
+function controllAddressField (field) {
+
+    var via = document.getElementById('via');
+    var paese = document.getElementById('paese');
+    var provincia = document.getElementById('provincia');
+    var cap = document.getElementById('cap');
+
+
+    //via
+    if (field == 0){
+    }
+
+    //paese
+    else if(field == 1){
+        if ( (/[0-9!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(paese.value))){   
+            paese.value = paese.value.substring(0,paese.value.length-1);
+        }
+    }
+
+    //provincia
+    else if (field == 2){
+        if ( (/[^a-zA-Z]/.test(provincia.value))){   
+            provincia.value = provincia.value.substring(0,provincia.value.length-1);
+        }
+
+        provincia.value = provincia.value.toUpperCase();
+    }
+
+    //cap
+    else if (field == 3){
+        if ( (/[^0-9]/.test(cap.value))){   
+            cap.value = cap.value.substring(0,cap.value.length-1);
+        }
+    }
+
+
+}
