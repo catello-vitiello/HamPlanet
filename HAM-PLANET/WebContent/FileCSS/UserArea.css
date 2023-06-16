@@ -286,6 +286,13 @@ body{
     height: 20px;
     width: auto;
     margin: 10px;
+    cursor: pointer;
+
+    transition: all .5s;
+}
+
+.IconPencil:hover{
+    scale: 1.2;
 }
 
 
@@ -791,7 +798,7 @@ body{
     height: 0;
     width: 0;
     position: absolute;
-    display: flex;
+    display: none;		/*mettere a flex*/
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -803,7 +810,7 @@ body{
     z-index: 10;
     transition: all .7s;
 
-    background-image: url("./img/backModify.png");
+    background-image: url("../img/backModify.png");
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 30px;
@@ -816,7 +823,7 @@ body{
 #modifyAddress form{
     height: 100%;
     width: 100%;
-    display: flex;
+    display: none;             /*mettere a flex*/
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -927,7 +934,7 @@ body{
     height: 0;
     width: 0;
     position: absolute;
-    display: flex;
+    display: none;             /*mettere a flex*/
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -939,7 +946,7 @@ body{
     z-index: 10;
     transition: all .7s;
 
-    background-image: url("./img/backModifyPass.png");
+    background-image: url("../img/backModifyPass.png");
     background-size: contain;
     background-repeat: no-repeat;
     border-radius: 30px;
@@ -1034,7 +1041,7 @@ body{
     top: 58%;
     border-radius: 10px;
     padding: 3%;
-    background-image: url("./img/"boxRequestV1.png");
+    background-image: url("../img/boxRequestV1.png");
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -1064,9 +1071,10 @@ body{
 .progress{
     height: 5%;
     width: 100%;
+    display: flex;
     background: #ddd;
     border-radius: 20px;
-    margin: 2%;
+    margin: 2% 0;
 }
 
 #progress-done{
@@ -1078,6 +1086,7 @@ body{
     place-items: center;
     box-shadow: 0 0 3px -5px #d0280e, 0 3px 150px #faa202;
     transition: width .5s ease;
+    
 }
 
 
@@ -1089,7 +1098,7 @@ body{
     height: 0;
     width: 0;
     position: absolute;
-    display: flex;
+    display: none;             /*mettere a flex*/
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -1101,7 +1110,7 @@ body{
     z-index: 10;
     transition: all .7s;
 
-    background-image: url("./img/backModifyAddress.png");
+    background-image: url("../img/backModifyAddress.png");
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 30px;
@@ -1121,6 +1130,13 @@ body{
     width: 100%;
 }
 
+#via, #paese{
+	text-transform: capitalize;
+}
+
+#provincia{
+	text-transform: uppercase;
+}
 
 #via, #paese, #provincia, #cap{
     text-align: center;

@@ -31,11 +31,11 @@ if (user == null) {
 
 	<!-- MODIFICARE NUMERO -->
 	<div id="modifyNumber">
-		<form id="formModifyNumber" action="">
+		<form id="formModifyNumber" method="post" action="">
 
 			<!-- BOTTONE PER CHIUDERE LA MODIFICA -->
 			<img id="annullOperation_0" onclick="resizeWindow(event, 'annull')"
-				src="./Icon/X_V2.png" alt="">
+				src="./Icon/x_V2.png" alt="">
 
 			<!-- TITOLO -->
 			<p id="titleModify0">Inserisci il nuovo numero</p>
@@ -50,18 +50,18 @@ if (user == null) {
 
 			<!-- BOTTONE INVIO -->
 			<button id="buttonInvio_0" class="buttonSubmitModify"
-				onclick="resizeWindow(event, 'finish')" type="submit">Invio</button>
+				onclick="resizeWindow(event, 'submit')" type="submit">Invio</button>
 
 		</form>
 	</div>
 
 	<!-- MODIFICARE PASSWORD -->
 	<div id="modifyPass">
-		<form id="formModifyPass" action="">
+		<form id="formModifyPass" method="post" action="">
 
 			<!-- BOTTONE PER CHIUDERE LA MODIFICA -->
 			<img id="annullOperation_1" onclick="resizeWindow(event, 'annull')"
-				src="./Icon/X_V2.png" alt="">
+				src="./Icon/x_V2.png" alt="">
 
 			<!-- TITOLO -->
 			<p id="titleModify1">Modifica Password</p>
@@ -129,7 +129,7 @@ if (user == null) {
 			<!-- BOTTONE PER CHIUDERE LA MODIFICA -->
 			<img id="annullOperation_2"
 				onclick="submitModifyAddress(event, 'annull')"
-				src="./Icon/X_V2.png" alt="">
+				src="./Icon/x_V2.png" alt="">
 
 			<!-- TITOLO -->
 			<p id="titleModify2">Modifica Indirizzo</p>
@@ -275,7 +275,7 @@ if (user == null) {
 						</div>
 
 						<!--Icona Matita-->
-						<img class="IconPencil" onclick="changeValue()"
+						<img id="matita0" class="IconPencil" onclick="changeValue(0)"
 							src="./Icon/pencil.png" alt="Modify">
 					</div>
 
@@ -354,7 +354,7 @@ if (user == null) {
 						</div>
 
 						<!--Icona Matita-->
-						<img class="IconPencil" onclick="changeValue()"
+						<img id="matita1" class="IconPencil" onclick="changeValue(1)"
 							src="./Icon/pencil.png" alt="Modify">
 					</div>
 
@@ -399,7 +399,7 @@ if (user == null) {
 						</div>
 
 						<!--Icona Matita-->
-						<img class="IconPencil" onclick="changeValue()"
+						<img id="matita2" class="IconPencil" onclick="changeValue(2)"
 							src="./Icon/pencil.png" alt="Modify">
 					</div>
 
