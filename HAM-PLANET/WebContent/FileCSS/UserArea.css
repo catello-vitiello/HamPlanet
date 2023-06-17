@@ -1045,6 +1045,8 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     
+    transition: all .5s;
+    
     scale: 0;
 }
 

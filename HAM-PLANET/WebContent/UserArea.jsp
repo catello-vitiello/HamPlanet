@@ -34,7 +34,7 @@ if (user == null) {
 		<form id="formModifyNumber" method="post" action="">
 
 			<!-- BOTTONE PER CHIUDERE LA MODIFICA -->
-			<img id="annullOperation_0" onclick="resizeWindow(event, 'annull')"
+			<img id="annullOperation_0" onclick="resizeWindow(event, 0, 'annul')"
 				src="./Icon/x_V2.png" alt="">
 
 			<!-- TITOLO -->
@@ -50,7 +50,7 @@ if (user == null) {
 
 			<!-- BOTTONE INVIO -->
 			<button id="buttonInvio_0" class="buttonSubmitModify"
-				onclick="resizeWindow(event, 'submit')" type="submit">Invio</button>
+				onclick="resizeWindow(event, 0, 'submit')" type="submit">Invio</button>
 
 		</form>
 	</div>
@@ -60,7 +60,7 @@ if (user == null) {
 		<form id="formModifyPass" method="post" action="">
 
 			<!-- BOTTONE PER CHIUDERE LA MODIFICA -->
-			<img id="annullOperation_1" onclick="resizeWindow(event, 'annull')"
+			<img id="annullOperation_1" onclick="resizeWindow(event, 1, 'annul')"
 				src="./Icon/x_V2.png" alt="">
 
 			<!-- TITOLO -->
@@ -116,7 +116,7 @@ if (user == null) {
 
 			<!-- BOTTONE INVIO -->
 			<button id="buttonInvio_1" class="buttonSubmitModify"
-				onclick="resizeWindow(event, 'finish')" type="submit">Invio</button>
+				onclick="resizeWindow(event, 1, 'submit')" type="submit">Invio</button>
 
 		</form>
 	</div>
@@ -128,7 +128,7 @@ if (user == null) {
 
 			<!-- BOTTONE PER CHIUDERE LA MODIFICA -->
 			<img id="annullOperation_2"
-				onclick="submitModifyAddress(event, 'annull')"
+				onclick="submitModifyAddress(event, 'annul')"
 				src="./Icon/x_V2.png" alt="">
 
 			<!-- TITOLO -->

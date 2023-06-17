@@ -842,52 +842,52 @@ function showPwd(num){
 //#####################         RIMPICCIOLIRE LA FINESTRA        ######################
 //#####################################################################################
 var clicked = false;
-function resizeWindow(event, value){
+function resizeWindow(event, countBOX, operation) {
 
     //controllo se è finstra modifica numero
-    if (event.target.id.substring(event.target.id.length -1, event.target.id.length) == 0){
-        
+    if (countBOX == 0) {
+
         //contenitore
         var box = document.getElementById('modifyNumber');
-        
+
         //form
         var form = document.getElementById('formModifyNumber');
-        
+
         //bottone x
         var buttonX = document.getElementById('annullOperation_0');
-        
+
         //titolo
         var titolo = document.getElementById('titleModify0');
     }
 
     //controllo se è finestra modifica password
-    else if ( event.target.id.substring(event.target.id.length -1, event.target.id.length) == 1 ){
-        
+    else if (countBOX == 1) {
+
         //contenitore
         var box = document.getElementById('modifyPass');
-        
+
         //form
         var form = document.getElementById('formModifyPass');
-        
+
         //bottone x
         var buttonX = document.getElementById('annullOperation_1');
-        
+
         //titolo
         var titolo = document.getElementById('titleModify1');
     }
 
 
     //controllo se è finestra modifica indirizzo
-    else if (event.target.id.substring(event.target.id.length -1, event.target.id.length) == 2){
+    else if (countBOX == 2) {
         //contenitore
         var box = document.getElementById('modifyAddress');
-        
+
         //form
         var form = document.getElementById('formModifyAddress');
-        
+
         //bottone x
         var buttonX = document.getElementById('annullOperation_2');
-        
+
         //titolo
         var titolo = document.getElementById('titleModify2');
     }
@@ -895,165 +895,126 @@ function resizeWindow(event, value){
 
 
 
-    //non inviare la form subito
-    event.preventDefault(); 
+    //non inviare la form subito 
+    event.preventDefault();
 
 
-    if (campo_valid == true || value == 'annull'){
-	
-        if(event.target.id == 'buttonInvio_1')
+    //QUANDO PREMO BOTTONE X
+    if (operation == 'annul') {
 
+        closeWindow(buttonX, form, box, titolo, operation);
 
-        buttonX.style.scale = '0';
-
-        //cambiare dimensioni form
-        form.style.opacity = '0';
-
-        setTimeout(function(){
-            box.style.padding = '2%'
-            box.style.bottom = '50%'
-            box.style.height = '0';
-            box.style.width = '0';
-            titolo.style.fontSize = '0px';
-            box.style.filter = 'none';
-
-        },400)
-  
-        
-        //mostrare iconcina faccina
-        setTimeout(function(){
-
-            //per fare in modo che clicchi una sola volta
-            if(!clicked){
-                var iconaOK = document.createElement('img');
-    
-                if (value == 'annull'){
-                    iconaOK.src = "./Icon/noWink_WHITE.png"
-                } 
-                else {
-                    iconaOK.src = "./Icon/wink_WHITE.png"
-                }
-                iconaOK.style.display = 'absolute';
-                iconaOK.style.height = '100px'
-                iconaOK.style.top = '0'
-    
-                box.appendChild(iconaOK);
-                
-                clicked = true;
-            }
-        },700)
-        
-    }
-
-    
-    if (campo_valid == true){
-	
-	
-	
-	  closeWindow(buttonX, form, box, titolo, value);
-
-        //inviare la form dopo 500ms
-        setTimeout(function(){
-
-            //invia form
-            form.submit();
+        setTimeout(function () {
+            location.reload();
         }, 2000)
-        
     }
 
-    else if (campo_valid == false){
 
-        var pass0 = document.getElementById('pass0');
-        var pass1 = document.getElementById('pass1');
-        var pass2 = document.getElementById('pass2');
 
-        var mess0 = document.getElementById('mess0');
-        var mess1 = document.getElementById('mess1');
-        var mess2 = document.getElementById('mess2');
 
-        
-        
-        
-        //vede se uno dei campi è vuoto
-        if (pass0.value == '' || pass1.value == '' || pass2.value == ''){
-            if (pass0.value == ''){
-                mess0.style.scale = 1;
-                mess0.style.transform = 'translateY(150%)';
-                mess0.innerHTML = 'Inserire Password';
-                setTimeout(function(){mess0.style.scale = 0;}, 1500)
+
+    //QUANDO PREMO BOTTONE INVIO
+    else if (operation == 'submit') {
+
+        //SE CAMPI GIUSTI
+        if (campo_valid == true) {
+
+            closeWindow(buttonX, form, box, titolo, operation);
+
+            //inviare la form dopo 500ms
+            setTimeout(function () {
+
+                //invia form
+                form.submit();
+            }, 2000)
+
+        }
+
+        //SE CAMPI SBAGLIATI
+        else if (campo_valid == false) {
+
+            if (countBOX == 0) {
+                //---------------------------------------------------------add messaggi se campi vuoti
             }
 
-            if (pass1.value == ''){
+            else if (countBOX == 1) {
+
+
+                var pass0 = document.getElementById('pass0');
+                var pass1 = document.getElementById('pass1');
+                var pass2 = document.getElementById('pass2');
+                var mess0 = document.getElementById('mess0');
+                var mess1 = document.getElementById('mess1');
+                var mess2 = document.getElementById('mess2');
+
+
+
+                //vede se uno dei campi è vuoto
+                if (pass0.value == '' || pass1.value == '' || pass2.value == '') {
+                    if (pass0.value == '') {
+                        mess0.style.scale = 1;
+                        mess0.style.transform = 'translateY(150%)';
+                        mess0.innerHTML = 'Inserire Password';
+                        setTimeout(function () { mess0.style.scale = 0; }, 1500)
+                    }
+                    if (pass1.value == '') {
+                        document.getElementById('ToDoList').style.scale = 0;
+                        document.getElementById('ToDoList').style.transform = 'translateY(0)'
+                        mess1.style.scale = 1;
+                        mess1.style.transform = 'translateY(150%)';
+                        mess1.innerHTML = 'Inserire Password';
+                        setTimeout(function () { mess1.style.scale = 0; }, 1500)
+                    }
+                    if (pass2.value == '') {
+                        mess2.style.scale = 1;
+                        mess2.style.transform = 'translateY(150%)';
+                        mess2.innerHTML = 'Inserire Password';
+                        setTimeout(function () { mess2.style.scale = 0; }, 1500)
+                    }
+                }
                 
-                document.getElementById('ToDoList').style.scale = 0;
-                document.getElementById('ToDoList').style.transform = 'translateY(0)'
+                //se password vecchia corrisponde con quella originale
+                else if (false) {
+                    //----------------------------------------------------> aggiungere controllo sulla vecchia password dal DB
+                    mess0.style.scale = 1;
+                    mess0.style.transform = 'translateY(150%)';
+                    mess0.innerHTML = 'Password sbagliata';
+                    setTimeout(function () { mess0.style.scale = 0; }, 1500)
+                }
 
-                mess1.style.scale = 1;
-                mess1.style.transform = 'translateY(150%)';
-                mess1.innerHTML = 'Inserire Password';
-                setTimeout(function(){mess1.style.scale = 0;}, 1500)
+                //se password non rispetta valori
+                else if (requiredPoint < 100) {
+                    mess1.style.scale = 1;
+                    mess1.style.transform = 'translateY(150%)';
+                    mess1.innerHTML = 'Password non valida';
+                    setTimeout(function () { mess1.style.scale = 0; }, 1500)
+                }
+
+                //password diverse
+                if (pass1.value != pass2.value) {
+                    //effetto vibrazione
+                    pass1.style.transform = 'translateX(-4%)'; pass2.style.transform = 'translateX(-4%)';
+                    setTimeout(function () { pass1.style.transform = 'translateX(4%)'; pass2.style.transform = 'translateX(4%)' }, 100)
+                    setTimeout(function () { pass1.style.transform = 'translateX(-4%)'; pass2.style.transform = 'translateX(-4%)' }, 200)
+                    setTimeout(function () { pass1.style.transform = 'translateX(4%)'; pass2.style.transform = 'translateX(4%)' }, 300)
+                    setTimeout(function () { pass1.style.transform = 'translateX(0%)'; pass2.style.transform = 'translateX(0%)' }, 400)
+                    //messaggio popup
+                    mess2.style.scale = 1;
+                    mess2.style.transform = 'translateY(150%)'
+                    mess2.innerHTML = 'La password non corrisponde';
+                    setTimeout(function () { mess2.style.scale = 0 }, 1500)
+                }
             }
 
-            if (pass2.value == ''){
-                mess2.style.scale = 1;
-                mess2.style.transform = 'translateY(150%)';
-                mess2.innerHTML = 'Inserire Password';
-                setTimeout(function(){mess2.style.scale = 0;}, 1500)
+
+            else if (countBOX == 2) {
+                //---------------------------------------------------- add messaggi se campi vuoti
             }
         }
-
-
-
-        //se password vecchia corrisponde con quella originale
-        else if (false){
-            
-            //----------------------------------------------------> aggiungere controllo sulla vecchia password dal DB
-            
-            mess0.style.scale = 1;
-            mess0.style.transform = 'translateY(150%)';
-            mess0.innerHTML = 'Password sbagliata';
-            setTimeout(function(){mess0.style.scale = 0;}, 1500)
-        }
-
-
-
-        //se password non rispetta valori
-        else if (requiredPoint < 100){
-            mess1.style.scale = 1;
-            mess1.style.transform = 'translateY(150%)';
-            mess1.innerHTML = 'Password non valida';
-            setTimeout(function(){mess1.style.scale = 0;}, 1500)
-        }
-
-        //password diverse
-        if (pass1.value != pass2.value){
-
-            //effetto vibrazione
-            pass1.style.transform = 'translateX(-4%)'; pass2.style.transform = 'translateX(-4%)';
-            setTimeout(function(){ pass1.style.transform = 'translateX(4%)'; pass2.style.transform = 'translateX(4%)' },100)
-            setTimeout(function(){ pass1.style.transform = 'translateX(-4%)'; pass2.style.transform = 'translateX(-4%)' },200)
-            setTimeout(function(){ pass1.style.transform = 'translateX(4%)'; pass2.style.transform = 'translateX(4%)' },300)
-            setTimeout(function(){ pass1.style.transform = 'translateX(0%)'; pass2.style.transform = 'translateX(0%)' },400)
-            
-            //messaggio popup
-            mess2.style.scale = 1;
-            mess2.style.transform = 'translateY(150%)'
-            mess2.innerHTML = 'La password non corrisponde';
-            
-
-            setTimeout(function(){mess2.style.scale = 0}, 1500)
-        }
-
-
-		if(value == 'annull'){
-			setTimeout(function(){
-            	location.reload();
-        	}, 2000)	
-		}
     }
-
 
 }
+
 
 
 
@@ -1079,7 +1040,7 @@ function submitModifyAddress (event, operation) {
     
     
     //PER ANNULLARE LA FORM
-    if (operation == 'annull'){
+    if (operation == 'annul'){
         closeWindow(buttonX, form, box, titolo, operation);
         
         setTimeout(function(){
@@ -1142,8 +1103,8 @@ function closeWindow(buttonX, form, box, titolo, operation){
             box.style.bottom = '50%'
             box.style.height = '0';
             box.style.width = '0';
-            titolo.style.fontSize = '0px';
             box.style.filter = 'none';
+            titolo.style.fontSize = '0px';
 
         },400)
   
@@ -1155,11 +1116,11 @@ function closeWindow(buttonX, form, box, titolo, operation){
             if(!clicked){
                 var iconaOK = document.createElement('img');
     
-                if (operation == 'annull'){
+                if (operation == 'annul'){
                     iconaOK.src = "./Icon/noWink_WHITE.png"
                 } 
                 else {
-                    iconaOK.src = "./Icon/Wink_WHITE.png"
+                    iconaOK.src = "./Icon/wink_WHITE.png"
                 }
                 iconaOK.style.display = 'absolute';
                 iconaOK.style.height = '100px'
