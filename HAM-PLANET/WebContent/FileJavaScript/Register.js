@@ -415,7 +415,7 @@ function controlDay(){
     }
 
     //controllo se giorno max si trova con mese
-    if (month.value.toString(02) && day.value>28){
+    if (month.value == 02 && day.value>28){
         day.value = 28;
     }else if ( ((month.value == 04) || (month.value ==06) || (month.value ==09) || (month.value ==11)) && day.value>30){
         day.value = 30;
@@ -448,7 +448,7 @@ function controlMonth(){
     //controllo se giorno max si trova con mese
     if (month.value == 2 && day.value != ''){
         day.value = 28;
-    }else if ( ((month.value == 04) || (month.value ==06) || (month.value ==09) || (month.value ==11)) && day.value>30){
+    }else if ( ((month.value == 04) || (month.value == 06) || (month.value == 09) || (month.value == 11)) && day.value>30){
         day.value = 30;
     }else if (day.value>31) {
         day.value = 31;
