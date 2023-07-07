@@ -192,80 +192,93 @@ function createCardDinamic(){
 //#################################################################################################################
 //##########################         AGGIUNGERE UNA CARTA NUOVA DINAMICAMENTE        ##############################
 //#################################################################################################################
-	var i=1
 
-function addCard(oggetto){
-	
-	
-    //recupera il riferimento all'elemento genitore
-    var boxCarte = document.getElementById("contenitoreCarte");
+var i=1;
+var conferma = false;
 
-    //creazione carta
-        var card = document.createElement('div'); 
-        card.className = 'card'; 
-        card.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) + 1);
-        
-        //icona per rimuovere
-        var icon = document.createElement('img'); 
-        icon.className = 'iconRemoveCard'; 
-        icon.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) +1) +'_remove'; 
-        icon.onclick = function() {confermaEliminazione(this)}; 
-        icon.src = "./Icon/removeX_RED.png";
-        
-        //contenitore content
-        var content = document.createElement('div'); 
-        content.className = 'content';
-        
-        //numero della carta
-        var numberCard = document.createElement('p'); 
-        numberCard.className = 'numberCard'; 
-        numberCard.innerHTML = '****  ****  ****  777' + i++;            //prendere dal db
-        
-        //contenitore scritte
-        var NameExpiration = document.createElement('div'); 
-        NameExpiration.className = 'NameExpiration';
-        
-        //scritta mese/anno
-        var monthyear = document.createElement('p'); 
-        monthyear.className = 'monthyear'; 
-        monthyear.innerHTML = 'MESE/ANNO';
-        
-        //rigo
-        var row = document.createElement('div'); 
-        row.className = 'row';
-        
-        //proprietario
-        var owner = document.createElement('p'); 
-        owner.className = 'owner'; 
-        owner.innerHTML = 'VITIELLO CATELLO'                        //prendere dal db
-        
-        //scritta VALID THRU
-        var valid = document.createElement('p'); 
-        valid.className = 'valid'; 
-        valid.innerHTML = 'VALID'+'<br>'+ 'THRU';
-        
-        //scadena
-        var expiration = document.createElement('p');
-        expiration.className = 'expiration'; 
-        expiration.innerHTML = '19/12';                         //prendere dal db
+function addCard(){
+
+    var boxNewCard = document.getElementById('boxNewCard');
+    
+    //effetto blur sfondo    
+    document.getElementById('contenitore').style.pointerEvents = 'none';
+    document.getElementById('contenitore').style.filter = 'blur(10px)';
+    
+    //far comparire la form
+    boxNewCard.style.transform = 'scale(1) translateY(0)'
+    boxNewCard.style.bottom = '5%'; 
 
 
-        row.appendChild(owner), row.appendChild(valid), row.appendChild(expiration);
-        NameExpiration.appendChild(monthyear); NameExpiration.appendChild(row);
-        content.appendChild(numberCard); content.appendChild(NameExpiration);
-        card.appendChild(icon); card.appendChild(content);
+    if (conferma == true){
 
-
-
-
-	    //aggiungi l'elemento all'elemento genitore 
-    	boxCarte.insertBefore(card, boxCarte.childNodes[boxCarte.childNodes.length - 1]);
+        //recupera il riferimento all'elemento genitore
+        var boxCarte = document.getElementById("contenitoreCarte");
+    
+        //creazione carta
+            var card = document.createElement('div'); 
+            card.className = 'card'; 
+            card.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) + 1);
+            
+            //icona per rimuovere
+            var icon = document.createElement('img'); 
+            icon.className = 'iconRemoveCard'; 
+            icon.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) +1) +'_remove'; 
+            icon.onclick = function() {confermaEliminazione(this)}; 
+            icon.src = "../Icon/X_V1.png";
+            
+            //contenitore content
+            var content = document.createElement('div'); 
+            content.className = 'content';
+            
+            //numero della carta
+            var numberCard = document.createElement('p'); 
+            numberCard.className = 'numberCard'; 
+            numberCard.innerHTML = document.getElementById('newNumber').value           //prendere dal db
+            
+            //contenitore scritte
+            var NameExpiration = document.createElement('div'); 
+            NameExpiration.className = 'NameExpiration';
+            
+            //scritta mese/anno
+            var monthyear = document.createElement('p'); 
+            monthyear.className = 'monthyear'; 
+            monthyear.innerHTML = 'MESE/ANNO';
+            
+            //rigo
+            var row = document.createElement('div'); 
+            row.className = 'row';
+            
+            //proprietario
+            var owner = document.createElement('p'); 
+            owner.className = 'owner'; 
+            owner.innerHTML = document.getElementById('newOwner')                        //prendere dal db
+            
+            //scritta VALID THRU
+            var valid = document.createElement('p'); 
+            valid.className = 'valid'; 
+            valid.innerHTML = 'VALID'+'<br>'+ 'THRU';
+            
+            //scadena
+            var expiration = document.createElement('p');
+            expiration.className = 'expiration'; 
+            expiration.innerHTML = document.getElementById('newExpiration').value                       //prendere dal db
     
     
-	    // Incrementare il contatore delle carte
-    	document.getElementById('CarteSalvate').innerHTML = parseInt(document.getElementById('CarteSalvate').textContent) + 1; 
-
-
+            row.appendChild(owner), row.appendChild(valid), row.appendChild(expiration);
+            NameExpiration.appendChild(monthyear); NameExpiration.appendChild(row);
+            content.appendChild(numberCard); content.appendChild(NameExpiration);
+            card.appendChild(icon); card.appendChild(content);
+    
+    
+    
+    
+            //aggiungi l'elemento all'elemento genitore 
+            boxCarte.insertBefore(card, boxCarte.childNodes[boxCarte.childNodes.length - 3]);
+        
+        
+            // Incrementare il contatore delle carte
+            document.getElementById('CarteSalvate').innerHTML = parseInt(document.getElementById('CarteSalvate').textContent) + 1; 
+    }
 }
 
 
@@ -1199,3 +1212,250 @@ function controllAddressField (field) {
 
 
 }
+
+
+
+
+
+
+//#####################################################################################
+//#####################         FA GIRARE LA CARTA        ######################
+//#####################################################################################
+function changeFront(value){
+
+    var frontCard = document.getElementById('frontCard');
+    var backCard = document.getElementById('backCard');
+
+    if (value == 0){
+        frontCard.style.transform = 'perspective(900px) rotateY(0deg)';
+        backCard.style.transform = 'perspective(900px) rotateY(180deg)';
+    }
+
+    else if (value == 1){
+
+        frontCard.style.transform = 'perspective(900px) rotateY(180deg)';
+        backCard.style.transform = 'perspective(900px) rotateY(360deg)';
+    }
+
+}
+
+
+
+
+//#####################################################################################
+//#####################         AGGIUNGERE TESTO ALLA CARTA        ######################
+//#####################################################################################
+function addTextToCard(mod){
+
+    //aggiungere numero
+    if (mod == 0){
+        var inputNewNumber = document.getElementById('inputNewNumber');
+        var newNumber = document.getElementById('newNumber');
+
+
+        //controllo che permette di inserire solo numeri
+        if ((/[a-zA-Z!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(inputNewNumber.value))) {
+            inputNewNumber.value = inputNewNumber.value.substring(0, inputNewNumber.value.length - 1);
+        }
+
+        if (inputNewNumber.value.length == 0 ){
+            newNumber.innerHTML = '&nbsp;'; 
+        }
+
+        else if (inputNewNumber.value.length < 5){
+            newNumber.innerHTML = inputNewNumber.value
+        }
+        
+        else if (inputNewNumber.value.length < 9){
+            newNumber.innerHTML = inputNewNumber.value.substring(0,4) + '&nbsp;' + '*'.repeat(inputNewNumber.value.length - 4);
+        }
+
+        else if (inputNewNumber.value.length < 13){
+            newNumber.innerHTML = inputNewNumber.value.substring(0,4) + '&nbsp;' + '****' + '&nbsp;' +'*'.repeat(inputNewNumber.value.length - 8);
+        }
+
+        else {
+            newNumber.innerHTML = inputNewNumber.value.substring(0,4) + '&nbsp;' + '****' + '&nbsp;' + '****' + '&nbsp;' + inputNewNumber.value.substring(12, 16);
+        }
+    }
+
+
+    //aggiungere nome proprietario
+    else if (mod == 1){
+        var inputNewOwner = document.getElementById('inputNewOwner');
+        var newOwner = document.getElementById('newOwner');
+
+
+        
+        if (inputNewOwner.value.length == 0 ){
+            newOwner.innerHTML = '&nbsp;'; 
+        }
+
+        else {
+            if ((/[0-9!@#$%^&*()_+\-=[\]{};:"\\|,.<>/?]/.test(inputNewOwner.value))) {
+                inputNewOwner.value = inputNewOwner.value.substring(0, inputNewOwner.value.length - 1);
+            }
+            newOwner.innerHTML = inputNewOwner.value.toUpperCase();
+        } 
+    }
+
+
+    //aggiungere mese
+    else if (mod == 2){
+        var inputNewMonth = document.getElementById('inputNewMonth');
+        var inputNewYear = document.getElementById('inputNewYear');
+        var newExpiration = document.getElementById('newExpiration');
+
+
+        //controllo che permette di inserire solo numeri
+        if ((/[a-zA-Z!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(inputNewMonth.value))) {
+            inputNewMonth.value = inputNewMonth.value.substring(0, inputNewMonth.value.length - 1);
+        }
+        
+
+        if (inputNewMonth.value.length == 0 && inputNewYear.value.length == 0){
+            newExpiration.innerHTML = '&nbsp;'; 
+        }
+
+        else {
+            if(parseInt(inputNewMonth.value) > 12){
+                inputNewMonth.value = '12';
+                newExpiration.innerHTML = '12' + '/' + inputNewYear.value;
+            }
+            else{
+                newExpiration.innerHTML = inputNewMonth.value + '/' + inputNewYear.value;
+            }
+        } 
+    }
+
+
+    //aggiungere anno
+    else if (mod == 3){
+        var inputNewMonth = document.getElementById('inputNewMonth');
+        var inputNewYear = document.getElementById('inputNewYear');
+        var newExpiration = document.getElementById('newExpiration');
+
+        
+        //controllo che permette di inserire solo numeri
+        if ((/[a-zA-Z!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(inputNewYear.value))) {
+            inputNewYear.value = inputNewYear.value.substring(0, inputNewYear.value.length - 1);
+        }
+
+        if (inputNewMonth.value.length == 0 && inputNewYear.value.length == 0){
+            newExpiration.innerHTML = '&nbsp;'; 
+        }
+
+        else{
+            
+            newExpiration.innerHTML = inputNewMonth.value + '/' + inputNewYear.value
+        }    
+
+    }
+
+
+
+    //aggiungere CVV
+    else if (mod == 4){
+        var inputNewCvv = document.getElementById('inputNewCvv');
+        var newCVV = document.getElementById('newCVV');
+
+        if ((/[a-zA-Z!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/.test(inputNewCvv.value))) {
+            inputNewCvv.value = inputNewCvv.value.substring(0, inputNewCvv.value.length - 1);
+        }
+
+        newCVV.innerHTML = '*'.repeat(inputNewCvv.value.length);
+    }
+
+}
+
+
+
+
+
+//#####################################################################################
+//#####################         CHIUDERE LA FINESTRA DELLE MODIFICHE        ######################
+//#####################################################################################
+function closeWindowCard (event, operation){
+
+    event.preventDefault();
+    
+    //contenitore
+    var box = document.getElementById('boxNewCard');
+
+    //form
+    var form = document.getElementById('formNewCard');
+
+    //bottone x
+    var buttonX = document.getElementById('annullOperation_3');
+
+    //contenitore card
+    var cardBox = document.getElementById("cardMod");
+
+    //contenitore testo della card
+    var textBox = document.getElementById("contentNewCard");
+
+
+
+    //PER ANNULLARE LA FORM
+    if (operation == 'annul') {
+        
+        closeCard(buttonX, form, cardBox, box, textBox);
+
+        setTimeout(function () {
+            box.style.opacity = 0;
+            document.getElementById('contenitore').style.filter = 'none';
+
+
+            //non inviare la form subito
+            event.preventDefault();
+            location.reload();
+        }, 1500)
+    }
+    
+    
+    
+    
+    //PER INVIARE LA FORM CON MODIFICHE
+    else if (operation == 'submit') {
+        
+        
+        document.getElementById('contenitore').style.filter = 'blur(10px)';
+        
+        //far comparire la form
+        box.style.transform = 'scale(1) translateY(0)'
+        box.style.bottom = '5%'; 
+
+        closeCard(buttonX, form, cardBox, box, textBox);
+        
+
+        setTimeout(function(){
+            
+            var frm = document.getElementById("formForCard");
+            frm.submit();
+        }, 1000)
+
+    }
+}
+
+
+
+/**######################    FUNZIONE CHIUSURA CARTA    ####################### */
+function closeCard(buttonX, form, cardBox, box, textBox){
+    buttonX.style.scale = '0';
+
+    //cambiare dimensioni form
+    form.style.scale = '0';
+
+    setTimeout(function () {
+
+        cardBox.style.scale = '0';
+        textBox.style.opacity = '0';
+        
+
+    }, 400)
+
+
+    
+}
+
+

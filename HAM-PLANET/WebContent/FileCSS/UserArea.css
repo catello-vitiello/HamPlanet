@@ -11,6 +11,7 @@
     margin: 0;
 	padding: 0;
     font-family: 'Poppins';
+    transition: all .4s;
 }
 
 /*#########################   BODY   #########################*/
@@ -22,7 +23,6 @@ body{
     justify-content: center;
     width: 100vw;
     height: 100vh;
-
 
     overflow: hidden;
 }
@@ -36,7 +36,7 @@ body{
     display: flex;
     position: relative;
 
-
+    transition: filter .5s;
 }
 
 
@@ -170,7 +170,6 @@ body{
     overflow-y: auto;
 
     
-
     background: #cccccc56;
 
 
@@ -588,6 +587,8 @@ body{
     z-index: 4;
 }
 
+
+
 /*#########################   INDIRIZZI   #########################*/
 #three{
     display: none;
@@ -750,7 +751,6 @@ body{
     color: white;
     text-align: center;
 }
-
 
 
 
@@ -928,6 +928,24 @@ body{
 }
 
 
+#annullOperation_3{
+    height: 6%;
+    width: auto;
+
+    position: absolute;
+
+    top: 3.5%;
+    right: -10%;
+
+    
+    transition: all .5s ease, rotate 1s;
+
+    cursor: pointer;
+    z-index: 11;
+}
+
+
+
 
 /*###############################   MODIFICA PASSWORD   ###############################*/
 #modifyPass{
@@ -1088,7 +1106,6 @@ body{
     place-items: center;
     box-shadow: 0 0 3px -5px #d0280e, 0 3px 150px #faa202;
     transition: width .5s ease;
-    
 }
 
 
@@ -1144,6 +1161,362 @@ body{
     text-align: center;
     padding: 0 5%;
 }
+
+
+
+
+
+
+
+/*###############################   FORM PER NUOVA CARTA   ###############################*/
+#boxNewCard{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 90%;
+    width: 33%;
+
+    transform-origin: bottom;
+
+    transform: scale(0) translateY(50%);
+
+    transition: all .6s;
+
+    z-index: 11;
+}
+
+#formNewCard{
+    height: 75%;
+    width: 100%;
+
+    background: rgba(255, 255, 255);
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 2px 2px 10px gray;
+
+    align-items: center;
+    justify-content: end;
+
+
+}
+
+/*dimensioni box carta*/
+#cardMod{
+    width: 90%;
+    height: 50%;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    transition: all 1s;
+}
+
+
+
+
+/*  REGOLE COMUNI FRONTE E RETRO*/
+#frontCard,#backCard{
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: perspective(800px) rotateY(0deg);
+    filter: drop-shadow(0px 12px 7px rgba(35, 100, 210, 0.3));
+    transition: 1s ease-in-out;   
+    cursor: pointer; 
+}
+
+
+/*  FRONT   */
+#frontCard{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+    background-image: url("../img/HamPlanetBankCard_RED_V2.png");  
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: contain;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+#contentNewCard{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+
+/*##################################  BACK  ###########################################‡‡*/
+#backCard{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+    background-image: url("../img/HamPlanetCardBack_RED.png");  
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: contain;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /*posizione iniziale*/
+    transform: perspective(800px) rotateY(180deg);
+}
+
+
+/*@@@ CONTENITORE CVV @@@*/
+.boxCVV{
+    height: 12%;
+    width: 18.5%;
+    display: flex;
+    position: absolute;
+    right: 0;
+    align-items: end;
+    justify-content: center;
+}
+
+.boxCVV p{
+    font-size: 100%;
+}
+
+/*@@@   NUMERO CARTA   @@@*/
+.rowNumber{
+    font-family: 'Monomaniac One', sans-serif;
+    width: 90%;
+    height: auto;
+    text-align: center;
+
+    font-size: 130%;
+    letter-spacing: 8px;
+
+    border-radius: 5px;
+    margin: 0 0 5%;
+}
+
+
+
+
+/*   RIGO   */
+.rowNC{
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+
+    margin: 0 0 10%;
+    
+}
+
+
+
+
+/*@@@   PROPRIETARIO   @@@*/
+.boxOwner{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 65%;
+    align-items: start;
+
+    
+    border-radius: 5px;
+}
+
+
+#newOwner{
+    height: 20%;
+    width: 100%;
+
+    text-align: start;
+}
+
+
+
+/*@@@   SCADENZA   @@@*/
+.boxExpiration{
+    height: auto;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+
+
+/*  TESTO  */
+
+#frontCard p{
+    font-family: 'Monomaniac One', sans-serif;
+    color: white;
+    font-weight: 500;
+}
+
+
+
+
+.rowNC label, 
+.rowNC p{
+    font-family: "Source Code Pro", monospace;
+    text-shadow: 7px 6px 10px rgba(14, 42, 90, 0.8);
+    transform: translateZ(50px);
+}
+
+
+.rowNC label{
+    font-size: 10px;
+    color: #ccbac5;
+    font-weight: 600;
+    
+}
+
+.rowNC p{
+    font-size: 80%;
+    color: white;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+
+
+/*DIMENSIONI FORM*/
+.frm{
+    height: 60%;
+    width: 90%;
+
+    margin: 0 0 5%;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+}
+
+/*contenitore campo*/
+.inputboxNumber{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    
+    margin: 2% 0;
+}
+
+/*campo input*/
+.inputboxNumber input{
+    height: 90%;
+    width: 100%;
+    font-size: 100%;
+    border: 2px solid rgba(128, 128, 128, 0.1);
+    background: none;
+    border-radius: 20px;
+    outline: none;
+    padding: 0 4%;
+}
+
+.inputboxNumber .textInputbox,
+.inputboxMAC .textInputbox{
+    position: absolute;
+    width: auto;
+    font-weight: 600;
+    pointer-events: none;
+    transition: all .3s linear;
+    animation-delay: 0ms;
+    background: white;
+    color: #7d1e11;
+    margin: 0 1%;
+    padding: 0 1%;
+    border-radius: 10px;
+}
+
+/*TESTO QUANDO INSERISCO INPUT O VALIDO*/
+.inputboxNumber input:focus ~ .textInputbox,
+.inputboxNumber input:valid ~ .textInputbox,
+.inputboxMAC input:focus ~ .textInputbox,
+.inputboxMAC input:valid ~ .textInputbox{
+    transform: translateY(-23px) translateX(2%) scale(0.8) ;
+}
+
+
+
+
+
+/*BOX OMBRA QUANDO INSERISCO*/
+.inputboxNumber input:focus,
+.inputboxMAC input:focus{
+    box-shadow: 0px 7px 10px rgba(14, 42, 90, 0.6);
+}
+
+
+.containerMAC{
+    height: 15%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2% 0;
+
+    justify-content: space-between;
+
+}
+
+
+.inputboxMAC{
+    flex-basis: 30%; /* Dividi larghezza in tre parti uguali */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.inputboxMAC input{
+    height: 90%;
+    width: 100%;
+    position: relative;
+    font-size: 100%;
+    border: 2px solid rgba(128, 128, 128, 0.1);
+    background: none;
+    border-radius: 20px;
+    outline: none;
+    text-align: center;
+}
+
+
+/*  BOTTONE AGGIUNTA CARTA  */
+#buttonAddCard{
+    color: black;
+    margin: 5% 0 0;
+    border: 2px solid rgba(128, 128, 128, 0.371);
+}
+
+#buttonAddCard:hover{
+    color: #d02d0e;
+    transform: scale(1.1);
+    border-color: #d02d0e;
+}
+
+
 
 
 

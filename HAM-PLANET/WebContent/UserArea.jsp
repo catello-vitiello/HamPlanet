@@ -173,6 +173,125 @@ if (user == null) {
 
 		</form>
 	</div>
+	
+	
+		<!--############################### AGGIUNTA CARTA ##############################-->
+    <div id="boxNewCard">
+
+        <!-- BOTTONE PER CHIUDERE LA MODIFICA -->
+        <img id="annullOperation_3" onclick="closeWindowCard(event, 'annul')" src="./Icon/x_V2.png" alt="">
+
+        <div id="cardMod">
+
+
+
+            <!-- FRONTE CARTA -->
+            <div id="frontCard">
+                <div id="contentNewCard">
+                    
+                    <!-- NUMERO CARTA -->
+                    <div class="rowNumber">
+                        <p id="newNumber">&nbsp;</p>
+                    </div>
+    
+    
+                    <div class="rowNC">
+    
+                        <!-- PROPRIETARIO -->
+                        <div class="boxOwner">
+                            <label for="">Card Holder</label>
+                            <p id="newOwner">&nbsp;</p>
+                        </div>
+    
+                        <!-- DATA SCADENZA -->
+                        <div class="boxExpiration">
+                            <label for="">Expires</label>
+                            <p id="newExpiration">&nbsp;</p>
+                        </div>
+    
+    
+                    </div>
+
+                </div>
+                
+            </div>
+
+            <!-- RETRO CARTA -->
+            <div id="backCard">
+
+                <!-- CVV -->
+                <div class="boxCVV">
+                    <p id="newCVV"></p>
+                </div>
+
+            </div>
+            
+        </div>
+        
+        <!-- INSERIMENTO CAMPI -->
+        <div id="formNewCard">
+
+             <form id="formForCard" class="frm" action="">
+
+                <!-- NUMERO CARTA -->
+                <div class="inputboxNumber">
+                    <input id="inputNewNumber" type="text" maxlength="16" oninput="addTextToCard(0)" required>
+                    <div class="textInputbox">
+                        <label class="labelCard" for="">Numero Carta</label>
+                    </div>
+                </div>
+
+                
+                <!-- PROPRIETARIO -->
+                <div class="inputboxNumber">
+                    <input id="inputNewOwner" type="text" maxlength="25" oninput="addTextToCard(1)" style="text-transform: capitalize;" required>
+                    <div class="textInputbox">
+                        <label class="labelCard" for="">Proprietario</label>
+                    </div>
+                </div>
+                
+                <!-- CONTENITORE RIGO -->
+                <div class="containerMAC">
+
+                    <!-- MESE -->
+                    <div class="inputboxMAC">
+                        <input id="inputNewMonth" type="text" maxlength="2" oninput="addTextToCard(2)" required>
+                        <div class="textInputbox">
+                            <label class="labelCard" for="">Mese</label>
+                        </div>
+                    </div>
+
+
+                    <!-- ANNO -->
+                    <div class="inputboxMAC">
+                        <input id="inputNewYear" type="text" maxlength="2" oninput="addTextToCard(3)" required>
+                        <div class="textInputbox">
+                            <label class="labelCard" for="">Anno</label>
+                        </div>
+                    </div>
+
+
+                    <!-- CVV -->
+                    <div class="inputboxMAC">
+                        <input id="inputNewCvv" type="text" maxlength="4" onfocus="changeFront(1)" onblur="changeFront(0)" oninput="addTextToCard(4)" required>
+                        <div class="textInputbox">
+                            <label class="labelCard" for="">CVV</label>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                 <!-- BOTTONE INVIO -->
+                <input id="buttonAddCard" class="buttonSubmitModify" onclick="closeWindowCard(event, 'submit')" type="submit" value="Aggiungi carta">
+           
+             </form>
+
+            
+        </div>
+
+    </div>
+	
 
 
 	<!--CONTENITORE-->
@@ -213,7 +332,6 @@ if (user == null) {
 				<button id="LogOut">Log out</button>
 			</div>
 		</div>
-
 
 
 
