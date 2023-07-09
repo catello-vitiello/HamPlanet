@@ -1,0 +1,290 @@
+@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css?family=Poppins');  /*FULL SITE*/
+
+
+*{
+    margin: 0;
+	padding: 0;
+    font-family: 'Poppins';
+    transition: all .4s;
+}
+
+/*#########################   BODY   #########################*/
+
+body{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    
+    overflow: hidden;
+}
+
+
+/*#########################   CONTENITORE   #########################*/
+.content{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*#########################   TITOLO - (parte sopra)   #########################*/
+.titleCart{
+    height: auto;
+    width: 92%;
+    display: flex;
+    align-items: end;
+    justify-content: start;
+}
+
+
+.cartTitle{
+    font-size: 170%;
+    font-weight: 600;
+}
+
+.prodTitle{
+    font-size: 80%;
+    margin: 0 0.5% 0.5%;
+}
+
+
+/*#########################   LINE   #########################*/
+.content hr{
+    width: 92%;
+    border: 2px solid #cecece;
+    border-radius: 2px;
+    margin: 1% 0 2%;
+}
+
+
+/*#########################   CONTENITORE PRODOTTI-RIEPILOGO   #########################*/
+.contentCart{
+    height: 90%;
+    width: 100%;
+    display: flex;
+}
+
+
+/*#########################   PRODOTTI - (SX)   #########################*/
+.boxProduct{
+    height: 100%;
+    width: 60%;
+    margin: 0 1% 0 4%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*@@@@@@   BARRA LATERALE SCORRIMENTO   @@@@@@*/
+.boxProduct::-webkit-scrollbar{
+    background: transparent;
+    width: 8px;
+}
+
+
+.boxProduct::-webkit-scrollbar-thumb{
+    background: yellow;
+    border-radius: 10px;
+}
+
+#cartEmpty{
+    position: absolute;
+    align-self: center;
+    top: 50%;
+    font-size: 120%;
+    font-weight: 800;
+    scale: 0;
+}
+
+
+/*@@@@@@   PRODOTTO   @@@@@@*/
+.item{
+    height: 21vh;
+    width: 99%;
+    margin: 0 0 3%;
+    display: flex;
+    
+    background: #fafaf5;
+    border: 2px solid #b6b6b6;
+    border-radius: 100px;
+}
+
+
+/*@@@@@@   IMAGE CONTENITORE   @@@@@@*/
+.img {
+    height: 100%;
+    width: 21vh;
+
+    background-image: url("D:\\Document\\catello\\HamPlanet\\Product\\prosciutto_crudo_01.jpg");
+    background-position: center;
+    background-size: cover;
+
+    border-radius: 100px 0 0 100px;
+}
+
+.itemContent{
+    height: 100%;
+    width: calc(100% - 21vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-radius:  0 100px 100px 0;
+}
+
+
+/*@@@@@@   PRIMO RIGO   @@@@@@*/
+.firstRow{
+    height: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1.5%;
+}
+
+.nameProduct{
+    font-size: 110%;
+    font-weight: 700;
+}
+
+
+/*@@@@@@   SECONDO RIGO   @@@@@@*/
+.secondRow{
+    height: auto;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.5%;
+}
+
+.singlePrice{
+    font-size: 85%;
+    font-weight: 600;
+}
+
+.priceProduct{
+    font-size: 100%;
+    font-weight: 600;
+}
+
+
+/*@@@@@@   TERZO RIGO   @@@@@@*/
+.thirdRow{
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    margin: 1.5%;
+
+    border-radius: 20px;
+}
+
+.menoButton, .piuButton{
+    height: auto;
+    width: 4%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: black;
+    background: white;
+    font-weight: 700;
+
+    transition: all .3s;
+}
+
+.menoButton{
+    border: 2px solid #b6b6b6;
+    border-right: none;
+    border-radius: 20px 0 0 20px;
+}
+
+.piuButton{
+    border: 2px solid #b6b6b6;
+    border-left: none;
+    border-radius:0 20px 20px 0;
+}
+
+.menoButton:active,
+.piuButton:active{
+    color: gray;
+}
+
+.numProdotti{
+    height: auto;
+    width: 40px;
+    outline: none;
+    border: none;
+    text-align: center;
+    font-weight: 700;
+
+    background: white;
+    border: 2px solid #b6b6b6;
+    border-left: none;
+    border-right: none;
+    
+}
+
+
+
+/*@@@@@@   DESCRIZIONE   @@@@@@*/
+
+
+
+/*#########################   RIEPILOGO - (DX)   #########################*/
+.boxRiepilogo{
+    height: 53%;
+    width: 30%;
+    margin: 0 4% 0 1%;
+
+    background: #fafaf5;
+    border: 2px solid #b6b6b6;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxRiepilogo h3{
+    height: auto;
+    width: 90%;
+    font-weight: 600;
+    margin: 3% 0 7%;
+}
+
+.rowSummary{
+    height: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.5%;
+}
+
+#finishOrder{
+    height: 10%;
+    width: 90%;
+
+    margin: 7% 0 0;
+
+    color: white;
+    background: #7d1e11;
+
+    border: none;
+    border-radius: 50px;
+}
