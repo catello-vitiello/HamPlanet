@@ -58,6 +58,9 @@ function changeValue(operation, event){
 
     //totale
     var totale = document.getElementById('total');
+    
+    //prezzo prodotto da eliminare
+    var priceItemDelete = 0;
 
 
     //sottrazione
@@ -72,7 +75,16 @@ function changeValue(operation, event){
 
         //eliminazione del prodotto
         else if (numProd.value == 1){
+	
+			//recupero stringa del prezzo
+            var stringPrice = document.getElementById('singlePrice'+numeroItem).textContent;
+
+            //converto stringa in numero 
+            priceItemDelete = parseFloat(stringPrice.substring(1,stringPrice.length));
+
+            
             deleteProduct('item'+numeroItem);
+            
 
             var productOfCart = document.getElementById('productOfCart');
             var item = productOfCart.textContent.substring(0,1);
@@ -101,6 +113,9 @@ function changeValue(operation, event){
 
     }
     
+    
+    
+    
     //estraggo prezzo prodotto
     var costoOne = singlePrice.textContent.substring(2, singlePrice.textContent.length) 
 
@@ -113,6 +128,12 @@ function changeValue(operation, event){
     //sottraggo valore vecchio sub totale
     valsubtotal = valsubtotal - priceTotProd;
     
+      
+      
+    //se ho eliminato il prodotto sottraggo prezzo del prodotto
+    if ( operation== 0 ){
+        valsubtotal = valsubtotal - priceItemDelete;
+    }
     
     
     
@@ -133,6 +154,14 @@ function changeValue(operation, event){
         totale.innerHTML = '&euro;' + valsubtotal;
         spediction.innerHTML = '&euro;5.99'
     }
+    
+    
+    
+    
+    if ( parseInt(productOfCart.textContent) == 0){
+        totale.innerHTML = '&euro;0.00';
+        spediction.innerHTML = '&euro;0.00'
+	}
 
 }
 
