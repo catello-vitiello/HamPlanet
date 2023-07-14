@@ -32,18 +32,20 @@ public class PrintCreditCard extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		try {
-			if (op.equals("carte")) {
+			//if (op.equals("carte")) {
 				LinkedList<CercaCarteClienteBean> carte = (LinkedList<CercaCarteClienteBean>) modelDS
 						.getCardByEmail(email);
-				for (int x = 0; x < carte.size(); x++) {
+				request.setAttribute("ListaCarte", carte); //setto l'attributo che contiene una lista di carte nella mappa della richiesta e lo passo
+				/*for (int x = 0; x < carte.size(); x++) {
 					CercaCarteClienteBean bean = carte.get(x);
 					out.println(bean.toString());
-				}
-			}
-			if (op.equals("number")) {
+				}*/
+			//}
+			//if (op.equals("number")) {
 				// out.println("\nNumero carte");
-				request.setAttribute("Ncard", modelDS.getNumCarte(email));
-			}
+				request.setAttribute("Ncard", modelDS.getNumCarte(email)); //setto l'attributo che contiene il numero di
+																		   //carte nella mappa della richiesta e lo passo
+			//}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

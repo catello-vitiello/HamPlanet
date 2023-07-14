@@ -1,3 +1,5 @@
+<%@page import="java.util.Collection"%>
+<%@page import="gestione_funz.CercaCarteClienteBean"%>
 <%@page import="model_cliente.ClienteBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -5,6 +7,7 @@
 <%
 ClienteBean user = (ClienteBean) session.getAttribute("user");
 String nCard = request.getAttribute("Ncard").toString();
+Collection<?> listaCarte = (Collection<?>) request.getAttribute("carte");
 
 if (user == null) {
 	response.sendRedirect("Admin.html");
