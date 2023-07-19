@@ -20,4 +20,6 @@ public interface ClienteModel<T> {
 	
 	public void changeAddress(String email, String indirizzo, String paese, String provincia, String cap) throws SQLException;
 	
+	public void changePhone(String email, String phone) throws SQLException;
+	
 }

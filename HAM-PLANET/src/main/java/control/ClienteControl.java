@@ -141,6 +141,22 @@ public class ClienteControl extends HttpServlet {
 			}
 		}
 		
+		/****************************************************************************/
+		/*							CAMBIO TELEFONO									*/
+		/****************************************************************************/
+		if(service.equals("cambioC")) {
+			
+			try {
+				model.changePhone(email, cellulare);
+				request.setAttribute("email", email);
+				request.setAttribute("password", pass);
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/LoginServlet");
+				requestDispatcher.forward(request, response);
+			}catch(SQLException e) {
+				utils.UtilityClass.print(e);
+			}
+			
+		}
 	}
 
 }

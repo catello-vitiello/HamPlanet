@@ -268,5 +268,31 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 		}
 		
 	}
+	
+	/****************************************************************************/
+	/*							CAMBIO TELEFONO									*/
+	/****************************************************************************/
+	public void changePhone(String email, String phone) throws SQLException{
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		String sql = "update cliente set cellulare = ? "
+				+ "where e_mail = ?";
+		
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, phone);
+			preparedStatement.setString(2, email);
+			
+			utils.UtilityClass.print(">.Update telefono: " + preparedStatement.toString());
+			preparedStatement.executeUpdate();
+		}finally {
+			if(preparedStatement != null)
+				preparedStatement.close();
+			if(connection != null)
+				connection.close();
+		}
+	}
 
 }

@@ -34,7 +34,7 @@ if (user == null) {
 
 	<!-- MODIFICARE NUMERO -->
 	<div id="modifyNumber">
-		<form id="formModifyNumber" method="post" action="">
+		<form id="formModifyNumber" method="post" action="ClienteControl">
 
 			<!-- BOTTONE PER CHIUDERE LA MODIFICA -->
 			<img id="annullOperation_0" onclick="resizeWindow(event, 0, 'annul')"
@@ -51,6 +51,9 @@ if (user == null) {
 					required>
 			</div>
 
+			<input type="text" name="service" value="cambioC" hidden>
+			<input type="text" name="email" value=<%= user.getEmail() %> hidden>
+			<input type="text" name="pass" value=<%= user.getPass() %> hidden>
 			<!-- BOTTONE INVIO -->
 			<button id="buttonInvio_0" class="buttonSubmitModify"
 				onclick="resizeWindow(event, 0, 'submit')" type="submit">Invio</button>
