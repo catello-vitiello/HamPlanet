@@ -64,6 +64,28 @@
 			</form>
 		</div>
 		
+		<!--###########   ELIMINA PRODOTTO   ###########-->
+		<div>
+			<h3>ELIMINA PRODOTTO</h3>
+			<form action="ProdottoControl" method="post">
+				IAN PRODOTTO<br>
+				<input type="text" name="id" required><br>
+				<input type="text" name="servizio" value="elimina" hidden>
+				<input type="submit" value="ELIMINA">
+			</form>
+		</div>
+		
+		<!--###########   RENDI DISPONIBILE PRODOTTO   ###########-->
+		<div>
+			<h3>RENDI DISPONIBILE PRODOTTO</h3>
+			<form action="ProdottoControl" method="post">
+				IAN PRODOTTO<br>
+				<input type="text" name="id" required><br>
+				<input type="text" name="servizio" value="available" hidden>
+				<input type="submit" value="RENDI DISPONIBILE">
+			</form>
+		</div>
+		
 		<!--###########   SEZIONE LOGIN   ###########-->
 		<div>
 			<h3>LOG-IN</h3>

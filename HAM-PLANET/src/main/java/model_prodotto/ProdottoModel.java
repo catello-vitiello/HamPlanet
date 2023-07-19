@@ -13,6 +13,8 @@ public interface ProdottoModel<T> {
 	public void insert_NoImage(int IAN,String descrizione,double peso,double prezzo, String nomeProdotto)throws SQLException;
 	
 	public void delete(int IAN)throws SQLException;
+	
+	public void returnAvailable(int IAN) throws SQLException;
 
 	public void addImageToProduct(int ian,InputStream io)throws SQLException;
 	

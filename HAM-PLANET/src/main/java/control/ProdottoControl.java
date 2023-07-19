@@ -60,6 +60,39 @@ public class ProdottoControl extends HttpServlet {
 
 	        }
 		
+		/********************************************************/
+		/* 						DELETE		   		   			*/
+		/********************************************************/
+		if(servizio.equals("elimina")) {
+			 int ian = Integer.parseInt(request.getParameter("id"));
+			 
+			 try {
+				 model.delete(ian);
+				 response.sendRedirect("./Administrator.jsp");
+	             return;
+			 } catch (SQLException e) {
+	                utils.UtilityClass.print(e);
+	            }
+			 
+		}
+		
+		/********************************************************/
+		/* 						AVAILABLE	   		   			*/
+		/********************************************************/
+		if(servizio.equals("available")) {
+			 int ian = Integer.parseInt(request.getParameter("id"));
+			 
+			 try {
+				 model.returnAvailable(ian);
+				 response.sendRedirect("./Administrator.jsp");
+	             return;
+			 } catch (SQLException e) {
+	                utils.UtilityClass.print(e);
+	            }
+			 
+		}
+		 
+		 
 	}
 
 }

@@ -142,7 +142,7 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 	public void delete(int IAN) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String sql = "DELETE FROM prodotto WHERE IAN = ?";
+		String sql = "UPDATE prodotto SET visualizza = 0 WHERE IAN = ?";
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(sql);
@@ -194,8 +194,6 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 	/********************************************************/
 	/* 						GET IMAGE					    */
 	/********************************************************/
-	
-	
 	public byte[] getImageByKey(int id) throws SQLException{
 
         byte[] imageBytes = null;
@@ -230,4 +228,28 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
         return imageBytes;
 
     }
+	
+	/********************************************************/
+	/* 				  RENDI DISPONIBILE					    */
+	/********************************************************/
+	public void returnAvailable(int IAN) throws SQLException{
+		
+		Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        String sql = "UPDATE prodotto SET visualizza = 1 WHERE IAN = ?";
+        
+        try {
+        	connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setInt(1, IAN);
+			utils.UtilityClass.print(">.AVAILABLE " + preparedStatement);
+			preparedStatement.executeUpdate();
+        }finally {
+			if (preparedStatement != null)
+				preparedStatement.close();
+			if (connection != null)
+				connection.close();
+		}
+	}
 }
