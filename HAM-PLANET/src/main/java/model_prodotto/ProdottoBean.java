@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class ProdottoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private int IAN;
+	private int IAN, visualizza, quantity;
 	private String descrizione, nomeProdotto;
 	private double peso, prezzo;
 	
@@ -19,7 +19,8 @@ public class ProdottoBean implements Serializable {
 		this.peso = peso;
 		this.prezzo = prezzo;
 		this.nomeProdotto = nomeProdotto;
-
+		this.visualizza = 1;
+		this.quantity = 1;
 	}
 
 	public int getIAN() {
@@ -62,15 +63,39 @@ public class ProdottoBean implements Serializable {
 		this.nomeProdotto = nomeProdotto;
 	}
 	
+	public int getVisualizza() {
+		return visualizza;
+	}
 	
+	public void setVisualizza(int newV) {
+		visualizza = newV;
+	}
+	
+	/****************************************************************************/
+	/* 								Quantità 									*/
+	/****************************************************************************/
+	public int getQuantity(){
+		return quantity;
+	}
+	
+	public void setQuantity(int q){
+		this.quantity+=q;
+	}
+
+	/****************************************************************************/
+	/* 								TOSTRING-JS 								*/
+	/****************************************************************************/
+	public String toStringJS(){
+		return IAN + "," + descrizione + "," + peso + ","
+			+ prezzo + "," + nomeProdotto + "," + quantity;
+	}
 
 	/****************************************************************************/
 	/* 								TOSTRING 									*/
 	/****************************************************************************/
-
 	public String toString() {
 		 return getClass().getName() + "[IAN= " + IAN + ", descrizione= " + descrizione + ", peso= " + peso
-				+ ", prezzo= " + prezzo + ", nome prodotto= " + nomeProdotto + "]";
+				+ ", prezzo= " + prezzo + ", nome prodotto= " + nomeProdotto + ", quantitativo= " + quantity + "]";
 	}
 
 }

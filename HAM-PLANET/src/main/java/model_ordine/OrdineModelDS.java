@@ -42,7 +42,7 @@ public class OrdineModelDS implements OrdineModel<OrdineBean>{
 				ob.setId(rs.getInt("id"));
 				ob.setData_acquisto(rs.getDate("data_acquisto"));
 				ob.setStato(rs.getString("stato"));
-				ob.setMetodoPagamento(rs.getString("metodo_pagamento"));
+				//ob.setMetodoPagamento(rs.getString("metodo_pagamento"));
 				ob.setEmail(rs.getString("email"));
 				
 				ordini.add(ob);

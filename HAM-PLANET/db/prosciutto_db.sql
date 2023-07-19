@@ -34,7 +34,7 @@ CREATE TABLE ordine
 	id INT auto_increment,
     data_acquisto DATE NOT NULL,
     stato ENUM('salvato', 'effettuato', 'spedito') DEFAULT 'salvato',
-    metodo_pagamento VARCHAR(60) NOT NULL,
+    --metodo_pagamento VARCHAR(60) NOT NULL, -- da eliminare, pagamento esclusivamente tramite carta
     email varchar(60),
     PRIMARY KEY(id),
     foreign key(email) references cliente(e_mail) on delete cascade

@@ -26,7 +26,7 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 	}
 
 	/********************************************************/
-	/* 				SELECT ALL NO IMAGE 					*/
+	/* 			SELECT ALL NO IMAGE DISPONIBILE				*/
 	/********************************************************/
 
 	@Override

@@ -9,7 +9,7 @@ public class OrdineBean implements Serializable{
 	private int id;
 	private Date data_acquisto;
 	private String stato; //salvato, effettuato, spedito
-	private String metodoPagamento;
+	//private String metodoPagamento;
 	private String email;
 	
 	public OrdineBean() {
@@ -20,7 +20,7 @@ public class OrdineBean implements Serializable{
 		this.id = id;
 		this.data_acquisto = data_acquisto;
 		this.stato = stato;
-		this.metodoPagamento = metodoPagamento;
+		//this.metodoPagamento = metodoPagamento;
 		this.email = email;
 	}
 
@@ -40,13 +40,13 @@ public class OrdineBean implements Serializable{
 		this.stato = stato;
 	}
 
-	public String getMetodoPagamento() {
+	/*public String getMetodoPagamento() {
 		return metodoPagamento;
 	}
 
 	public void setMetodoPagamento(String metodoPagamento) {
 		this.metodoPagamento = metodoPagamento;
-	}
+	}*/
 
 	public String getEmail() {
 		return email;
@@ -70,8 +70,8 @@ public class OrdineBean implements Serializable{
 
 	@Override
 	public String toString() {
-		return getClass().getName() + "[data_acquisto=" + data_acquisto + ", stato=" + stato + ", metodoPagamento="
-				+ metodoPagamento + ", email=" + email + "]";
+		return getClass().getName() + "[data_acquisto=" + data_acquisto + ", stato=" + stato + /*", metodoPagamento="
+				+ metodoPagamento +*/ ", email=" + email + "]";
 	}
 	
 	

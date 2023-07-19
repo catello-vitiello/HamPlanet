@@ -29,7 +29,6 @@
 			<td>ID</td>
 			<td>DATA ACQUISTO</td>
 			<td>STATO</td>
-			<td>METODO DI PAGAMENTO</td>
 			<td>EMAIL</td>
 		</tr>
 		
@@ -44,7 +43,6 @@
 				<td><%= bean.getId() %></td>
 				<td><%= bean.getData_acquisto() %></td>
 				<td><%= bean.getStato() %></td>
-				<td><%= bean.getMetodoPagamento() %></td>
 				<td><%= bean.getEmail() %></td>
 			</tr>
 			
