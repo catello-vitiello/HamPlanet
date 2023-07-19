@@ -211,5 +211,31 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 		}
 		
 	}
+	
+	/****************************************************************************/
+	/*								CAMBIO PASSWORD								*/
+	/****************************************************************************/
+	public void changePassword(String email, String password) throws SQLException{
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		String sql = "update cliente set pass = ? where e_mail = ?";
+		
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, utils.CifraPassword.toHash(password));
+			preparedStatement.setString(2, email);
+			
+			utils.UtilityClass.print(">.Update password per il cliente: " + email);
+			preparedStatement.executeUpdate();
+		}finally {
+			if(preparedStatement != null)
+				preparedStatement.close();
+			if(connection != null)
+				connection.close();
+		}
+		
+	}
 
 }

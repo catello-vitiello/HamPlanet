@@ -16,4 +16,6 @@ public interface ClienteModel<T> {
 	
 	public ClienteBean tryLogIn(String email, String password) throws SQLException;
 	
+	public void changePassword(String email, String password) throws SQLException;
+	
 }

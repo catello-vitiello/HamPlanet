@@ -60,7 +60,7 @@ if (user == null) {
 
 	<!-- MODIFICARE PASSWORD -->
 	<div id="modifyPass">
-		<form id="formModifyPass" method="post" action="">
+		<form id="formModifyPass" method="post" action="ClienteControl">
 
 			<!-- BOTTONE PER CHIUDERE LA MODIFICA -->
 			<img id="annullOperation_1" onclick="resizeWindow(event, 1, 'annul')"
@@ -85,7 +85,7 @@ if (user == null) {
 			<div class="inputbox">
 				<input id="pass1" oninput="controlCaracter(1)"
 					onfocus="attribRequest()" onblur="attribRequestHidden()"
-					type="password" name="newPass" autocomplete="off" required>
+					type="password" autocomplete="off" name="nuova" required>
 				<label for="">Nuova Password</label> <img id="eyesIcon1"
 					class="img_pass" src="./Icon/eyes_hidden_WHITE.png" alt="show"
 					onclick="showPwd(1)">
@@ -116,7 +116,9 @@ if (user == null) {
 				<p id="evitTit">Evita password semplici da indovinare o usate in
 					altri siti web.</p>
 			</div>
-
+			
+			<input type="text" name="service" value="cambioP" hidden>
+			<input type="text" name="email" value=<%= user.getEmail() %> hidden>
 			<!-- BOTTONE INVIO -->
 			<button id="buttonInvio_1" class="buttonSubmitModify"
 				onclick="resizeWindow(event, 1, 'submit')" type="submit">Invio</button>

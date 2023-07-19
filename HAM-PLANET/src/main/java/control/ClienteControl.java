@@ -33,6 +33,8 @@ public class ClienteControl extends HttpServlet {
 		cognome = request.getParameter("cognome");
 		indirizzo = request.getParameter("indirizzo");
 		
+		String newPass = request.getParameter("nuova");
+		
 		String data_nascita, paese, provincia, cap;
 		data_nascita = request.getParameter("anno") + "-" + request.getParameter("mese") + "-" + request.getParameter("giorno");
 		if(data_nascita != null)
@@ -41,8 +43,8 @@ public class ClienteControl extends HttpServlet {
 		provincia = request.getParameter("provincia");
 		cap = request.getParameter("cap");
 		String service = request.getParameter("service");
-		if(service != null)
-			utils.UtilityClass.print(service.toString());
+		//if(service != null)
+		//	utils.UtilityClass.print(service.toString());
 
 		String chiave = request.getParameter("chiave");
 		
@@ -102,12 +104,28 @@ public class ClienteControl extends HttpServlet {
 			request.setAttribute("password", pass);
 			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/LoginServlet");
 			requestDispatcher.forward(request, response);
-			} else {
+			} else if(service.equals("login")) {
 				response.sendRedirect("/Login.jsp"); // riga da eliminare --> solo per test
 				// response.sendRedirect(""); /*Se l'utente non esiste la response reindirizza
 				// alla pagina di login*/		
 				return;
 			}	
+		
+		/****************************************************************************/
+		/*								CAMBIO PASSWORD								*/
+		/****************************************************************************/
+		if (service.equals("cambioP")) {
+			try {
+				model.changePassword(email, newPass);
+				request.setAttribute("email", email);
+				request.setAttribute("password", newPass);
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/LoginServlet");
+				requestDispatcher.forward(request, response);
+			}catch(SQLException e) {
+				utils.UtilityClass.print(e);
+			}
+		}
+		
 		
 	}
 
