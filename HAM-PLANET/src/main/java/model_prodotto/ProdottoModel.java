@@ -1,6 +1,7 @@
 package model_prodotto;
 
 import java.io.File;
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.Collection;
 
@@ -13,7 +14,7 @@ public interface ProdottoModel<T> {
 	
 	public void delete(int IAN)throws SQLException;
 
-	public void addImageToProduct(int ian,File file)throws SQLException;
+	public void addImageToProduct(int ian,InputStream io)throws SQLException;
 	
 	public byte[] getImageByKey(int id)throws SQLException;
 }
