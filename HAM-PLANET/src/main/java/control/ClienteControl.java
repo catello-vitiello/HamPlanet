@@ -126,6 +126,20 @@ public class ClienteControl extends HttpServlet {
 			}
 		}
 		
+		/****************************************************************************/
+		/*							CAMBIO INDIRIZZO								*/
+		/****************************************************************************/
+		if(service.equals("cambioI")) {
+			try {
+				model.changeAddress(email, indirizzo, paese, provincia, cap);
+				request.setAttribute("email", email);
+				request.setAttribute("password", pass);
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/LoginServlet");
+				requestDispatcher.forward(request, response);
+			}catch(SQLException e) {
+				utils.UtilityClass.print(e);
+			}
+		}
 		
 	}
 

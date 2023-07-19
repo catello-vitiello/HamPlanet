@@ -129,7 +129,7 @@ if (user == null) {
 
 	<!-- MODIFICARE INDIRIZZO -->
 	<div id="modifyAddress">
-		<form id="formModifyAddress" method="post" action="">
+		<form id="formModifyAddress" method="post" action="ClienteControl">
 
 			<!-- BOTTONE PER CHIUDERE LA MODIFICA -->
 			<img id="annullOperation_2"
@@ -142,14 +142,14 @@ if (user == null) {
 			<!--VIA-->
 			<div class="inputbox">
 				<input id="via" oninput="controllAddressField(0)" autocomplete="off"
-					type="text" name="Indirizzo" required> <label for="">Via</label>
+					type="text" name="indirizzo" required> <label for="">Via</label>
 			</div>
 			<div class="inputboxNC">
 
 				<!--PAESE-->
 				<div class="inputbox">
 					<input id="paese" oninput="controllAddressField(1)"
-						autocomplete="off" type="text" name="paese" name="" required>
+						autocomplete="off" type="text" name="paese" required>
 					<label for="">Paese</label>
 				</div>
 
@@ -172,6 +172,9 @@ if (user == null) {
 				</div>
 			</div>
 
+			<input type="text" name="service" value="cambioI" hidden>
+			<input type="text" name="email" value=<%= user.getEmail() %> hidden>
+			<input type="text" name="pass" value=<%= user.getPass() %> hidden>
 			<!-- BOTTONE INVIO -->
 			<button id="buttonInvio_2" class="buttonSubmitModify"
 				onclick="submitModifyAddress(event, 'submit')" type="submit">Invio</button>

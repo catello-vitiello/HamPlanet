@@ -237,5 +237,36 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 		}
 		
 	}
+	
+	/****************************************************************************/
+	/*							CAMBIO INDIRIZZO								*/
+	/****************************************************************************/
+	
+	public void changeAddress(String email, String indirizzo, String paese, String provincia, String cap) throws SQLException{
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		String sql = "update cliente set indirizzo = ?, paese = ?, provincia = ?, cap = ? "
+				+ "where e_mail = ?";
+		
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, indirizzo);
+			preparedStatement.setString(2, paese);
+			preparedStatement.setString(3, provincia);
+			preparedStatement.setString(4, cap);
+			preparedStatement.setString(5, email);
+			
+			utils.UtilityClass.print(">.Update indirizzo: " + preparedStatement.toString());
+			preparedStatement.executeUpdate();
+		}finally {
+			if(preparedStatement != null)
+				preparedStatement.close();
+			if(connection != null)
+				connection.close();
+		}
+		
+	}
 
 }
