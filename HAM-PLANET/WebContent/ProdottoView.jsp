@@ -114,7 +114,7 @@
 	
 	<hr>
 	<p align="center">
-	<a href="Admin.html" >BACK</a> <!-- Per tornare alla pagina amministrtore -->
+	<a href="AdministratorPage.jsp" >BACK</a> <!-- Per tornare alla pagina amministrtore -->
 	
 </body>
 </html>

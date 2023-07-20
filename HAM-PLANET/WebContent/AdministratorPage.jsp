@@ -1,5 +1,20 @@
+<%@page import="model_cliente.ClienteBean"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.Collection"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+    <%
+
+	Collection<?> clienti = (Collection<?>) request.getAttribute("clienti");
+	if(clienti == null){
+		response.sendRedirect("GetEmailCliente");
+		return;
+	}
+
+%>
+    
 <!DOCTYPE html>
 <html>
     <head>
@@ -81,8 +96,24 @@
                     <p style="color: #7d1e11;">Ordini Cliente</p>
                     <form id="formOrder" class="formNewProduct" action="">
                         <select name="emailUser">
-                            <option value=""></option>
-                        </select> 
+                        <%
+		
+							if(clienti != null && clienti.size()>0){
+							Iterator<?> iterator = clienti.iterator();
+							while(iterator.hasNext()){
+								ClienteBean bean = (ClienteBean)iterator.next();
+						%>
+                        
+                            <option value="<%= bean.getEmail() %>"><%= bean.getEmail() %></option> 
+                        
+                        <%
+							}}else{
+						%>
+							<option value="nan">NO EMAIL AVAILABLE</option> 
+						<%
+							}						
+						%>
+						 </select>
                         <input type="submit" value="Mostra">
                     </form>
                 </div>

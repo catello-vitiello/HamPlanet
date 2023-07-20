@@ -113,7 +113,7 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String sql = "INSERT INTO prodotto (IAN,prezzo,peso,descrizione,nomeProdotto) VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO prodotto (IAN,prezzo,peso,descrizione,nomeProdotto, visualizza) VALUES (?, ?, ?, ?, ?, 1)";
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(sql);
