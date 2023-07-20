@@ -582,7 +582,7 @@ body{
 
 }
 .boxOrdini::-webkit-scrollbar-thumb {
-    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.5, #a520ca), color-stop(1, #2681cc));
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.5, #d02d0e), color-stop(1, #faa202));
     border-radius: 10px;
     z-index: 4;
 }
