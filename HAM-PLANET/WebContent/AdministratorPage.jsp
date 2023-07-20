@@ -94,7 +94,7 @@
             <div class="gradientBack">
                 <div class="section">
                     <p style="color: #7d1e11;">Ordini Cliente</p>
-                    <form id="formOrder" class="formNewProduct" action="">
+                    <form id="formOrder" class="formNewProduct" action="ShowOrderByEmail" method="post">
                         <select name="emailUser">
                         <%
 		
