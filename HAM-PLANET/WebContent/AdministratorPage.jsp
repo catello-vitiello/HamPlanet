@@ -5,8 +5,8 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PAGINA AMMINISTRATORE</title>
-        <link rel="stylesheet" href="../FileCSS/AdministratorPage.css">
-        <script type="text/javascript" src="../FileJavaScript/AdministratorPage2.js"></script>
+        <link rel="stylesheet" href="./FileCSS/AdministratorPage.css">
+        <script type="text/javascript" src="./FileJavaScript/AdministratorPage.js"></script>
     </head>
 
     <body>
@@ -43,7 +43,7 @@
                         <p style="margin: 1% 0 0.5% 0;">Descrizione</p>
                         <textarea name="descrizione" rows="2" required></textarea>
                         <input type="text" name="servizio" value="insert" hidden>
-                        <input type="submit" value="INSERISCI PRODOTTO">
+                        <input type="submit" value="Inserisci Prodotto">
                     </form>
     
                     <!-- PER AGGIUNGERE IMMAGINE -->
@@ -52,7 +52,7 @@
                         <div class="row1">
                             <input id="idNP2" name="ianP" type="text" oninput="controlCaracter(1)" required>
                             <input type="file" id="file" name="imageFile" required>
-                            <input type="submit" value="UPLOAD">
+                            <input type="submit" value="Inserisci">
                         </div>
                     </form>
                     
@@ -101,8 +101,8 @@
                             <p>Email</p>
                             <input type="text" name="chiave" required>
                             <input type="submit" value="ELIMINA">
-                       	</form>
                         </div>
+                     </form>
 				
 					<p>Rendi prodotto non disponibile</p>
 					<form id="formDelete" class="formNewProduct" action="ProdottoControl" method="post">
@@ -111,15 +111,13 @@
                             <input id="idNP3" name="id" type="text" oninput="controlCaracter(4)" required>
                             <input type="text" name="servizio" value="elimina" hidden>
                             <input type="submit" value="RENDI NON DISPONIBILE">
-                            </form>
                         </div>
-                        
                     </form>
 
                 </div>
             </div>
 
-            
-        </div>
+          </div>  
+
     </body>
 </html>
