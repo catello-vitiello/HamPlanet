@@ -36,6 +36,7 @@ public class AddProsciuttiImg extends HttpServlet {
 		
 		try {
 			model.addImageToProduct(id , inputStream);
+			response.sendRedirect("./AdministratorPage.jsp");
 		}catch(SQLException e){
 			utils.UtilityClass.print(e);
 		}

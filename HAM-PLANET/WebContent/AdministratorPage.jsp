@@ -22,36 +22,37 @@
                     <p style="color: #7d1e11;">Nuovo Prodotto</p>
                         
                         <!-- FORM PER AGGIUNGERE CAMPI PRODOTTO -->
-                    <form class="formNewProduct" action="">
+                    <form class="formNewProduct" action="ProdottoControl" method="post">
                         
                         <div class="row1">
                             <p>IAN</p>
-                            <input id="idNP" type="text" oninput="controlCaracter(0)" required>
+                            <input id="idNP" name="id" type="text" oninput="controlCaracter(0)" required>
                             
                             <p>Nome</p>
-                            <input id="nameNP" type="text" required>
+                            <input id="nameNP" name="nomeProdotto" type="text" required>
                         </div>
                         
                         <div class="row1">
                             <p>Prezzo</p>
-                            <input id="priceNP" type="text" oninput="controlCaracter(2)" required>
+                            <input id="priceNP" name="prezzo" type="text" oninput="controlCaracter(2)" required>
                             
                             <p>Peso</p>
-                            <input id="weightNP" type="text" oninput="controlCaracter(3)" required>
+                            <input id="weightNP" name="peso" type="text" oninput="controlCaracter(3)" required>
                         </div>
                         
                         <p style="margin: 1% 0 0.5% 0;">Descrizione</p>
                         <textarea name="descrizione" rows="2" required></textarea>
-                        <button>Invia</button>
+                        <input type="text" name="servizio" value="insert" hidden>
+                        <input type="submit" value="INSERISCI PRODOTTO">
                     </form>
     
                     <!-- PER AGGIUNGERE IMMAGINE -->
-                    <form class="formNewProduct" action="">
+                    <form class="formNewProduct" action="AddProsciuttiImg" method="post" enctype="multipart/form-data">
                         <p style="margin: 2% 0 0.5% 0;">Inserisci IAN e immagine del prodotto</p>
                         <div class="row1">
-                            <input id="idNP2" type="text" oninput="controlCaracter(1)" required>
-                            <input type="file" id="file" accept=".jpeg, .jpg, .png" required>
-                            <button>Invia</button>
+                            <input id="idNP2" name="ianP" type="text" oninput="controlCaracter(1)" required>
+                            <input type="file" id="file" name="imageFile" required>
+                            <input type="submit" value="UPLOAD">
                         </div>
                     </form>
                     
@@ -94,20 +95,23 @@
                 <div class="section">
                     <p style="color: #7d1e11;">Eliminazione</p>
 
-                    <form id="formDelete" class="formNewProduct" action="">
-
-                        <p>Elimina Account</p>
+					<p>Elimina Account</p>
+                    <form id="formDelete" class="formNewProduct" action="ClienteControl" method="post">
                         <div class="row1">
                             <p>Email</p>
-                            <input type="text" required>
-                            <button>Elimina</button>
+                            <input type="text" name="chiave" required>
+                            <input type="submit" value="ELIMINA">
+                       	</form>
                         </div>
-
-                        <p>Elimina Prodotto</p>
+				
+					<p>Rendi prodotto non disponibile</p>
+					<form id="formDelete" class="formNewProduct" action="ProdottoControl" method="post">
                         <div class="row1">
                             <p>IAN</p>
-                            <input id="idNP3" type="text" oninput="controlCaracter(4)" required>
-                            <button>Elimina</button>
+                            <input id="idNP3" name="id" type="text" oninput="controlCaracter(4)" required>
+                            <input type="text" name="servizio" value="elimina" hidden>
+                            <input type="submit" value="RENDI NON DISPONIBILE">
+                            </form>
                         </div>
                         
                     </form>

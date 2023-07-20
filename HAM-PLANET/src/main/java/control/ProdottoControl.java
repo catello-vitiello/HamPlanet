@@ -48,11 +48,11 @@ public class ProdottoControl extends HttpServlet {
 	            double prezzo = Double.parseDouble(request.getParameter("prezzo"));
 	            double peso = Double.parseDouble(request.getParameter("peso"));
 	            String nomeString = request.getParameter("nomeProdotto");
-	            String desc = "descrizione";
+	            String desc = request.getParameter("descrizione");
 
 	            try {
 	                model.insert_NoImage(ian, desc, peso, prezzo, nomeString);
-	                response.sendRedirect("./Administrator.jsp");
+	                response.sendRedirect("./AdministratorPage.jsp");
 	                return;
 	            } catch (SQLException e) {
 	                utils.UtilityClass.print(e);
@@ -68,7 +68,7 @@ public class ProdottoControl extends HttpServlet {
 			 
 			 try {
 				 model.delete(ian);
-				 response.sendRedirect("./Administrator.jsp");
+				 response.sendRedirect("./AdministratorPage.jsp");
 	             return;
 			 } catch (SQLException e) {
 	                utils.UtilityClass.print(e);
@@ -84,7 +84,7 @@ public class ProdottoControl extends HttpServlet {
 			 
 			 try {
 				 model.returnAvailable(ian);
-				 response.sendRedirect("./Administrator.jsp");
+				 response.sendRedirect("./AdministratorPage.jsp");
 	             return;
 			 } catch (SQLException e) {
 	                utils.UtilityClass.print(e);

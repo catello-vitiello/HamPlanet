@@ -71,7 +71,7 @@ public class ClienteControl extends HttpServlet {
 			try {
 				char sex = sesso.charAt(0);
 				model.insert(email, pass, nome, cognome, sex, indirizzo, cellulare, data_nascita, paese, provincia, cap);
-				response.sendRedirect("Admin.html"); // riga da eliminare ---> solo per test
+				response.sendRedirect("AdministratorPage.jsp"); // riga da eliminare ---> solo per test
 				// response.sendRedirect(""); /*dopo la registrazione ti reindirizza verso
 				// l'area di login*/
 				return;
@@ -86,7 +86,7 @@ public class ClienteControl extends HttpServlet {
 		if (chiave != null) {
 			try {
 				model.deleteCliente(chiave);
-				response.sendRedirect("Admin.html"); 
+				response.sendRedirect("AdministratorPage.jsp"); 
 				/* Dopo che l'admin ha eliminato un utente viene reindirizzato alla pagina di amministratore*/
 				return;
 			} catch (SQLException e) {
