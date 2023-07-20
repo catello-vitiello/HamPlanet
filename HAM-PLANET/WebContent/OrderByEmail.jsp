@@ -16,14 +16,15 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>VISTA ORDINI CLIENTE</title>
+<link href="VisualizzazioneView.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
 	<table>
 		<tr>
 			<td>NOME PRODOTTO</td>
-			<td>QUANTITA'</td>
+			<td>QUANTIT&Aacute;</td>
 			<td>PREZZO</td>
 		</tr>
 		
@@ -43,5 +44,8 @@
 		%>
 	</table>
 
+	<hr>
+	<p align="center">
+	<a href="AdministratorPage.jsp" >BACK</a> <!-- Per tornare alla pagina amministrtore -->
 </body>
 </html>

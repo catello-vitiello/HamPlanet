@@ -49,6 +49,16 @@ public class ClienteControl extends HttpServlet {
 		String chiave = request.getParameter("chiave");
 		
 		/********************************************************/
+		/* 					LOGIN AMMINISTRATORE 				*/
+		/********************************************************/
+		if(service.equals("login")) {
+			if(email.equals("Admin") && pass.equals("Admin")) {
+				response.sendRedirect("./AdministratorPage.jsp");
+				return;
+			}
+		}
+		
+		/********************************************************/
 		/* 		VISUALIZZAZIONE DELLA TABELLA CLIENTI 			*/
 		/********************************************************/
 		if (servizio != null && servizio.equals("cliente")) {
