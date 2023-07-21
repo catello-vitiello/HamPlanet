@@ -10,6 +10,10 @@
     </head>
 
     <body>
+    
+    	
+    	<jsp:include page="./Header.jsp"></jsp:include>
+        
         <div class="content">
             
             <!-- TITOLO DEL CARRELLO -->
