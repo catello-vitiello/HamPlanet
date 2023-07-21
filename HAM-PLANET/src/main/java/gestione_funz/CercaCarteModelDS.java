@@ -65,7 +65,7 @@ public class CercaCarteModelDS implements CercaCardModel<CercaCarteClienteBean>{
 	/********************************************************/
 	/*				RECUPERO NUMERO DI CARTE				*/
 	/********************************************************/
-	public int getNumCarte(String email) throws SQLException{
+	public String getNumCarte(String email) throws SQLException{
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -75,7 +75,7 @@ public class CercaCarteModelDS implements CercaCardModel<CercaCarteClienteBean>{
 				+ "h.email_u=cl.e_mail AND "
 				+ "e_mail = ?";
 		
-		int n = 0;
+		Integer n = 0;
 		
 		try {
 			
@@ -96,7 +96,7 @@ public class CercaCarteModelDS implements CercaCardModel<CercaCarteClienteBean>{
 				connection.close();
 		}
 		
-		return n;
+		return n.toString();
 	}
 
 }

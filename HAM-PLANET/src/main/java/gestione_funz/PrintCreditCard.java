@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 @WebServlet("/PrintCreditCard")
@@ -24,13 +25,12 @@ public class PrintCreditCard extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String op = (String) request.getAttribute("op");
+		//String op = (String) request.getAttribute("op");
 		String email = (String) request.getAttribute("email");
 
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		CercaCarteModelDS modelDS = new CercaCarteModelDS(ds);
-		PrintWriter out = response.getWriter();
-
+		
 		try {
 			//if (op.equals("carte")) {
 				LinkedList<CercaCarteClienteBean> carte = (LinkedList<CercaCarteClienteBean>) modelDS
@@ -44,10 +44,10 @@ public class PrintCreditCard extends HttpServlet {
 			//if (op.equals("number")) {
 				// out.println("\nNumero carte");
 				request.setAttribute("Ncard", modelDS.getNumCarte(email)); //setto l'attributo che contiene il numero di
-																		   //carte nella mappa della richiesta e lo passo
-			//}
+																			//carte nella mappa della richiesta e lo passo
+				//}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			utils.UtilityClass.print(e);
 		}
 
 		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/UserArea.jsp");

@@ -6,9 +6,16 @@
 
 <%
 ClienteBean user = (ClienteBean) session.getAttribute("user");
-String nCard = request.getAttribute("Ncard").toString();
-Collection<?> listaCarte = (Collection<?>) request.getAttribute("carte");
+String nCard = (String) request.getAttribute("Ncard");
+if(nCard == null){
+	if(user != null){
+	request.setAttribute("email", user.getEmail());
+	RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/PrintCreditCard");
+    requestDispatcher.forward(request, response);
+	}
+}
 
+Collection<?> listaCarte = (Collection<?>) request.getAttribute("carte");
 if (user == null) {
 	response.sendRedirect("Login.jsp");
 	return;

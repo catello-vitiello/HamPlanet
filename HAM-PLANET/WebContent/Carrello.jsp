@@ -1,5 +1,17 @@
+<%@page import="utils.UtilityClass"%>
+<%@page import="model_cliente.ClienteBean"%>
+<%@page import="javax.servlet.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+    <%
+	ClienteBean user = (ClienteBean) session.getAttribute("user");
+	if(user == null){
+		response.sendRedirect("./Login.jsp");
+		return;
+	}
+    %>
+    
 <!DOCTYPE html>
 <html dir="ltr">
     <head>
