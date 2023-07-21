@@ -81,6 +81,9 @@
                             	<option value="pancetta">Pancetta</option>
                             	<option value="guanciale">Guanciale</option>
                             	<option value="mortadella">Mortadella</option>
+                            	<option value="porchetta">Porchetta</option>
+                            	<option value="o' per e o' muss">O' per e o' muss</option>
+                            	<option value="bresaola">Bresaola</option>
                         	</select>
                         </div>
                         

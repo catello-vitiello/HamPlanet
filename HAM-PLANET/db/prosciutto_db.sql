@@ -45,7 +45,7 @@ CREATE TABLE prodotto
 	IAN INT NOT NULL,
     prezzo DOUBLE,
     peso DOUBLE,
-    descrizione VARCHAR(300),
+    descrizione VARCHAR(3000),
     image MEDIUMBLOB,
     nomeProdotto VARCHAR(60),
     tipo VARCHAR(60),
