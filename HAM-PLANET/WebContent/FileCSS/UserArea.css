@@ -35,7 +35,9 @@ body{
     height: 90vh;
     display: flex;
     position: relative;
-
+    
+    margin: 44px 0 0;
+    
     transition: filter .5s;
 }
 
@@ -147,12 +149,21 @@ body{
 }
 
 /*@@@  LOG OUT  @@@*/
+
+
+
 #LogOut{
     height: 50px;
     width: 80%;
     margin: 4% 0 2%;
 
-    background: white;
+    
+}
+
+#LogOut input[type=submit]{
+	height: 100%;
+	width: 100%;
+	background: white;
     border: none;
     font-weight: 800;
 
