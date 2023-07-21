@@ -1,6 +1,5 @@
 package model_prodotto;
 
-import java.io.File;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.Collection;
