@@ -39,7 +39,13 @@
     
     	<jsp:include page="./Header.jsp"></jsp:include>
 
-        <p class="titolPage">Administrator Page</p>
+        <div class="row">
+            <div style="width: 20%;"></div>
+            <p class="titolPage">Administrator Page</p>
+            <form class="formLogOut" action="LogOutServlet">
+                <input type="submit" value="Log out">
+            </form>
+        </div>
 
         <div class="content">
 

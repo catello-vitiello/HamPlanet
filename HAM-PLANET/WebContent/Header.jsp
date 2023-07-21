@@ -35,12 +35,12 @@
                     <img src="./Icon/search2_WHITE.png" alt="">
                     
                     <!-- USER -->
-                    <a href="">
+                    <a href="./UserArea.jsp">
                         <img src="./Icon/user_WHITE.png" alt="">
                     </a>
                     
                     <!-- CARRELLO -->
-                    <a href="">  <!--LINK TO CARRELLO-->
+                    <a href="./Carrello.jsp">  <!--LINK TO CARRELLO-->
                         <img src="./Icon/cart_WHITE.png" alt="">
                     </a>
                 </div>
