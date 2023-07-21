@@ -22,9 +22,48 @@
         <title>PAGINA AMMINISTRATORE</title>
         <link rel="stylesheet" href="./FileCSS/AdministratorPage.css">
         <script type="text/javascript" src="./FileJavaScript/AdministratorPage.js"></script>
+        <script type="text/javascript" src="./FileJavaScript/Header.js"></script>
     </head>
 
     <body>
+    
+    	<header class="header">
+            <div class="header_content">
+
+                <div class="header_hamburger">
+                    <img src="./Icon/menuHamburger.png" onclick="showMenu()" alt="">
+                </div>
+
+
+                <!-- logo ham planet -->
+                <a class="header_logo" href="">  <!--LINK TO HOME-->
+                    <img type="svg" src="./Icon/logo_WHITE.svg" alt="">
+                </a>
+
+                <!-- lista menu -->
+                <ul id="headerMenu" class="header_menu">
+                    <li><a href="">Store</a></li>
+                    <li><a href="">Chi Siamo</a></li>
+                </ul>
+
+                <!-- icone cercare e carrello-->
+                <div class="header_icon">
+                    <!-- SEARCH -->
+                    <img src="./Icon/search2_WHITE.png" alt="">
+                    
+                    <!-- USER -->
+                    <a href="">
+                        <img src="./Icon/user_WHITE.png" alt="">
+                    </a>
+                    
+                    <!-- CARRELLO -->
+                    <a href="">  <!--LINK TO CARRELLO-->
+                        <img src="./Icon/cart_WHITE.png" alt="">
+                    </a>
+                </div>
+
+            </div>
+        </header>
 
         <p class="titolPage">Administrator Page</p>
 
@@ -116,6 +155,16 @@
 						 </select>
                         <input type="submit" value="Mostra">
                     </form>
+                    
+                    
+                    <p>Elimina Account</p>
+                    <form id="formDelete" class="formNewProduct" action="ClienteControl" method="post">
+                        <div class="row1">
+                            <p>Email</p>
+                            <input type="text" name="chiave" required>
+                            <input type="submit" value="ELIMINA">
+                        </div>
+                     </form>
                 </div>
             </div>
             
@@ -126,14 +175,17 @@
                 <div class="section">
                     <p style="color: #7d1e11;">Eliminazione</p>
 
-					<p>Elimina Account</p>
-                    <form id="formDelete" class="formNewProduct" action="ClienteControl" method="post">
+
+					<p>Rendi prodotto disponibile</p>
+					<form id="formDelete" class="formNewProduct" action="ProdottoControl" method="post">
                         <div class="row1">
-                            <p>Email</p>
-                            <input type="text" name="chiave" required>
-                            <input type="submit" value="ELIMINA">
+                            <p>IAN</p>
+                            <input id="idNP3" name="id" type="text" oninput="controlCaracter(4)" required>
+                            <input type="text" name="servizio" value="elimina" hidden>
+                            <input type="submit" value="Rendi Disponibile">
                         </div>
-                     </form>
+                    </form>
+					
 				
 					<p>Rendi prodotto non disponibile</p>
 					<form id="formDelete" class="formNewProduct" action="ProdottoControl" method="post">
@@ -141,7 +193,7 @@
                             <p>IAN</p>
                             <input id="idNP3" name="id" type="text" oninput="controlCaracter(4)" required>
                             <input type="text" name="servizio" value="elimina" hidden>
-                            <input type="submit" value="RENDI NON DISPONIBILE">
+                            <input type="submit" value="Rendi Non Disponibile">
                         </div>
                     </form>
 
