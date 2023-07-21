@@ -10,7 +10,7 @@ String nCard = request.getAttribute("Ncard").toString();
 Collection<?> listaCarte = (Collection<?>) request.getAttribute("carte");
 
 if (user == null) {
-	response.sendRedirect("Admin.html");
+	response.sendRedirect("Login.jsp");
 	return;
 }
 %>
@@ -340,7 +340,10 @@ if (user == null) {
 				</div>
 
 				<!--BOTTONE LOGOUT-->
-				<button id="LogOut">Log out</button>
+				<!-- <button id="LogOut">Log out</button> -->
+				<form action="LogOutServlet" method="post">
+					<input type="submit" value="Log out" id="LogOut">
+				</form>
 			</div>
 		</div>
 

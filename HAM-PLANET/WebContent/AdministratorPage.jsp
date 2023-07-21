@@ -1,3 +1,4 @@
+<%@page import="utils.UtilityClass"%>
 <%@page import="model_cliente.ClienteBean"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Collection"%>
@@ -5,9 +6,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
+    
     <%
-
-	Collection<?> clienti = (Collection<?>) request.getAttribute("clienti");
+    	String valore = (String) request.getAttribute("key");
+    	if(valore == null || valore.equals("admin")==false){
+    		response.sendRedirect("Login.jsp");
+    		return;
+    	}
+    %>
+    
+    <%
+    
+    Collection<?> clienti = (Collection<?>) request.getAttribute("clienti");
 	if(clienti == null){
 		response.sendRedirect("GetEmailCliente");
 		return;

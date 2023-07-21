@@ -51,12 +51,14 @@ public class ClienteControl extends HttpServlet {
 		/********************************************************/
 		/* 					LOGIN AMMINISTRATORE 				*/
 		/********************************************************/
-		if(service.equals("login")) {
+		/*if(service.equals("login")) {
 			if(email.equals("Admin") && pass.equals("Admin")) {
-				response.sendRedirect("./AdministratorPage.jsp");
+				request.setAttribute("Admin", "amministrador");
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/AdministratorPage.jsp");
+				requestDispatcher.forward(request, response);
 				return;
 			}
-		}
+		}*/
 		
 		/********************************************************/
 		/* 		VISUALIZZAZIONE DELLA TABELLA CLIENTI 			*/
@@ -108,8 +110,16 @@ public class ClienteControl extends HttpServlet {
 		/* 						LOGIN 							*/
 		/********************************************************/
 		if (email != null && pass != null && service.equals("login")) {
-			utils.UtilityClass.print("login");
+			utils.UtilityClass.print("Sto effettuando il login");
 			
+			if(email.equals("Admin") && pass.equals("Admin")) {
+				String k = "admin";
+				request.setAttribute("key", k);
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/GetEmailCliente");
+				requestDispatcher.forward(request, response);
+				return;
+			} 
+			if((email.equals("Admin")==false) && (pass.equals("Admin")==false)) {
 			request.setAttribute("email", email);
 			request.setAttribute("password", pass);
 			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/LoginServlet");
@@ -119,7 +129,7 @@ public class ClienteControl extends HttpServlet {
 				// response.sendRedirect(""); /*Se l'utente non esiste la response reindirizza
 				// alla pagina di login*/		
 				return;
-			}	
+			}}
 		
 		/****************************************************************************/
 		/*								CAMBIO PASSWORD								*/
