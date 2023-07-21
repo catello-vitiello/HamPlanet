@@ -41,12 +41,18 @@ function showMenuOverSize(){
     //controllo se dimensione è maggiore di 768
     if (larg > 768){
 
-        menu.style.height = '200%';
+        menu.style.height = '100%';
         menu.style.overflow = 'hidden';
 
         aperto = true;
 
     }
+    
+    else if ( larg <= 768){
+		menu.style.height = '0';	
+	}
+    
+    
 }
 
 //chiamata ad ogni resize della finestra
