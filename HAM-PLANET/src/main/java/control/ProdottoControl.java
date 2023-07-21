@@ -66,10 +66,12 @@ public class ProdottoControl extends HttpServlet {
 		/********************************************************/
 		if(servizio.equals("elimina")) {
 			 int ian = Integer.parseInt(request.getParameter("id"));
+			 request.setAttribute("key", "admin");
 			 
 			 try {
 				 model.delete(ian);
-				 response.sendRedirect("./AdministratorPage.jsp");
+				 RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/GetEmailCliente");
+				 requestDispatcher.forward(request, response);
 	             return;
 			 } catch (SQLException e) {
 	                utils.UtilityClass.print(e);
@@ -82,10 +84,13 @@ public class ProdottoControl extends HttpServlet {
 		/********************************************************/
 		if(servizio.equals("available")) {
 			 int ian = Integer.parseInt(request.getParameter("id"));
+			 request.setAttribute("key", "admin");
 			 
 			 try {
 				 model.returnAvailable(ian);
-				 response.sendRedirect("./AdministratorPage.jsp");
+				 request.setAttribute("key", "admin");
+				 RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/GetEmailCliente");
+				 requestDispatcher.forward(request, response);
 	             return;
 			 } catch (SQLException e) {
 	                utils.UtilityClass.print(e);

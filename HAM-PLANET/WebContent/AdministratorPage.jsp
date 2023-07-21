@@ -155,7 +155,7 @@
                         <div class="row1">
                             <p>IAN</p>
                             <input id="idNP3" name="id" type="text" oninput="controlCaracter(4)" required>
-                            <input type="text" name="servizio" value="elimina" hidden>
+                            <input type="text" name="servizio" value="available" hidden>
                             <input type="submit" value="Rendi Disponibile">
                         </div>
                     </form>
