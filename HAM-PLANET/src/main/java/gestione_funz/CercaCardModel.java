@@ -8,4 +8,6 @@ public interface CercaCardModel<T> {
 	
 	public String getNumCarte(String email) throws SQLException;
 	
+	public void insertNewCard(CercaCarteClienteBean bean, String email) throws SQLException;
+	
 }

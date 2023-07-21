@@ -18,6 +18,13 @@ public class LogOutServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String service = request.getParameter("out");
+		
+		if(service != null) {
+			response.sendRedirect("Login.jsp");
+			return;
+		}
+		
 		HttpSession session = request.getSession();
 		session.invalidate();
 		response.sendRedirect("Login.jsp");

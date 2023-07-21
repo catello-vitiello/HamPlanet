@@ -98,5 +98,47 @@ public class CercaCarteModelDS implements CercaCardModel<CercaCarteClienteBean>{
 		
 		return n.toString();
 	}
+	
+	/********************************************************/
+	/*					INSERIMENTO CARTA					*/
+	/********************************************************/
+	public void insertNewCard(CercaCarteClienteBean bean, String email) throws SQLException{
+		
+		Connection connection = null;
+		Connection connection_1 = null;
+		PreparedStatement preparedStatement = null;
+		PreparedStatement ps = null;
+		String sql = "INSERT INTO carta (nomeTitolare, numeroCarta, scadenza, cvv, visualizza) VALUES(?, ?, ?, ?, 1)";
+		String sql_1 = "INSERT INTO Ha (email_u, n_card) VALUES (?, ?)";
+		
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, bean.getTitolare());
+			preparedStatement.setString(2, bean.getNc());
+			preparedStatement.setString(3, bean.getScadenza());
+			preparedStatement.setInt(4, bean.getCvv());
+			utils.UtilityClass.print(">.Inserimento  carta: " + bean.toString());
+			preparedStatement.executeUpdate();
+			
+			connection_1 = ds.getConnection();
+			ps = connection_1.prepareStatement(sql_1);
+			ps.setString(1, email);
+			ps.setString(2, bean.getNc());
+			utils.UtilityClass.print(">.Inserimento carta numero al cliente: " + bean.getNc() + " -> " + email);
+			ps.executeUpdate();
+			
+		}finally {
+			if(preparedStatement != null)
+				preparedStatement.close();
+			if(connection != null)
+				connection.close();
+			
+			/*if(ps != null)
+				ps.close();
+			if(connection_1 != null)
+				connection_1.close();*/
+		}
+	}
 
 }

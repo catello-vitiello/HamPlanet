@@ -4,17 +4,18 @@ import java.io.Serializable;
 public class CercaCarteClienteBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 
-	private String nc, scadenza;
+	private String nc, scadenza, titolare;
 	private int cvv;
 	
 	public CercaCarteClienteBean() {
 		
 	}
 	
-	public CercaCarteClienteBean(String nc, int cvv, String scadenza) {
+	public CercaCarteClienteBean(String nc, int cvv, String scadenza, String titolare) {
 		this.nc = nc;
 		this.cvv = cvv;
 		this.scadenza = scadenza;
+		this.titolare = titolare;
 	}
 
 	public String getNc() {
@@ -40,10 +41,18 @@ public class CercaCarteClienteBean implements Serializable{
 	public void setScadenza(String scadenza) {
 		this.scadenza = scadenza;
 	}
+	
+	public String getTitolare() {
+		return titolare;
+	}
+	
+	public void setTitolare(String newName) {
+		titolare = newName;
+	}
 
 	@Override
 	public String toString() {
-		return "CercaCarteClienteBean [nc=" + nc + ", scadenza=" + scadenza + ", cvv=" + cvv + "]";
+		return "CercaCarteClienteBean [nc=" + nc + ", scadenza=" + scadenza + ", cvv=" + cvv + ", nome titolare= " + titolare +"]";
 	}
 	
 }

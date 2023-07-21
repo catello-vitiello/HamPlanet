@@ -23,26 +23,27 @@
 		return;
 	}
 
-%>
+	%>
     
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>  	
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PAGINA AMMINISTRATORE</title>
         <link rel="stylesheet" href="./FileCSS/AdministratorPage.css">
         <script type="text/javascript" src="./FileJavaScript/AdministratorPage.js"></script>
-        <script type="text/javascript" src="./FileJavaScript/Header.js"></script>
+        <script type="text/javascript" src="./FileJavaScript/Header.js"></script>                
     </head>
 
-    <body>
+    <body>  
     
     	<jsp:include page="./Header.jsp"></jsp:include>
 
         <div class="row">
             <div style="width: 20%;"></div>
             <p class="titolPage">Administrator Page</p>
-            <form class="formLogOut" action="LogOutServlet">
+            <form class="formLogOut" action="LogOutServlet" method="post">
+            	<input name="out" value="out" hidden>
                 <input type="submit" value="Log out">
             </form>
         </div>

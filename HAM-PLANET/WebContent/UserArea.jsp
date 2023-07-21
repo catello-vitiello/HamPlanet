@@ -251,11 +251,11 @@ if (user == null) {
         <!-- INSERIMENTO CAMPI -->
         <div id="formNewCard">
 
-             <form id="formForCard" class="frm" action="">
+             <form id="formForCard" class="frm" action="CartaControl" method="post">
 
                 <!-- NUMERO CARTA -->
                 <div class="inputboxNumber">
-                    <input id="inputNewNumber" type="text" maxlength="16" oninput="addTextToCard(0)" required>
+                    <input id="inputNewNumber" name="numeroCarta" type="text" maxlength="16" oninput="addTextToCard(0)" required>
                     <div class="textInputbox">
                         <label class="labelCard" for="">Numero Carta</label>
                     </div>
@@ -264,7 +264,7 @@ if (user == null) {
                 
                 <!-- PROPRIETARIO -->
                 <div class="inputboxNumber">
-                    <input id="inputNewOwner" type="text" maxlength="25" oninput="addTextToCard(1)" style="text-transform: capitalize;" required>
+                    <input id="inputNewOwner" name="proprietario" type="text" maxlength="25" oninput="addTextToCard(1)" style="text-transform: capitalize;" required>
                     <div class="textInputbox">
                         <label class="labelCard" for="">Proprietario</label>
                     </div>
@@ -275,7 +275,7 @@ if (user == null) {
 
                     <!-- MESE -->
                     <div class="inputboxMAC">
-                        <input id="inputNewMonth" type="text" maxlength="2" oninput="addTextToCard(2)" required>
+                        <input id="inputNewMonth" name="mese" type="text" maxlength="2" oninput="addTextToCard(2)" required>
                         <div class="textInputbox">
                             <label class="labelCard" for="">Mese</label>
                         </div>
@@ -284,7 +284,7 @@ if (user == null) {
 
                     <!-- ANNO -->
                     <div class="inputboxMAC">
-                        <input id="inputNewYear" type="text" maxlength="2" oninput="addTextToCard(3)" required>
+                        <input id="inputNewYear" name="anno" type="text" maxlength="2" oninput="addTextToCard(3)" required>
                         <div class="textInputbox">
                             <label class="labelCard" for="">Anno</label>
                         </div>
@@ -293,7 +293,7 @@ if (user == null) {
 
                     <!-- CVV -->
                     <div class="inputboxMAC">
-                        <input id="inputNewCvv" type="text" maxlength="4" onfocus="changeFront(1)" onblur="changeFront(0)" oninput="addTextToCard(4)" required>
+                        <input id="inputNewCvv" name="cvv" type="text" maxlength="4" onfocus="changeFront(1)" onblur="changeFront(0)" oninput="addTextToCard(4)" required>
                         <div class="textInputbox">
                             <label class="labelCard" for="">CVV</label>
                         </div>
@@ -303,7 +303,10 @@ if (user == null) {
                 </div>
 
                  <!-- BOTTONE INVIO -->
-                <input id="buttonAddCard" class="buttonSubmitModify" onclick="closeWindowCard(event, 'submit')" type="submit" value="Aggiungi carta">
+                 <input type="text" name="op" value="insert" hidden>
+                 <input type="text" name="email" value="<%= user.getEmail() %>" hidden>
+                 <input type="text" name="pass" value="<%= user.getPass() %>" hidden>
+                 <input id="buttonAddCard" class="buttonSubmitModify" onclick="closeWindowCard(event, 'submit')" type="submit" value="Aggiungi carta">
            
              </form>
 
