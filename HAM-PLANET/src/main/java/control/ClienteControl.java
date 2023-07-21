@@ -170,6 +170,7 @@ public class ClienteControl extends HttpServlet {
 				model.changePhone(email, cellulare);
 				request.setAttribute("email", email);
 				request.setAttribute("password", pass);
+				utils.UtilityClass.print("#####################################################################Email: " + email + " Password: " + pass);
 				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/LoginServlet");
 				requestDispatcher.forward(request, response);
 			}catch(SQLException e) {

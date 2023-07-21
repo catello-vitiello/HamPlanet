@@ -199,6 +199,7 @@ public class ClienteModelDS implements ClienteModel<ClienteBean> {
 				cb.setPaese(rs.getString("paese"));
 				cb.setProvincia(rs.getString("provincia"));
 				cb.setCap(rs.getString("cap"));
+				cb.setPass(password);
 			}
 			
 			return cb;

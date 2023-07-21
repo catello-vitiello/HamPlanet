@@ -61,8 +61,8 @@ if (user == null) {
 			</div>
 
 			<input type="text" name="service" value="cambioC" hidden>
-			<input type="text" name="email" value=<%= user.getEmail() %> hidden>
-			<input type="text" name="pass" value=<%= user.getPass() %> hidden>
+			<input type="text" name="email" value="<%= user.getEmail() %>" hidden>
+			<input type="text" name="pass" value="<%= user.getPass() %>" hidden>
 			<!-- BOTTONE INVIO -->
 			<button id="buttonInvio_0" class="buttonSubmitModify"
 				onclick="resizeWindow(event, 0, 'submit')" type="submit">Invio</button>

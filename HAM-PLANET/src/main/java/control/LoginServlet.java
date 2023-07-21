@@ -28,7 +28,8 @@ public class LoginServlet extends HttpServlet {
     		
     	try {
     		
-    		String email = (String) request.getAttribute("email");
+    		String email = null;
+    		email = (String) request.getAttribute("email");
     		String pass = (String) request.getAttribute("password");
     		
 			ClienteBean n = model.tryLogIn(email, pass);
