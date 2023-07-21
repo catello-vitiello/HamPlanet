@@ -13,6 +13,8 @@
     
     <body>
     
+    	<jsp:include page="./Header.jsp"></jsp:include>
+    
         <div class="form-box">
             <form action="ClienteControl" method="post">
 

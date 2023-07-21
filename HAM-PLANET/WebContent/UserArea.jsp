@@ -29,6 +29,8 @@ if (user == null) {
 
 
 
+	<jsp:include page="./Header.jsp"></jsp:include>
+
 
 	<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ CAMPI PER MODIFICARE @@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
@@ -340,9 +342,11 @@ if (user == null) {
 				</div>
 
 				<!--BOTTONE LOGOUT-->
+				
+				
 				<!-- <button id="LogOut">Log out</button> -->
-				<form action="LogOutServlet" method="post">
-					<input type="submit" value="Log out" id="LogOut">
+				<form id="LogOut" action="LogOutServlet" method="post">
+					<input type="submit" value="Log out" >
 				</form>
 			</div>
 		</div>
