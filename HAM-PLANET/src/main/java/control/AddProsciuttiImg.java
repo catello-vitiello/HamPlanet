@@ -3,6 +3,8 @@ package control;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -34,9 +36,13 @@ public class AddProsciuttiImg extends HttpServlet {
     	DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		ProdottoModelDS model = new ProdottoModelDS(ds);
 		
+		request.setAttribute("key", "admin");
+		
 		try {
 			model.addImageToProduct(id , inputStream);
-			response.sendRedirect("./AdministratorPage.jsp");
+			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/GetEmailCliente");
+			requestDispatcher.forward(request, response);
+            return;
 		}catch(SQLException e){
 			utils.UtilityClass.print(e);
 		}

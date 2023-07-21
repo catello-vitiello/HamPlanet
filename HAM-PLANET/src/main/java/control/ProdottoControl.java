@@ -51,10 +51,13 @@ public class ProdottoControl extends HttpServlet {
 	            String nomeString = request.getParameter("nomeProdotto");
 	            String desc = request.getParameter("descrizione");
 	            String tipo = request.getParameter("tipo");
+	            
+	            request.setAttribute("key", "admin");
 
 	            try {
 	                model.insert_NoImage(ian, desc, peso, prezzo, nomeString, tipo);
-	                response.sendRedirect("./AdministratorPage.jsp");
+	                RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/GetEmailCliente");
+					requestDispatcher.forward(request, response);
 	                return;
 	            } catch (SQLException e) {
 	                utils.UtilityClass.print(e);
