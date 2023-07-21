@@ -114,7 +114,10 @@
 	
 	<hr>
 	<p align="center">
-	<a href="AdministratorPage.jsp" >BACK</a> <!-- Per tornare alla pagina amministrtore -->
+	<form action="GetEmailCliente" method="post">
+		<input type="text" name="valore" value="admin" hidden>
+		<input type="submit" value="BACK">
+	</form>
 	
 </body>
 </html>

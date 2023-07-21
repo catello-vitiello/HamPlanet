@@ -23,9 +23,12 @@ public class GetEmailCliente extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		ClienteModelDS model = new ClienteModelDS(ds);
+		
+		String valore = (String) request.getParameter("valore");
+		if(valore != null)
+			request.setAttribute("key", valore);
 		
 		try {
 			request.setAttribute("clienti", model.selectAll());

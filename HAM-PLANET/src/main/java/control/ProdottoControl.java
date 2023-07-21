@@ -21,6 +21,7 @@ public class ProdottoControl extends HttpServlet {
 		ProdottoModelDS model = new ProdottoModelDS(ds);
 		
 		String servizio = request.getParameter("servizio");
+		utils.UtilityClass.print("Servizio: " + servizio);
 	
 		/********************************************************/
 		/* 				VEDI PRODOTTI SENZA IMMAGINE		    */
