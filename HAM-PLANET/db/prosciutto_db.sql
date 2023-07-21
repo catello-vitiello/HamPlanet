@@ -48,6 +48,7 @@ CREATE TABLE prodotto
     descrizione VARCHAR(300),
     image MEDIUMBLOB,
     nomeProdotto VARCHAR(60),
+    tipo VARCHAR(60),
     visualizza INT NOT NULL, -- inserire 0 per non visualizzare il prodotto, 1 altrimenti
     PRIMARY KEY(IAN)
 );

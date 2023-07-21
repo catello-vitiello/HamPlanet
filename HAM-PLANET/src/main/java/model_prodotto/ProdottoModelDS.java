@@ -50,6 +50,7 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 				pb.setPeso(rs.getDouble("peso"));
 				pb.setPrezzo(rs.getDouble("prezzo"));
 				pb.setNomeProdotto(rs.getString("nomeProdotto"));
+				pb.setTipo(rs.getString("tipo"));
 
 				prodotti.add(pb);
 			}
@@ -87,6 +88,7 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 				pb.setPeso(rs.getDouble("peso"));
 				pb.setPrezzo(rs.getDouble("prezzo"));
 				pb.setNomeProdotto(rs.getString("nomeProdotto"));
+				pb.setTipo(rs.getString("tipo"));
 
 				prodotti.add(pb);
 			}
@@ -108,12 +110,12 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 	/********************************************************/
 
 	@Override
-	public void insert_NoImage(int IAN, String descrizione, double peso, double prezzo, String nomeProdotto)
+	public void insert_NoImage(int IAN, String descrizione, double peso, double prezzo, String nomeProdotto, String tipo)
 			throws SQLException {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String sql = "INSERT INTO prodotto (IAN,prezzo,peso,descrizione,nomeProdotto, visualizza) VALUES (?, ?, ?, ?, ?, 1)";
+		String sql = "INSERT INTO prodotto (IAN,prezzo,peso,descrizione,nomeProdotto, visualizza, tipo) VALUES (?, ?, ?, ?, ?, 1, ?)";
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(sql);
@@ -123,6 +125,7 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 			preparedStatement.setDouble(3, peso);
 			preparedStatement.setString(4, descrizione);
 			preparedStatement.setString(5, nomeProdotto);
+			preparedStatement.setString(6, tipo);
 
 			utils.UtilityClass.print(">.INSERT " + preparedStatement);
 			preparedStatement.executeUpdate();

@@ -10,7 +10,7 @@ public interface ProdottoModel<T> {
 	
 	public Collection<T> selectAll_NoImage_NotAvailable() throws SQLException;
 	
-	public void insert_NoImage(int IAN,String descrizione,double peso,double prezzo, String nomeProdotto)throws SQLException;
+	public void insert_NoImage(int IAN,String descrizione,double peso,double prezzo, String nomeProdotto, String tipo)throws SQLException;
 	
 	public void delete(int IAN)throws SQLException;
 	

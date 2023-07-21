@@ -50,9 +50,10 @@ public class ProdottoControl extends HttpServlet {
 	            double peso = Double.parseDouble(request.getParameter("peso"));
 	            String nomeString = request.getParameter("nomeProdotto");
 	            String desc = request.getParameter("descrizione");
+	            String tipo = request.getParameter("tipo");
 
 	            try {
-	                model.insert_NoImage(ian, desc, peso, prezzo, nomeString);
+	                model.insert_NoImage(ian, desc, peso, prezzo, nomeString, tipo);
 	                response.sendRedirect("./AdministratorPage.jsp");
 	                return;
 	            } catch (SQLException e) {

@@ -33,6 +33,7 @@
 			<td>DESCRIZIONE</td>
 			<td>IMMAGINE</td>
 			<td>NOME PRODOTTO</td>
+			<td>TIPOLOGIA PRODOTTO</td>
 		</tr>
 		
 		<%
@@ -51,6 +52,7 @@
 				<td><%= bean.getDescrizione() %></td>
 				<td><img src="./ImageProductServlet?id=<%= bean.getIAN() %>" onerror="this.src='img/p.png'" width="40" height="40"></td>
 				<td><%= bean.getNomeProdotto().toString() %></td>
+				<td><%= bean.getTipo().toString() %></td>
 			</tr>
 		
 		<%
@@ -79,6 +81,7 @@
 			<td>DESCRIZIONE</td>
 			<td>IMMAGINE</td>
 			<td>NOME PRODOTTO</td>
+			<td>TIPOLOGIA PRODOTTO</td>
 		</tr>
 		
 		<%
@@ -96,6 +99,7 @@
 				<td><%= bean.getDescrizione() %></td>
 				<td><img src="./ImageProductServlet?id=<%= bean.getIAN() %>" onerror="this.src='img/p.png'" width="40" height="40"></td>
 				<td><%= bean.getNomeProdotto().toString() %></td>
+				<td><%= bean.getTipo().toString() %></td>
 			</tr>
 		
 		<%

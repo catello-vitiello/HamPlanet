@@ -72,6 +72,16 @@
                             
                             <p>Peso</p>
                             <input id="weightNP" name="peso" type="text" oninput="controlCaracter(3)" required>
+                            
+                             <p>tipo</p>
+                             <select name="tipo">
+                            	<option value="cotto">Prosciutto cotto</option>
+                            	<option value="crudo">Prosciutto crudo</option>
+                            	<option value="salame">Salame</option>
+                            	<option value="pancetta">Pancetta</option>
+                            	<option value="guanciale">Guanciale</option>
+                            	<option value="mortadella">Mortadella</option>
+                        	</select>
                         </div>
                         
                         <p style="margin: 1% 0 0.5% 0;">Descrizione</p>

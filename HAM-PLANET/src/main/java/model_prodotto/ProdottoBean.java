@@ -6,19 +6,20 @@ public class ProdottoBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int IAN, visualizza, quantity;
-	private String descrizione, nomeProdotto;
+	private String descrizione, nomeProdotto, tipo;
 	private double peso, prezzo;
 	
 	public ProdottoBean() {
 
 	}
 
-	public ProdottoBean(int IAN, String descrizione, double peso, double prezzo, String nomeProdotto) {
+	public ProdottoBean(int IAN, String descrizione, double peso, double prezzo, String nomeProdotto, String tipo) {
 		this.IAN = IAN;
 		this.descrizione = descrizione;
 		this.peso = peso;
 		this.prezzo = prezzo;
 		this.nomeProdotto = nomeProdotto;
+		this.tipo = tipo;
 		this.visualizza = 1;
 		this.quantity = 1;
 	}
@@ -71,6 +72,14 @@ public class ProdottoBean implements Serializable {
 		visualizza = newV;
 	}
 	
+	public String getTipo() {
+		return tipo;
+	}
+	
+	public void setTipo(String newType) {
+		tipo = newType;
+	}
+	
 	/****************************************************************************/
 	/* 								Quantità 									*/
 	/****************************************************************************/
@@ -87,7 +96,7 @@ public class ProdottoBean implements Serializable {
 	/****************************************************************************/
 	public String toStringJS(){
 		return IAN + "," + descrizione + "," + peso + ","
-			+ prezzo + "," + nomeProdotto + "," + quantity;
+			+ prezzo + "," + nomeProdotto + "," + quantity + "," + tipo;
 	}
 
 	/****************************************************************************/
@@ -95,7 +104,7 @@ public class ProdottoBean implements Serializable {
 	/****************************************************************************/
 	public String toString() {
 		 return getClass().getName() + "[IAN= " + IAN + ", descrizione= " + descrizione + ", peso= " + peso
-				+ ", prezzo= " + prezzo + ", nome prodotto= " + nomeProdotto + ", quantitativo= " + quantity + "]";
+				+ ", prezzo= " + prezzo + ", nome prodotto= " + nomeProdotto + ", quantitativo= " + quantity + ", tipo= " + tipo +"]";
 	}
 
 }
