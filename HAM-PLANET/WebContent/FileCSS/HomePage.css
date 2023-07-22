@@ -199,8 +199,6 @@ body{
 
     align-items: center;
     justify-content: center;
-
-    border: 2px solid red;
 }
 
 .town{
@@ -217,16 +215,12 @@ body{
     font-size: 200%;
     font-weight: 900;
 
-    border: 2px solid blue;
-
     margin: 2% 0;
 }
 
 .sonTwo p{
     align-self: self-start;
     font-size: 130%;
-
-    border: 2px solid blue;
 }
 
 

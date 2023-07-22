@@ -1,0 +1,70 @@
+@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css?family=Poppins');  /*FULL SITE*/
+
+
+/*#########################   FOOTER   #########################*/
+.footerSite{
+    height: 25%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+	font-family: 'Poppins';
+	
+    background: #53140b;
+}
+
+
+.footerSite hr{
+    width: 80%;
+    
+    border: 1px solid transparent;
+    border-radius: 25px;
+    background:  #c03f2e;
+
+    margin: 8px 0;
+}
+
+.footerSite p{
+    color:  #c03f2e;
+}
+
+.headToFooter{
+    height: 50%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.sonFoo{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+.logoFooter{
+    height: auto;
+    width: 80%;
+}
+
+.socialFooter{
+    height: auto;
+    width: 20%;
+}
+
+.socialFooter:hover{
+    scale: 1.1;
+}
+
+.cardFooter{
+    height: auto;
+    width: 17%;
+}

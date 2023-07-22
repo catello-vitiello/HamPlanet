@@ -51,7 +51,7 @@
 
 			<!-- logo ham planet -->
 			<a class="header_logo" href=""> <!--LINK TO HOME--> <img
-				type="svg" src="./Icon/logo_WHITE.svg" alt="">
+				type="svg" src="./Icon/TotalLogo_WHITE.svg" alt="">
 			</a>
 
 			<!-- lista menu -->
