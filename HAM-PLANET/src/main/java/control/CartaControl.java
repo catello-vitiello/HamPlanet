@@ -13,6 +13,7 @@ import javax.sql.DataSource;
 
 import gestione_funz.CercaCarteClienteBean;
 import gestione_funz.CercaCarteModelDS;
+import model_carta.CartaModelDS;
 
 @WebServlet("/CartaControl")
 public class CartaControl extends HttpServlet {
@@ -27,7 +28,12 @@ public class CartaControl extends HttpServlet {
 		String servizio = request.getParameter("op");
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		CercaCarteModelDS model = new CercaCarteModelDS(ds);
+		CartaModelDS modelDS = new CartaModelDS(ds);
 		
+		
+		/********************************************************************/
+		/*						INSERIMENTO CARTA							*/
+		/********************************************************************/
 		if(servizio.equals("insert")) {
 			String numero = request.getParameter("numeroCarta");
 			String titolare = request.getParameter("proprietario");
@@ -53,6 +59,19 @@ public class CartaControl extends HttpServlet {
 			}
 			
 		}
+		
+		/********************************************************************/
+		/*						ELIMINAZIONE CARTA							*/
+		/********************************************************************/
+		if(servizio.equals("delete")) {
+			String numero = request.getParameter("NumeroCarta");
+			try {
+				modelDS.deleteCard(numero);
+			} catch (SQLException e) {
+				utils.UtilityClass.print(e);
+			}
+		}
+		
 		
 	}
 

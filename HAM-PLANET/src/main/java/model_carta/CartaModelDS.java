@@ -48,7 +48,7 @@ public class CartaModelDS implements CartaModel<CartaBean> {
 				carte.add(cb);
 			}
 
-		} finally {
+		}finally {
 
 			if (preparedStatement != null)
 				preparedStatement.close();
@@ -57,6 +57,32 @@ public class CartaModelDS implements CartaModel<CartaBean> {
 		}
 		return carte;
 
+	}
+	
+	/********************************************************************/
+	/*						ELIMINAZIONE CARTA							*/
+	/********************************************************************/
+	public void deleteCard(String numeroCarta) throws SQLException{
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		String sql = "DELETE FROM carta WHERE numeroCarta = ?";
+		
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			utils.UtilityClass.print(">.ELEIMINAZIONE CARTA NUMERO " + numeroCarta);
+			
+			preparedStatement.setString(1, numeroCarta);
+			preparedStatement.executeUpdate();
+		}finally {
+
+			if (preparedStatement != null)
+				preparedStatement.close();
+			if (connection != null)
+				connection.close();
+		}
+		
 	}
 
 }

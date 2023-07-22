@@ -5,6 +5,6 @@ import java.util.Collection;
 public interface CartaModel <T> {
 	
 	public Collection<T> selectAll() throws SQLException;
-	
+	public void deleteCard(String numeroCarta) throws SQLException;
 
 }
