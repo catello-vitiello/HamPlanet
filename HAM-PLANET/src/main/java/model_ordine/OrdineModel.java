@@ -11,6 +11,8 @@ public interface OrdineModel<T>{
 	
 	public void delete(int id) throws SQLException;
 	
-	public void setStato(String stato) throws SQLException;
+	public void setStato(String stato, int id) throws SQLException;
+	
+	public Collection<?> getOrdiniEffettuati(String email) throws SQLException;
 	
 }

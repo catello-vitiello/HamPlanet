@@ -9,6 +9,8 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import javax.sql.DataSource;
 
+import model_prodotto.ProdottoBean;
+
 public class OrdineModelDS implements OrdineModel<OrdineBean>{
 	
 	private DataSource ds = null;
@@ -163,8 +165,68 @@ public class OrdineModelDS implements OrdineModel<OrdineBean>{
 	/********************************************************/
 	/*						SET STATO						*/
 	/********************************************************/
-	public void setStato(String stato) throws SQLException {
+	public void setStato(String stato, int id) throws SQLException {
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		String sql="UPDATE ordine SET stato = ? WHERE id = ?";
+		
+		try{
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, stato);
+			preparedStatement.setInt(2, id);
+			
+			preparedStatement.executeUpdate();
+		}finally {
+			if(preparedStatement != null)
+				preparedStatement.close();
+			if(connection != null)
+				connection.close();
+		}
 		
 	}
 
+	/********************************************************/
+	/*				 VEDI ORDINI EFFETTUATI					*/
+	/********************************************************/
+	public Collection<?> getOrdiniEffettuati(String email) throws SQLException{
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		String sql = "SELECT nomeProdotto, descrizione, prodotto.prezzo, IAN "
+				+ "FROM ordine, composto, prodotto, cliente "
+				+ "WHERE ian_prodotto=IAN "
+				+ "AND id_ordine=id "
+				+ "AND email=e_mail "
+				+ "AND stato='effettuato' AND e_amil=?";
+		Collection<ProdottoBean> prodotto = new LinkedList<ProdottoBean>();
+		
+		try {
+			
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, email);
+			utils.UtilityClass.print(">.RECUPERO ORDINI EFFETTUATI DAL CLIENTE: " + email);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			while(rs.next()) {
+				ProdottoBean ob = new ProdottoBean();
+				ob.setIAN(rs.getInt("IAN"));
+				ob.setNomeProdotto(rs.getString("nomeProdotto"));
+				ob.setDescrizione(rs.getString("descrizione"));
+				ob.setPrezzo(rs.getDouble("prodotto.prezzo"));
+				
+				prodotto.add(ob);
+			}
+			
+		}finally {
+			if(preparedStatement != null)
+				preparedStatement.close();
+			if(connection != null)
+				connection.close();
+		}
+		return prodotto;
+	}
+	
 }
