@@ -1,0 +1,261 @@
+@charset "ISO-8859-1";
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');  /*FULL SITE*/
+
+
+*{
+    margin: 0;
+	padding: 0;
+    font-family: 'Poppins';
+    transition: all .4s;
+}
+
+/*#########################   BODY   #########################*/
+body{
+    display: flex;
+
+                    flex-direction: column;
+
+    position: relative;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    
+    overflow: hidden;
+}
+
+
+
+/*#########################   HEAD   #########################*/
+.head{
+    height: 44px;
+    width: 100%;
+
+    background: #1d1d1f; 
+    z-index: 1000;   
+}
+
+
+/*###############   SCROLL BAR LATERALE   ###############*/
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: #888888;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #616161;
+    border-radius: 25px;
+}
+
+
+/*#########################   CONTENUTO PAGINA   #########################*/
+.contentPage{
+    height: auto;
+    width: auto;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+    margin: 43px 0 0;
+
+}
+
+
+
+
+/*#########################   SEZIONE 1   #########################*/
+.section1{
+    height: calc(100vh - 44px);
+    width: 100%;
+
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sfondo{
+    height: calc(100vh - 44px);
+    width: 100%;
+
+    position: fixed;
+    z-index: -1;
+}
+
+
+.sfondoScroll{    
+    height: calc(100vh - 44px);
+    width: 100%;
+    position: relative;
+
+    z-index: 5;
+
+}
+
+
+
+.logoSite{
+    height: auto;
+    width: 60%;
+    position: fixed;
+    top: 8%;
+
+    z-index: 4;
+}
+
+
+/*#########################   SEZIONE 2   #########################*/
+.section2{
+    height: 15%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    background: #575756;
+
+    position: relative;
+    display: flex;
+
+    z-index: 5;
+}
+
+
+/*@@@@@    PICCOLE AREE    @@@@@*/
+.son{
+    height: 100%;
+    width: 30%;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.son img{
+    height: 100%;
+}
+
+.testoSection2{
+    height: 100%;
+    width: 60%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.testoSection2 h3{
+    color: white;
+    font-weight: 700;
+}
+
+.testoSection2 p{
+    color: white;
+    font-size: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*#########################   SEZIONE 3   #########################*/
+.section3{
+    height: 80%;
+    width: 100%;
+
+    background: white;
+
+    position: relative;
+    display: flex;
+
+    align-items: center; 
+    justify-content: space-around;
+
+    z-index: 5;
+}
+
+.sonTwo{
+    height: 100%;
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid red;
+}
+
+.town{
+    height: auto;
+    width: 100%;
+
+    filter: drop-shadow(2px 2px 6px black);
+
+    border-radius: 30px;
+}
+
+.sonTwo h2{
+    align-self: self-start;
+    font-size: 200%;
+    font-weight: 900;
+
+    border: 2px solid blue;
+
+    margin: 2% 0;
+}
+
+.sonTwo p{
+    align-self: self-start;
+    font-size: 130%;
+
+    border: 2px solid blue;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px){
+    .section2{
+        flex-direction: column;
+        height: 45%;
+    }
+
+    .son{
+        height: calc(100% / 3);
+        width: 100%;
+    }
+
+
+    .section3{
+        flex-direction: column;
+    }
+
+    .sonTwo{
+        width: 90%;
+    }
+

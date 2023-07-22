@@ -23,7 +23,7 @@
 				<input type="text" value="login" name ="service" hidden>
 
                 <!--LOGO-->
-                <img id="logo" src="./Icon/logo_HamPlanet_BLACK.svg" alt="Ham Planet" height="130x">
+                <img id="logo" src="./Icon/OnlyLogo_BLACK.svg" alt="Ham Planet" height="100x">
                 
                 
                 <!--TITOLO-->
@@ -71,10 +71,11 @@
                     <img id="img_pass" src="./Icon/eyes_show_BLACK.png" alt="show" height="30px" onclick="showPwd()">
                 </div>
 
-                <!--PASSWORD DIMENTICATA-->
+                <!--PASSWORD DIMENTICATA
                 <div class="forgotPass">
                     <a href="#">Hai dimenticato la password?</a>
                 </div>
+                -->
 
                 <!--BOTTONE DI ACCESSO-->
                 <button id="buttonLogin" type="submit">Accedi</button>
