@@ -31,6 +31,11 @@
 
                 <!-- icone cercare e carrello-->
                 <div class="header_icon">
+                
+                	<!-- SELECT PER IL SEARCH -->
+                	<select id="searchBarID" class="searchBar" name="">
+                    </select>
+                    
                     <!-- SEARCH -->
                     <img src="./Icon/search2_WHITE.png" alt="">
                     

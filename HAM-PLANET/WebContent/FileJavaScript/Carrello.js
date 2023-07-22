@@ -145,7 +145,7 @@ function changeValue(operation, event){
     subTotale.innerHTML = "&euro;"+valsubtotal;
     
     //totale + spedizione
-    if(valsubtotal >= 60.00){
+    if(valsubtotal >= 160.00){
         totale.innerHTML = '&euro;' + valsubtotal;
         spediction.textContent = 'Gratis'
     }

@@ -87,6 +87,7 @@
     height: 100%;
     width: 20%;
     display: flex;
+    align-items: center;
     flex-direction: row;
     justify-content: end;
 }
@@ -95,6 +96,7 @@
 .header_icon img{
     height: 38px;
     width: auto;
+    cursor: pointer;
 
     margin: 0 8px;
 }
@@ -130,4 +132,18 @@
         align-items: center;   
         pointer-events: all;
     }
+}
+
+
+
+
+
+.searchBar{
+    height: 50%;
+    width: 0;
+    opacity: 0;
+
+    outline: none;
+    background: #fff;
+    border-radius: 25px;
 }

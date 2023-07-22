@@ -61,3 +61,41 @@ window.addEventListener('resize', showMenuOverSize);
 //chiamata all'inizio
 showMenuOverSize();
 
+
+
+
+
+//##################################################################################
+//##############     FUNZIONE PER RENDERE VISIBILE SELECT   ########################
+//##################################################################################
+var boolSearch = false;
+
+function showSearch(){
+    var searchBarID = document.getElementById('searchBarID');
+
+
+    if (boolSearch){
+        searchBarID.style.width = '0';
+        
+        setTimeout(function(){
+            searchBarID.style.opacity = '0';
+        }, 50)
+    
+        boolSearch = false;
+
+       
+    }
+
+    else {
+
+        searchBarID.style.opacity = '1';
+    
+        setTimeout(function(){
+            searchBarID.style.width = '40%';
+        }, 100)
+
+        boolSearch = true;
+    }
+
+
+}
