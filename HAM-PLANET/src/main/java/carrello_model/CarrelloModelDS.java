@@ -6,12 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
-
 import javax.sql.DataSource;
 
-import gestione_funz.CercaCarteClienteBean;
-
-public class CarrelloModelDS implements CarrelloModel {
+public class CarrelloModelDS implements CarrelloModel<CarrelloBean> {
 	
 	private DataSource ds = null;
 	

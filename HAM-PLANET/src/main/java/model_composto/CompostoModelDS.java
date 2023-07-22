@@ -61,7 +61,6 @@ public class CompostoModelDS implements CompostoModel<CompostoBean> {
 	/********************************************************/
 	/* 						DELETE 							*/
 	/********************************************************/
-
 	@Override
 	public void deleteComposto(int id_c) throws SQLException {
 		Connection connection = null;
@@ -82,6 +81,32 @@ public class CompostoModelDS implements CompostoModel<CompostoBean> {
 				connection.close();
 		}
 
+	}
+	
+	/********************************************************/
+	/* 				    INSERT KART 						*/
+	/********************************************************/
+	public void addToCart(int id, int ian) throws SQLException{
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		String sql = "insert into composto(id_ordine, ian_prodotto)values(?, ?)";
+		
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			
+			preparedStatement.setInt(1, id);
+			preparedStatement.setInt(2, ian);
+			utils.UtilityClass.print(">.INSERIMENTO PRODOTTO NEL CARRELLO: " + preparedStatement.toString());
+			
+			preparedStatement.executeUpdate();
+		}finally {
+			if (preparedStatement != null)
+				preparedStatement.close();
+			if (connection != null)
+				connection.close();
+		}	
 	}
 
 }

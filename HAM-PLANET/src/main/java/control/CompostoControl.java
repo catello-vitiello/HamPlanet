@@ -32,8 +32,20 @@ public class CompostoControl extends HttpServlet {
 			}
 
 			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/CompostoView.jsp");
-			requestDispatcher.forward(request, response);
-		   
+			requestDispatcher.forward(request, response);	   
+	   }
+	   
+	   /********************************************************/
+	   /* 				    INSERT KART 						*/
+	   /********************************************************/
+	   if(servizio.equals("addToKart")) {
+		   int id = Integer.parseInt((String) request.getAttribute("id_ordine"));
+		   int ian = Integer.parseInt((String) request.getAttribute("ian_prodotto"));
+		   try {
+			model.addToCart(id, ian);
+		   } catch (SQLException e) {
+			   utils.UtilityClass.print(e);
+		   }
 	   }
 	   
    }
