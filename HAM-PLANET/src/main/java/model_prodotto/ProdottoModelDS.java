@@ -1,6 +1,7 @@
 package model_prodotto;
 
 import java.io.InputStream;
+import java.lang.annotation.Retention;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,6 +24,38 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 		this.ds = ds;
 	}
 
+	/********************************************************/
+	/* 					  SELECT ALL TIPO					*/
+	/********************************************************/
+	public Collection<ProdottoBean> selectAll() throws SQLException{
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		String sql = "SELECT DISTINCT tipo FROM prodotto";
+		Collection<ProdottoBean> prodotti = new LinkedList<ProdottoBean>();
+		try {
+
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			utils.UtilityClass.print(">.SELECT ALL SU PRODOTTI " + preparedStatement);
+
+			ResultSet rs = preparedStatement.executeQuery();
+			while (rs.next()) {
+				ProdottoBean pb = new ProdottoBean();
+				pb.setTipo(rs.getString("tipo"));
+
+				prodotti.add(pb);
+			}
+		} finally {
+
+			if (preparedStatement != null)
+				preparedStatement.close();
+			if (connection != null)
+				connection.close();
+		}
+
+		return prodotti;
+	}
+	
 	/********************************************************/
 	/* 			SELECT ALL NO IMAGE DISPONIBILE				*/
 	/********************************************************/
@@ -251,5 +284,40 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 			if (connection != null)
 				connection.close();
 		}
+	}
+	
+	/********************************************************/
+	/* 				  SEARCH BY CATEGORY					*/
+	/********************************************************/
+	public Collection<ProdottoBean> getByCategoria(String tipo) throws SQLException{
+		
+		Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        String sql = "SELECT * FROM prodotto WHERE tipo = ?";
+        Collection<ProdottoBean> prodotti = new LinkedList<ProdottoBean>();
+        
+        try {
+        	connection = ds.getConnection();
+        	preparedStatement = connection.prepareStatement(sql);
+        	preparedStatement.setString(1, tipo);
+        	utils.UtilityClass.print(">.SELECT PER CATEGORIA");
+        	
+        	ResultSet rs = preparedStatement.executeQuery();
+        	while(rs.next()) {
+        		ProdottoBean bean = new ProdottoBean();
+        		bean.setIAN(rs.getInt("IAN"));
+        		bean.setNomeProdotto(rs.getString("nomeProdotto"));
+        		bean.setPrezzo(rs.getDouble("prezzo"));
+        		
+        		prodotti.add(bean);
+        	}
+        	
+        }finally {
+			if (preparedStatement != null)
+				preparedStatement.close();
+			if (connection != null)
+				connection.close();
+		}
+		return prodotti;
 	}
 }

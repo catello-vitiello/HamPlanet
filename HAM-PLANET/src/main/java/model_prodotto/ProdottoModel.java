@@ -5,6 +5,9 @@ import java.sql.SQLException;
 import java.util.Collection;
 
 public interface ProdottoModel<T> {
+	
+	public Collection<T> selectAll() throws SQLException;
+	
 	public Collection<T> selectAll_NoImage() throws SQLException;
 	
 	public Collection<T> selectAll_NoImage_NotAvailable() throws SQLException;
@@ -18,4 +21,6 @@ public interface ProdottoModel<T> {
 	public void addImageToProduct(int ian,InputStream io)throws SQLException;
 	
 	public byte[] getImageByKey(int id)throws SQLException;
+	
+	public Collection<T> getByCategoria(String tipo) throws SQLException;
 }

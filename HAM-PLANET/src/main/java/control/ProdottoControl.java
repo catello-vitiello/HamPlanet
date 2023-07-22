@@ -101,7 +101,22 @@ public class ProdottoControl extends HttpServlet {
 	            }
 			 
 		}
-		 
+		
+		/********************************************************/
+		/* 				  SEARCH BY CATEGORY					*/
+		/********************************************************/
+		if(servizio.equals("getByCategory")) {
+			String tipo = request.getParameter("categoria");
+			
+			try {
+				request.setAttribute("prodottiByCategory", model.getByCategoria(tipo));
+				//RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/GetEmailCliente");
+				//requestDispatcher.forward(request, response);
+				return;
+			}catch (SQLException e) {
+				utils.UtilityClass.print(e);
+			}
+		}
 		 
 	}
 
