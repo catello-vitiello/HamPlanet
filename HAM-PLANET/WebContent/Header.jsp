@@ -37,7 +37,7 @@
                     </select>
                     
                     <!-- SEARCH -->
-                    <img src="./Icon/search2_WHITE.png" alt="">
+                    <img src="./Icon/search2_WHITE.png" onclick="showSearch()"  alt="">
                     
                     <!-- USER -->
                     <a href="./UserArea.jsp">
