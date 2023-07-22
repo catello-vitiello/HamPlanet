@@ -29,7 +29,7 @@ public class CarrelloModelDS implements CarrelloModel {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String sql = "SELECT prodotto.nomeProdotto, prodotto.prezzo "
+		String sql = "SELECT prodotto.nomeProdotto, prodotto.prezzo, prodotto.descrizione, prodotto.IAN "
 				+ "FROM prodotto, composto, ordine, cliente "
 				+ "WHERE prodotto.IAN = composto.ian_prodotto "
 				+ "AND composto.id_ordine = ordine.id "
@@ -48,6 +48,8 @@ public class CarrelloModelDS implements CarrelloModel {
 				CarrelloBean bean = new CarrelloBean();
 				bean.setNomeProdotto(rs.getString("nomeProdotto"));
 				bean.setPrezzo(rs.getDouble("prezzo"));
+				bean.setDescrizione(rs.getString("descrizione"));
+				bean.setIan(rs.getInt("IAN"));
 				
 				carrello.add(bean);
 			}
