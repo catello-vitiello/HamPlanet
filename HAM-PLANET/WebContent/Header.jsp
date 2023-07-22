@@ -50,7 +50,7 @@
 
 
 			<!-- logo ham planet -->
-			<a class="header_logo" href=""> <!--LINK TO HOME--> <img
+			<a class="header_logo" href="HomePage.jsp"> <!--LINK TO HOME--> <img
 				type="svg" src="./Icon/TotalLogo_WHITE.svg" alt="">
 			</a>
 
