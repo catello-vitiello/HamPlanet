@@ -57,7 +57,7 @@
                     <p style="color: #7d1e11;">Nuovo Prodotto</p>
                         
                         <!-- FORM PER AGGIUNGERE CAMPI PRODOTTO -->
-                    <form class="formNewProduct" action="ProdottoControl" method="post">
+                    <form id="formView" class="formNewProduct" action="ProdottoControl" method="post">
                         
                         <div class="row1">
                             <p>IAN</p>
@@ -85,6 +85,7 @@
                             	<option value="porchetta">Porchetta</option>
                             	<option value="o' per e o' muss">O' per e o' muss</option>
                             	<option value="bresaola">Bresaola</option>
+                            	<option value="gadget">Gadget_HamPlanet</option>
                         	</select>
                         </div>
                         

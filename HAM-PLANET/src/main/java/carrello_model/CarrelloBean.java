@@ -7,17 +7,18 @@ public class CarrelloBean implements Serializable{
 	
 	private String nomeProdotto, descrizione;
 	private double prezzo;
-	private int ian;
+	private int ian, quantity;
 	
 	public CarrelloBean() {
 		
 	}
 	
-	public CarrelloBean(String nomeProdotto, double prezzo, String descrizione, int ian) {
+	public CarrelloBean(String nomeProdotto, double prezzo, String descrizione, int ian, int quantity) {
 		this.nomeProdotto = nomeProdotto;
 		this.prezzo = prezzo;
 		this.descrizione = descrizione;
 		this.ian = ian;
+		this.quantity = quantity;
 	}
 
 	public String getNomeProdotto() {
@@ -50,6 +51,14 @@ public class CarrelloBean implements Serializable{
 
 	public void setIan(int ian) {
 		this.ian = ian;
+	}
+	
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public String toString() {

@@ -74,12 +74,12 @@
                             
                             <div class="secondRow">
                                 <p id="singlePrice0" class="singlePrice" >&euro; <%= bean.getPrezzo() %></p>
-                                <p id="priceProduct0" class="priceProduct" >&euro; <%= bean.getPrezzo() %></p>
+                                <p id="priceProduct0" class="priceProduct" >&euro; <%= bean.getPrezzo()*bean.getQuantity() %></p>
                             </div>
                             
                             <div class="thirdRow">
                                 <button id="0meno" class="menoButton" onclick="changeValue(0, event)">-</button>
-                                <input id="numProdotti0" class="numProdotti" oninput="inputControl(event)" onblur="minValue()" type="text" value="1">
+                                <input id="numProdotti0" class="numProdotti" oninput="inputControl(event)" onblur="minValue()" type="text" value="<%= bean.getQuantity() %>">
                                 <button id="0piu" class="piuButton" onclick="changeValue(1, event)">+</button>
                             </div>
                         </div>
