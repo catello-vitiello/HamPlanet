@@ -29,14 +29,26 @@ public class CarrelloControl extends HttpServlet {
 
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		CarrelloModelDS model = new CarrelloModelDS(ds);
-
+		
+		HttpSession session = request.getSession(false);
+		ClienteBean user = (ClienteBean) session.getAttribute("user");
+		
+		/****************************************************************************************/
+		/*							AGGIUNGI IL PRODOTTO AL CARRELLO							*/
+		/****************************************************************************************/
 		if (serv != null && serv.equals("addKartProd")) {
+			
+			if(user == null) {
+				utils.UtilityClass.print("########################################################################################################Vado allo store");
+				response.sendRedirect("Store.jsp");
+				return;
+			}
 
 			int ian = Integer.parseInt(request.getParameter("ianP"));
-			String email = request.getParameter("email");
+			
 			try {
-				model.addKartProd(ian, email);
-				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");
+				model.addKartProd(ian, user.getEmail());
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/Store.jsp");
 				requestDispatcher.forward(request, response);
 				return;
 			} catch (SQLException e) {
@@ -44,9 +56,9 @@ public class CarrelloControl extends HttpServlet {
 			}
 		}
 
-		HttpSession session = request.getSession(false);
-		ClienteBean user = (ClienteBean) session.getAttribute("user");
-
+		/****************************************************************************************/
+		/*								VEDI ORDINI PER EMAIL									*/
+		/****************************************************************************************/	
 		try {
 			request.setAttribute("prodotti", model.getAllOrderByEmail(user.getEmail()));
 		} catch (SQLException e) {

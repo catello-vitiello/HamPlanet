@@ -70,6 +70,7 @@ public class CarrelloModelDS implements CarrelloModel<CarrelloBean> {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		PreparedStatement ps = null;
+		PreparedStatement pp = null;
 		String sql = "INSERT INTO composto(id_ordine, ian_prodotto, quantity) VALUES(?, ?, 1)";
 		String recuperoCarrello_sql = "SELECT id "
 				+ "FROM cliente, ordine "
@@ -90,6 +91,39 @@ public class CarrelloModelDS implements CarrelloModel<CarrelloBean> {
 				preparedStatement.close();
 			if(connection != null)
 				connection.close();
+		}
+		
+		if(idOrdine == 0) {
+			String sql1 = "INSERT INTO ordine(stato, email) VALUES('salvato',?)";
+			connection = ds.getConnection();
+			
+			try {
+				pp = connection.prepareStatement(sql1);
+				pp.setString(1, email);
+				pp.executeUpdate();
+			}finally {
+				if(pp != null)
+					pp.close();
+				if(connection != null)
+					connection.close();
+			}
+			
+			try {
+				connection = ds.getConnection();
+				preparedStatement = connection.prepareStatement(recuperoCarrello_sql);
+				preparedStatement.setString(1, email);
+				
+				ResultSet rs = preparedStatement.executeQuery();
+				while(rs.next())
+					idOrdine = rs.getInt("id");
+				utils.UtilityClass.print("################################################################ID del carrello: " + idOrdine);	
+			}finally {
+				if(preparedStatement != null)
+					preparedStatement.close();
+				if(connection != null)
+					connection.close();
+			}
+			
 		}
 		
 		try {

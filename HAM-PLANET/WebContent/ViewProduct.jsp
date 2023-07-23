@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Product</title>
+        <title><%= bean.getNomeProdotto() %></title>
         <link rel="stylesheet" href="./FileCSS/ViewProduct.css">
     </head>
 
@@ -35,7 +35,7 @@
                 <!-- CAMPI DEL PRODOTTO -->
                 <div class="descriptionProduct">
 
-                    <form class="formProduct" action="">
+                    <form class="formProduct" action="CarrelloControl" method="post">
                         
                         <div class="gradientBorder">
 
@@ -61,7 +61,9 @@
                                 <p id="price"><%= bean.getPrezzo() %> &euro;</p>                          
                             </div>
                        
-                            <input type="submit" name="" id="" value="Aggiungi al carrello">
+                       		<input type="text" name="ianP" value="<%= bean.getIAN() %>" hidden>
+                       		<input type="text" name="serv" value="addKartProd" hidden>
+                            <input type="submit" value="Aggiungi al carrello">
                             
                             <p >La quantit&agrave; del prodotto &egrave; modificabile direttamente al carrello.</p>
                         </div>
