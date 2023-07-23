@@ -1,17 +1,13 @@
 package model_prodotto;
 
 import java.io.InputStream;
-import java.lang.annotation.Retention;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
-
-import javax.crypto.interfaces.PBEKey;
 import javax.sql.DataSource;
-
 import java.sql.Blob;
 
 public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {

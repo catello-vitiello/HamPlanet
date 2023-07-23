@@ -53,11 +53,11 @@
                     <!-- ITEM -->
                     <div class="formedItem">
             
-                        <form class="formItem" action="" method="post">
+                        <form class="formItem" action="SingleProductServlet" method="post">
                             
                             <img src="./ImageProductServlet?id=<%= bean.getIAN() %>" onerror="this.src='img/p.png'" width="40" height="40">
             
-                            <input type="text" name="" id="" value="1" hidden>
+                            <input type="text" name="ianProdotto" value="<%= bean.getIAN() %>" hidden>
                             
                             <div class="rowItem">
                                 <p class="nomeItem"><%= bean.getNomeProdotto() %></p>
