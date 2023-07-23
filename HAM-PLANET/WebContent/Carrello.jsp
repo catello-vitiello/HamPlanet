@@ -24,9 +24,10 @@
 <html dir="ltr">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>CARRELLO V1.0</title>
+        <title>Carrello</title>
         <link rel="stylesheet" href="./FileCSS/Carrello.css">
         <script src="./FileJavaScript/Carrello.js"></script>
+        <link rel="Website Icon" type="png" href="./Icon/OnlyLogo_RED.svg"> 
     </head>
 
     <body>

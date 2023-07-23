@@ -27,9 +27,10 @@ if (user == null) {
 <html>
 
 <head>
-<title></title>
-<link rel="stylesheet" href="./FileCSS/UserArea.css">
-<script src="./FileJavaScript/UserArea.js"></script>
+<title>My Area</title>
+	<link rel="stylesheet" href="./FileCSS/UserArea.css">
+	<script src="./FileJavaScript/UserArea.js"></script>
+    <link rel="Website Icon" type="png" href="./Icon/OnlyLogo_RED.svg"> 
 </head>
 
 <body id="body">

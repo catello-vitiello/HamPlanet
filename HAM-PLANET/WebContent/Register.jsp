@@ -7,7 +7,7 @@
     <head>
         <title>Crea il tuo account HamPlanet</title>     
         <link rel="stylesheet" href="./FileCSS/Register.css">
-        <link rel="shortcut icon" href="./Icon/logo_HamPlanet_RED.png">  
+        <link rel="Website Icon" type="png" href="./Icon/OnlyLogo_RED.svg"> 
         <script type="text/javascript" src="./FileJavaScript/Register.js"></script>
     </head>
     

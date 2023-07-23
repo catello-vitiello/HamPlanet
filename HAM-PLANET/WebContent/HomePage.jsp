@@ -7,6 +7,7 @@
 		<title>Ham Planet Home</title>
         <link rel="stylesheet" href="./FileCSS/HomePage.css">
         <script type="text/javascript" src="./FileJavaScript/HomePage.js"></script>
+        <link rel="Website Icon" type="png" href="./Icon/OnlyLogo_RED.svg"> 
 </head>
 <body>
 

@@ -5,6 +5,7 @@
     <head>
         <title>Store Ham Planet</title>
         <link rel="stylesheet" href="./FileCSS/Store.css">
+        <link rel="Website Icon" type="png" href="./Icon/OnlyLogo_RED.svg"> 
 
     </head>
 
