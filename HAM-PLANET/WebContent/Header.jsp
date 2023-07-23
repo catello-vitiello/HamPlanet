@@ -57,17 +57,21 @@
 			<!-- lista menu -->
 			<ul id="headerMenu" class="header_menu">
 				<li><a href="./Store.jsp">Store</a></li>
-				<li><a href="">Chi Siamo</a></li>
+				<li><a href="./HamPlanetFamily.jsp">Chi Siamo</a></li>
 			</ul>
 
 			<!-- icone cercare e carrello-->
 			<div class="header_icon">
 
 				<!-- SELECT PER IL SEARCH -->
-				<select id="searchBarID" class="searchBar" name="tipologiaProdotto">
-				</select>
+                <form id="formSearchBar" class="formSearchBar" action="">
+                        <select id="searchBarID" class="searchBar" name="tipologiaProdotto">
+                        </select>
 
-				<!-- SEARCH -->
+                        <input id="" type="submit" name="" >
+				</form>
+
+				<!-- SEARCH -->				
 				<img src="./Icon/search2_WHITE.png" onclick="showSearch()" alt="">
 
 				<!-- USER -->

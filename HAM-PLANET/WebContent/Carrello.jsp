@@ -66,7 +66,7 @@
                     <div id="item0" class="item">
 
                         <!-- IMAGE -->
-                        <div class="img"><img src="./ImageProductServlet?id=<%= bean.getIan() %>" style="height: 50px" /></div>
+                        <div class="img"><img src="./ImageProductServlet?id=<%= bean.getIan() %>"/></div>
 
                         <!-- DESCRIPTION -->
                         <div class="itemContent">
