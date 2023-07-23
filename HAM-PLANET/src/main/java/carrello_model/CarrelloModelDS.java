@@ -20,6 +20,43 @@ public class CarrelloModelDS implements CarrelloModel<CarrelloBean> {
 	}
 	
 	/********************************************************/
+	/*				CONTROLLO PRESENZA PRODOTTO				*/
+	/********************************************************/
+	private int checkQuantity(int ian, String email) throws SQLException{
+		
+		int quant=0;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		String recuperoCarrello_sql = "SELECT quantity "
+				+ "FROM composto, ordine, prodotto, cliente "
+				+ "WHERE composto.id_ordine = ordine.id "
+				+ "AND composto.ian_prodotto = prodotto.IAN "
+				+ "AND ordine.email = cliente.e_mail "
+				+ "AND prodotto.IAN = ? AND cliente.e_mail = ?";
+		
+		
+		try {
+			
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(recuperoCarrello_sql);
+			preparedStatement.setInt(1, ian);
+			preparedStatement.setString(2, email);
+			ResultSet rs = preparedStatement.executeQuery();
+			while(rs.next()) {
+				quant = rs.getInt("quantity");
+			}
+			utils.UtilityClass.print("################################################################Quantità: " + quant);			
+		}finally {
+			if(preparedStatement != null)
+				preparedStatement.close();
+			if(connection != null)
+				connection.close();
+		}
+		
+		return quant;
+	}
+	
+	/********************************************************/
 	/*				RECUPERO PRODOTTI DAL CARRELLO			*/
 	/********************************************************/
 	public Collection<?> getAllOrderByEmail(String email) throws SQLException{
@@ -65,6 +102,11 @@ public class CarrelloModelDS implements CarrelloModel<CarrelloBean> {
 	/*				AGGIUNGI PRODOTTO AL CARRELLO			*/
 	/********************************************************/
 	public void addKartProd(int ian, String email) throws SQLException{
+		
+		if(checkQuantity(ian, email)>=1) {
+			plusQuantity( ian, email);
+			return;
+		}
 		
 		int idOrdine = 0;
 		Connection connection = null;
