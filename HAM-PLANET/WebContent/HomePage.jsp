@@ -72,6 +72,17 @@
 
             <div class="section4">
                 
+                <div class="sonTwo">
+                    <h2>Ham Planet Ohio</h2>
+
+                    <p>La nostra seconda sede mondiale, va a essere punto fondamentale come smistaggio merci nel territorio degli Stati Uniti.
+                    </p>
+                </div>
+
+                <div class="sonTwo">
+                    <img class="town" src="./img/Stabilimento_HamPlanet_resize.jpg" alt="">
+                </div>
+
             </div>
             
             

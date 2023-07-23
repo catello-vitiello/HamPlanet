@@ -98,7 +98,10 @@ body{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
-    background: #fff;
+    background-image: url("../Icon/HamPlanetGrayQUAD.png");
+    background-repeat: repeat;
+    background-size: 300px;
+    background-position: center;
     
 }
 
