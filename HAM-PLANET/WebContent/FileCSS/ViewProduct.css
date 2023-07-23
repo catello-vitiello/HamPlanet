@@ -1,0 +1,254 @@
+@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css?family=Poppins');  /*FULL SITE*/
+
+
+*{
+    margin: 0;
+	padding: 0;
+    font-family: 'Poppins';
+    transition: all .4s;
+}
+
+/*#########################   BODY   #########################*/
+body{
+    display: flex;
+
+                    flex-direction: column;
+
+    position: relative;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    
+    overflow: hidden;
+}
+
+
+
+
+
+/*###############   SCROLL BAR LATERALE   ###############*/
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-track{
+    background: #888888;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #616161;
+    border-radius: 25px;
+}
+
+
+
+/*###############   CONTENUTO DELLA PAGINA   ###############*/
+.content{
+    height: 100%;
+    width: 100%;
+
+    margin: 44px 0 0 ;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+
+}
+
+.prodotto{
+    height: calc(100vh - 44px);
+    width: 100%;
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+
+    background-image: url("../Icon/HamPlanetGrayQUAD.png");
+    background-repeat: repeat;
+    background-size: 300px;
+    background-position: center;
+}
+ 
+.formProduct{
+    height: 90%;
+    width: 90%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(to top left, #d02d0e, #faa202, #e87a09, #f79d01, #d4350d);
+
+    border-radius: 25px;
+}
+
+.gradientBorder{
+    height: calc(100% - 8px);
+    width:  calc( 100% - 8px);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: white;
+    border-radius: 21px;
+    justify-content: space-between;
+}
+
+
+.titoloDescr{
+    height: 48%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;   
+}
+
+.priceSubmit{
+    height: 48%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+
+.imageProduct{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageProduct img {
+    height: 90%;
+    width: auto;
+
+    border: 2px solid transparent;
+    border-radius: 25px;
+
+    filter: drop-shadow(2px 2px 6px rgba(0, 0, 0, 0.448));
+
+}
+
+
+.descriptionProduct{
+    height: 100%;
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.descriptionProduct h1{
+    height: auto;
+    width: 100%;
+
+    font-size: 200%;
+    
+    margin: 5% 0 0;
+}
+
+.descriptionProduct hr{
+    width: 104%;  
+
+    border: 2px solid transparent;
+    background: linear-gradient(to right,rgba(0, 0, 0, 0) 0%, #d02d0e, #faa202, #e87a09, #f79d01, #d4350d, rgba(0, 0, 0, 0) 100%);
+    background-size: 100% 4px;
+    background-position: 0% 50%;
+    background-repeat: no-repeat;
+    border-radius: 2px;
+    margin: 2%;
+}
+
+.descriptionProduct p{
+    height: auto;
+    width: 100%;
+
+    font-size: 120%;
+    margin: 2.5% 0 5%;
+}
+
+.row{
+    height: auto;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.priceSubmit p{
+    text-align: center;
+    font-size: 90%;
+}
+
+.row p{
+    font-weight: 600;
+    font-size: 110%;
+}
+
+#weight{
+    text-align: start;
+}
+
+#price{
+    text-align: end;
+    font-size: 130%;
+}
+
+.descriptionProduct input[type="submit"]{
+    height: 10%;
+    width: 50%;
+
+    color: #fff;
+    font-weight: 700;
+    font-size: 100%;
+
+    align-self: center;
+    justify-self: end;
+
+
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(to left, #d02d0e, #f79d01);
+}
+
+
+.descriptionProduct input[type="submit"]:hover{
+    scale: 1.2;
+}
+
+
+
+
+@media (max-width: 1000px){
+    .prodotto{
+        height: auto;
+        flex-direction: column;
+
+        /*overflow-y: auto;*/
+    }
+
+    .imageProduct,
+    .descriptionProduct{
+        width: 100%;
+    }
+
+    .imageProduct img {
+        height: auto;
+        width: 100%;
+    }
+}
+
+
