@@ -25,14 +25,14 @@ body{
 
 /*#########################   CONTENITORE   #########################*/
 .content{
-    height: calc(100% - 44px);
+    height: calc(100% - 60px);
     width: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
     align-items: center;
     justify-content: center;
-    margin: 44px 0 0;
+    margin: 60px 0 0;
 }
 
 
@@ -93,9 +93,17 @@ body{
     width: 8px;
 }
 
+.boxProduct::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #d8d8d8;
+    margin: 20px;
+    z-index: 4;
+
+}
+
 
 .boxProduct::-webkit-scrollbar-thumb{
-    background: yellow;
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.5, #d02d0e), color-stop(1, #faa202));
     border-radius: 10px;
 }
 
@@ -127,11 +135,12 @@ body{
     height: 100%;
     width: 21vh;
 
-    background-image: url("D:\\Document\\catello\\HamPlanet\\Product\\prosciutto_crudo_01.jpg");
-    background-position: center;
-    background-size: cover;
-
-    border-radius: 100px 0 0 100px;
+}
+.img img{
+	height: 100%;
+	width: auto;
+	
+	border-radius: 100px 0 0 100px;
 }
 
 .itemContent{

@@ -111,7 +111,7 @@ public class ProdottoControl extends HttpServlet {
 		/* 				  SEARCH BY CATEGORY					*/
 		/********************************************************/
 		if(servizio.equals("getByCategory")) {
-			String tipo = request.getParameter("selectedValue");
+			String tipo = request.getParameter("tipologiaProdotto");
 			utils.UtilityClass.print("Categoria: " + tipo);
 			try {
 				request.setAttribute("prodottiByCategory", model.getByCategoria(tipo));

@@ -26,6 +26,7 @@ response.sendRedirect("HomePage.jsp");
 				if (jsonData.hasOwnProperty(campo)) {
 					var option = document.createElement("option");
 					option.text = jsonData[campo];
+					option.value = jsonData[campo];
 					selectElement.add(option);
 				}
 			}
@@ -59,17 +60,21 @@ response.sendRedirect("HomePage.jsp");
 			<!-- lista menu -->
 			<ul id="headerMenu" class="header_menu">
 				<li><a href="./Store.jsp">Store</a></li>
-				<li><a href="">Chi Siamo</a></li>
+				<li><a href="./HamPlanetFamily.jsp">Chi Siamo</a></li>
 			</ul>
 
 			<!-- icone cercare e carrello-->
 			<div class="header_icon">
 
 				<!-- SELECT PER IL SEARCH -->
-				<select id="searchBarID" class="searchBar" name="tipologiaProdotto">
-				</select>
+                <form id="formSearchBar" class="formSearchBar" action="ProdottoControl" method="post">
+                        <select id="searchBarID" class="searchBar" name="tipologiaProdotto">
+                        </select>
+						<input type="text" name="servizio" value="getByCategory" hidden> 
+                        <input id="" type="submit" name="" >
+				</form>
 
-				<!-- SEARCH -->
+				<!-- SEARCH -->				
 				<img src="./Icon/search2_WHITE.png" onclick="showSearch()" alt="">
 
 				<!-- USER -->

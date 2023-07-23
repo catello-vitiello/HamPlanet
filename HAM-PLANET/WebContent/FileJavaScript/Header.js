@@ -65,13 +65,13 @@ showMenuOverSize();
 
 
 
-//##################################################################################
-//##############     FUNZIONE PER RENDERE VISIBILE SELECT   ########################
-//##################################################################################
+//############################################################################à
+//##############     FUNZIONE PER RENDERE VISIBILE SELECT   #######################à
+//############################################################################à
 var boolSearch = false;
 
 function showSearch(){
-    var searchBarID = document.getElementById('searchBarID');
+    var searchBarID = document.getElementById('formSearchBar');
 
 
     if (boolSearch){
@@ -91,7 +91,7 @@ function showSearch(){
         searchBarID.style.opacity = '1';
     
         setTimeout(function(){
-            searchBarID.style.width = '40%';
+            searchBarID.style.width = '60%';
         }, 100)
 
         boolSearch = true;
