@@ -9,7 +9,6 @@
 	Collection<?> prodotti = (Collection<?>) request.getAttribute("prodotti");
 	Collection<?> prodotti_no = (Collection<?>) request.getAttribute("prodotti_no");
 	if(prodotti == null){
-		response.sendRedirect("ProdottoControl");
 		return;
 	}
 

@@ -23,4 +23,6 @@ public interface ProdottoModel<T> {
 	public byte[] getImageByKey(int id)throws SQLException;
 	
 	public Collection<T> getByCategoria(String tipo) throws SQLException;
+	
+	public T getByIan(int ian) throws SQLException;
 }
