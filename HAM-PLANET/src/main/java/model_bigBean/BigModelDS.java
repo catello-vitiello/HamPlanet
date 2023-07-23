@@ -26,7 +26,7 @@ public class BigModelDS implements BigModel<BigBean> {
 				+ "WHERE cliente.e_mail = ordine.email "
 				+ "AND composto.id_ordine = ordine.id "
 				+ "AND composto.ian_prodotto = prodotto.IAN "
-				+ "AND cliente.e_mail = ?";
+				+ "AND cliente.e_mail = ? AND ordine.stato = 'effettuato'";
 		Collection<BigBean> ordini = new LinkedList<BigBean>();
 
 		try {

@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedList;
+
+import javax.crypto.interfaces.PBEKey;
 import javax.sql.DataSource;
 
 import java.sql.Blob;
@@ -319,5 +321,38 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 				connection.close();
 		}
 		return prodotti;
+	}
+	
+	/********************************************************/
+	/* 				  	 GET BY IAN							*/
+	/********************************************************/
+	public ProdottoBean getByIan(int ian) throws SQLException{
+		
+		Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        String sql = "SELECT * FROM prodotto WHERE IAN = ?";
+        ProdottoBean bean = new ProdottoBean();
+        
+        try {
+        	connection = ds.getConnection();
+        	preparedStatement = connection.prepareStatement(sql);
+        	preparedStatement.setInt(1, ian);
+        	ResultSet rs = preparedStatement.executeQuery();
+        	utils.UtilityClass.print(">.RECUPRO PRODOTTO CON IAN: " + ian + " -> " + preparedStatement.toString());
+        	while(rs.next()) {
+        		bean.setIAN(rs.getInt("IAN"));
+        		bean.setPrezzo(rs.getDouble("prezzo"));
+        		bean.setPeso(rs.getDouble("peso"));
+        		bean.setDescrizione(rs.getString("descrizione"));
+        		bean.setNomeProdotto(rs.getString("nomeProdotto"));
+        		bean.setTipo(rs.getString("tipo"));
+        	}
+        }finally {
+			if (preparedStatement != null)
+				preparedStatement.close();
+			if (connection != null)
+				connection.close();
+		}
+		return bean;
 	}
 }

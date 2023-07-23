@@ -1,5 +1,19 @@
+<%@page import="model_prodotto.ProdottoBean"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.Collection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%
+
+	Collection<?> prodotti = (Collection<?>) request.getAttribute("prodotti");
+	if(prodotti == null){
+		response.sendRedirect("StorePageControl");
+		return;
+	}
+
+%>
+    
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,18 +42,26 @@
                 
                 <div class="prodotti">
             
+            	<%
+					if(prodotti != null && prodotti.size()>0){
+					Iterator<?> iterator = prodotti.iterator();
+					while(iterator.hasNext()){
+						ProdottoBean bean = (ProdottoBean)iterator.next();
+				%>
+            
+            
                     <!-- ITEM -->
                     <div class="formedItem">
             
-                        <form class="formItem" action="">
+                        <form class="formItem" action="" method="post">
                             
-                            <img src="" alt="">
+                            <img src="./ImageProductServlet?id=<%= bean.getIAN() %>" onerror="this.src='img/p.png'" width="40" height="40">
             
                             <input type="text" name="" id="" value="1" hidden>
                             
                             <div class="rowItem">
-                                <p class="nomeItem">Cocco Bello</p>
-                                <p class="priceItem">10.99&euro;</p>
+                                <p class="nomeItem"><%= bean.getNomeProdotto() %></p>
+                                <p class="priceItem"><%= bean.getPrezzo() %>&euro;</p>
                             </div>
             
                             <input type="submit" value="">
@@ -47,7 +69,7 @@
                         </form>
                         
                     </div> 
-            
+            		<%}} %>
             
                 </div>
             
