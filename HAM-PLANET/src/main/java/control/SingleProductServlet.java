@@ -35,7 +35,7 @@ public class SingleProductServlet extends HttpServlet {
 			utils.UtilityClass.print(e);
 		}
 		
-		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/");
+		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/ViewProduct.jsp");
 		requestDispatcher.forward(request, response);
 		
 	}

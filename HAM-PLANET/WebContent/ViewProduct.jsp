@@ -1,5 +1,17 @@
+<%@page import="model_prodotto.ProdottoBean"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.Collection"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<%
+	ProdottoBean bean = (ProdottoBean) request.getAttribute("ProdottoBean");
+	if(bean == null){
+		response.sendRedirect("/HomePage.jsp");
+		return;
+	}
+%>
+    
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,14 +23,13 @@
 
         <!-- HEADER -->
     	<jsp:include page="./Header.jsp"></jsp:include>
-                
-        <div class="content">
-
+    	       
+		<div class="content">
             <div class="prodotto">
-                
+               
                 <!-- IMMAGINE DEL PRODOTTO-->
                 <div class="imageProduct">
-                    <img src="" alt="image">				<!-- INSERIRE IMMAGINE DEL PRODOTTO CHE VIENE CLICCATO -->
+                    <img src="./ImageProductServlet?id=<%= bean.getIAN() %>" onerror="this.src='img/p.png'" width="40" height="40">				<!-- INSERIRE IMMAGINE DEL PRODOTTO CHE VIENE CLICCATO -->
                 </div>
 
                 <!-- CAMPI DEL PRODOTTO -->
@@ -31,21 +42,25 @@
                             
                             <div class="titoloDescr">
                                 
-                                <h1>Cappellino davvero carino</h1>
+                                <h1><%= bean.getNomeProdotto() %></h1>
                                 
                                 <hr>
                                 
-                                <p>Questo è il cappellino di che carino</p>
+                                <p><%= bean.getDescrizione() %></p>
                                 
                             </div>
                             
                             <div class="priceSubmit">
                                 
                                 <div class="row">
-                                <p id="weight">18,00 Kg</p>
-                                <p id="price">54,99 &euro;</p>
+                               		<% if((bean.getTipo().equals("gadget")) == false){ %>
+                                		<p id="weight"><%= bean.getPeso() %> Kg</p>
+                                	<% }else{ %>
+                               			<p id="weight">GADGET</p>
+                               		<%} %>
+                                <p id="price"><%= bean.getPrezzo() %> &euro;</p>                          
                             </div>
-                            
+                       
                             <input type="submit" name="" id="" value="Aggiungi al carrello">
                             
                             <p >La quantit&agrave; del prodotto &egrave; modificabile direttamente al carrello.</p>
@@ -53,10 +68,9 @@
                         
                     </div>
                     </form>
-
                 </div>
             </div>
-
+			
             <!-- FOOTER -->
     		<jsp:include page="./Footer.jsp"></jsp:include>
 
