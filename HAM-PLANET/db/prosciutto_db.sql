@@ -32,7 +32,7 @@ CREATE TABLE cliente
 CREATE TABLE ordine
 (
 	id INT auto_increment,
-    data_acquisto DATE NOT NULL,
+    data_acquisto varchar(60),
     stato ENUM('salvato', 'effettuato', 'spedito') DEFAULT 'salvato',
     email varchar(60),
     PRIMARY KEY(id),

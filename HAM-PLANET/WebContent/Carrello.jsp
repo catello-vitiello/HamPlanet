@@ -40,7 +40,7 @@
             <!-- TITOLO DEL CARRELLO -->
             <div class="titleCart">
                 <p class="cartTitle">Carrello</p>
-                <p id="productOfCart" class="prodTitle" >3 prodotti</p>
+                <p id="productOfCart" class="prodTitle" ><%= prodotti.size() %> prodotti</p>
             </div>
 
             <hr>

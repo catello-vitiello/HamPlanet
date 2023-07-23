@@ -14,6 +14,11 @@ import model_prodotto.ProdottoModelDS;
 @WebServlet("/ProdottoControl")
 public class ProdottoControl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doPost(req, resp);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -106,12 +111,12 @@ public class ProdottoControl extends HttpServlet {
 		/* 				  SEARCH BY CATEGORY					*/
 		/********************************************************/
 		if(servizio.equals("getByCategory")) {
-			String tipo = request.getParameter("categoria");
-			
+			String tipo = request.getParameter("selectedValue");
+			utils.UtilityClass.print("Categoria: " + tipo);
 			try {
 				request.setAttribute("prodottiByCategory", model.getByCategoria(tipo));
-				//RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/GetEmailCliente");
-				//requestDispatcher.forward(request, response);
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/ViewListProduct.jsp");
+				requestDispatcher.forward(request, response);
 				return;
 			}catch (SQLException e) {
 				utils.UtilityClass.print(e);

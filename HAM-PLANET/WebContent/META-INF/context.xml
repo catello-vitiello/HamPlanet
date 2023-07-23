@@ -6,6 +6,6 @@
         driverClassName="com.mysql.cj.jdbc.Driver"
         type="javax.sql.DataSource"
         username="freedb_TswUser"
-        password="2n79kBtxAW%&#38;?a#"
+        password="3y@?Ssux%@2F2Ue" 
         url="jdbc:mysql://sql.freedb.tech:3306/freedb_Test_db?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;autoReconnect=true&amp;serverTimezone=UTC&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"/> 
 </Context>

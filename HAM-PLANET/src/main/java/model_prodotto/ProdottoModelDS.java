@@ -304,8 +304,11 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
         	while(rs.next()) {
         		ProdottoBean bean = new ProdottoBean();
         		bean.setIAN(rs.getInt("IAN"));
-        		bean.setNomeProdotto(rs.getString("nomeProdotto"));
         		bean.setPrezzo(rs.getDouble("prezzo"));
+        		bean.setPeso(rs.getDouble("peso"));
+        		bean.setDescrizione(rs.getString("descrizione"));
+        		bean.setNomeProdotto(rs.getString("nomeProdotto"));
+        		bean.setTipo(rs.getString("tipo"));
         		
         		prodotti.add(bean);
         	}
