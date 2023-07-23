@@ -56,7 +56,7 @@
 
 			<!-- lista menu -->
 			<ul id="headerMenu" class="header_menu">
-				<li><a href="">Store</a></li>
+				<li><a href="./Store.jsp">Store</a></li>
 				<li><a href="">Chi Siamo</a></li>
 			</ul>
 
