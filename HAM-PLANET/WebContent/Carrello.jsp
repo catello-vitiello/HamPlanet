@@ -53,11 +53,12 @@
                     <p id="cartEmpty">Carrello Vuoto</p>
                     
                     <%
-						String vuoto = null;
+						double tot = 0;
 						if(prodotti != null && prodotti.size()>0){
 						Iterator<?> iterator = prodotti.iterator();
 						while(iterator.hasNext()){
 						CarrelloBean bean = (CarrelloBean)iterator.next();
+						tot+=bean.getPrezzo()*bean.getQuantity();
 					%>
 
                     <!-- PRODOTTO -->
@@ -87,6 +88,9 @@
                     </div>
               		<%
 						}}
+						String numeroFormattato = String.format("%.2f", tot);
+						double sped = 5.99;
+						String numeroFormattato1 = String.format("%.2f", tot+sped);
               		%>
                 </div>
                 
@@ -97,19 +101,30 @@
                     
                     <div class="rowSummary">
                         <p>Subtotale</p>
-                        <p id="subtotal" >&euro;17.94</p>
+                        <p id="subtotal" >&euro;<%= numeroFormattato %></p>
                     </div>
 
                     <div class="rowSummary">
                         <p>Spedizione</p>
-                        <p id="spediction">&euro;5.99</p>
+                        <% if(tot>=160){ %>
+                        <p id="spediction"> GRATIS </p>
+                        
                     </div>
 
                     <div class="rowSummary" style="font-weight: 600;">
                         <p>Totale</p>
-                        <p id="total">&euro;23.93</p>
+                        <p id="total">&euro;<%= numeroFormattato  %></p>
+                    </div>
+						<% } else { %>
+							<p id="spediction">&euro; <%= sped %> </p>
+                        
                     </div>
 
+                    <div class="rowSummary" style="font-weight: 600;">
+                        <p>Totale</p>
+                        <p id="total">&euro;<%= numeroFormattato1  %></p>
+                    </div>
+						<% } %>
                     <button id="finishOrder">Continua per pagare</button>
 
                 </div>
