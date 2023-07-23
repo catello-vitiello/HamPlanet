@@ -14,13 +14,25 @@
 
                 <div class="headToFooter">
                     <div class="sonFoo">
-                        <img class="socialFooter" src="./Icon/fb_RED.png" alt="">
-                        <img class="socialFooter" src="./Icon/ig_RED.png" alt="">
-                        <img class="socialFooter" src="./Icon/twitter_RED.png" alt="">
+                    	
+                    	<a href="">
+                    		<img class="socialFooter" src="./Icon/fb_RED.png" alt="FB">
+                    	</a>
+                    
+                    	<a href="https://www.instagram.com/hamplanet1969/?igshid=MzRlODBiNWFlZA%3D%3D">
+                    		<img class="socialFooter" src="./Icon/ig_RED.png" alt="IG">
+                    	</a>
+                    	
+                    	
+                    	<a href="">
+                    		<img class="socialFooter" src="./Icon/twitter_RED.png" alt="TWITTER">
+                    	</a>
+                    	                                      
+                        
                     </div>
                     
                     <div class="sonFoo">
-                        <img class="logoFooter" src="./Icon/TotalLogo_FOOTER.svg" alt="">
+                        <img class="logoFooter" src="./Icon/TotalLogo_FOOTER.svg" alt="Ham Planet">
                     </div>
 
                     <div class="sonFoo">

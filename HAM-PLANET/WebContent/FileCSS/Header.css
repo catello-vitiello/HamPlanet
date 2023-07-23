@@ -157,3 +157,24 @@
     
     transition: all .4s;
 }
+
+
+
+
+
+
+.header_menu a{
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(to right, #d02d0e, #f79d01);
+    background-size: 0 0;
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    transition: all .4s;
+}
+
+.header_menu a:hover{
+    background-size: 100% 2px;
+    scale: 1.1;
+}
