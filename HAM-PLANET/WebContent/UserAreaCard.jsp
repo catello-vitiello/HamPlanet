@@ -10,7 +10,6 @@
 ClienteBean user = (ClienteBean) session.getAttribute("user");
 String nCard = (String) session.getAttribute("Ncard1"); //quante carte ha l'user
 LinkedList<?> listaCarte1 = (LinkedList<?>) session.getAttribute("listaCarte1"); //lista delle carte registrate dell'utente
-UtilityClass.print("size: " + listaCarte1.size());
 if(listaCarte1 == null){
 	response.sendRedirect("RecuperaCarteControl");
 	return;
