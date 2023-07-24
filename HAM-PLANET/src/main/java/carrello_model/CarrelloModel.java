@@ -15,4 +15,5 @@ public interface CarrelloModel<T> {
 	
 	public void deleteProductFromKart(int ian, String email) throws SQLException;
 
+	public void finalizeShop(String email) throws SQLException;
 }

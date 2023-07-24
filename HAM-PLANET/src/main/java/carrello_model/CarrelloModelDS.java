@@ -8,6 +8,8 @@ import java.util.Collection;
 import java.util.LinkedList;
 import javax.sql.DataSource;
 
+import com.mysql.cj.x.protobuf.MysqlxConnection.Close;
+
 public class CarrelloModelDS implements CarrelloModel<CarrelloBean> {
 	
 	private DataSource ds = null;
@@ -383,7 +385,50 @@ public class CarrelloModelDS implements CarrelloModel<CarrelloBean> {
 			if(connection != null)
 				connection.close();
 		}
+	}
+	
+	/********************************************************/
+	/*		    ELIMINA UN PRODOTTO DAL CARRELLO			*/
+	/********************************************************/
+	public void finalizeShop(String email) throws SQLException{
 		
+		String sql = "SELECT id"
+				+ "	FROM prodotto, composto, ordine, cliente "
+				+ "	WHERE prodotto.IAN = composto.ian_prodotto "
+				+ "AND composto.id_ordine = ordine.id "
+				+ "AND ordine.email = cliente.e_mail "
+				+ "AND ordine.stato = 'salvato' AND cliente.e_mail = ?";
 		
+		String sql1 = "update ordine set stato = 'effettuato' where id = ?";
+		int id=0;
+		Connection connection = null;
+		PreparedStatement preparedStatement = null, ps = null;
+		
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setString(1, email);
+			ResultSet rs = preparedStatement.executeQuery();
+			while(rs.next())
+				id = rs.getInt("id");
+		}finally {
+			if(preparedStatement != null)
+				preparedStatement.close();
+			if(connection != null)
+				connection.close();
+		}
+		
+		//ora procedo alla finalizzazione e salvataggio nello storico ordini
+		try {
+			connection = ds.getConnection();
+			ps = connection.prepareStatement(sql1);
+			ps.setInt(1, id);
+			ps.executeUpdate();
+		}finally {
+			if(connection != null)
+				connection.close();
+			if(ps != null)
+				ps.close();
+		}	
 	}
 }

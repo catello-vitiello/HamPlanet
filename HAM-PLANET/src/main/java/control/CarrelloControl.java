@@ -91,6 +91,21 @@ public class CarrelloControl extends HttpServlet {
 			}
 			
 		}
+		
+		/****************************************************************************************/
+		/*									FINALIZZA											*/
+		/****************************************************************************************/
+		if(serv != null && serv.equals("finalizza")) {
+			
+			try {
+				model.finalizeShop(user.getEmail());
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/Store.jsp");
+				requestDispatcher.forward(request, response);
+				return;
+			}catch (SQLException e) {
+				utils.UtilityClass.print(e);
+			}
+		}
 
 		/****************************************************************************************/
 		/*								VEDI ORDINI PER EMAIL									*/
