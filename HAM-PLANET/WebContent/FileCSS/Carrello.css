@@ -308,6 +308,17 @@ body{
     margin: 1.5%;
 }
 
+
+.rowSummary select{
+    height: auto;
+    width: 50%;
+
+    border: 2px solid #b6b6b6;
+    border-radius: 20px;
+
+    outline: none;
+}
+
 #finishOrder{
     height: 10%;
     width: 90%;

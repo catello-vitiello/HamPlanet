@@ -130,9 +130,14 @@
 			</div>
 
 			<!-- RIEPILOGO -->
-			<div class="boxRiepilogo">
+			<form action="CarrelloControl" method="post" class="boxRiepilogo">
 
 				<h3>Riepilogo</h3>
+				
+				
+				<!-- VALORI NASCOSTI -->
+				<input type="text" name="serv" value="finalizza" hidden>
+				
 
 				<div class="rowSummary">
 					<p>Subtotale</p>
@@ -158,17 +163,21 @@
 					<%= sped %>
 				</p>
 
-			</div>
 
 			<div class="rowSummary" style="font-weight: 600;">
 				<p>Totale</p>
 				<p id="total">
 					&euro;<%= numeroFormattato1  %></p>
 			</div>
+			
+			<div class="rowSummary">
+                        <p>Seleziona carta</p>
+                        <select name="" id=""></select>
+			</div>
 			<% } %>
-			<button id="finishOrder">Continua per pagare</button>
+			<button type="submit" id="finishOrder">Continua per pagare</button>
 
-		</div>
+		</form>
 
 
 	</div>
