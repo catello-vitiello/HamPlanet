@@ -96,28 +96,49 @@ function changePage (value){
 //#################################################################################################################
 //##########################         CREAZIONE DI TUTTE LE CARTE DINAMICAMENTE        #############################
 //#################################################################################################################
-function createCardDinamic(){
+function createCardDinamic(position, cifreNC, proprieNP, scadenNP){
 	var carteRegistrate = parseInt(document.getElementById('CarteSalvate').textContent);
         
-    //recuperare oggetto contenitore
-    var boxCarte = document.getElementById("contenitoreCarte");
-        
-    boxCarte.innerHTML = '';
 
-    for (var contatore = 1; contatore <= carteRegistrate ; contatore++){
+    boxCarte.innerHTML = '';
 
 
         //creazione carta
         var card = document.createElement('div'); 
         card.className = 'card'; 
-        card.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) + 1);
+        card.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) + position);
         
+        
+        //creazione form
+        var formDelete = document.createElement('form');
+        formDelete.className = 'formDelete'; formDelete.action = 'CartaControl'; formDelete.method = 'post';
+
+        //creazione campo input -> servizio
+        var service = document.createElement('input');
+        service.type = 'text'; service.name = 'servizio'; service.value = 'delete'; service.hidden;
+
+        //creazione campo input -> NumeroCarta
+        var numbCard = document.getElementById('input');
+        numbCard.type = 'text'; numbCard.name = 'NumeroCarta'; numbCard.hidden; numbCard.value = cifreNC;   //valore da prendere da DB
+
         //icona per rimuovere
         var icon = document.createElement('img'); 
         icon.className = 'iconRemoveCard'; 
-        icon.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) +1) +'_remove'; 
+        icon.id = 'cardN' + (parseInt(document.getElementById('CarteSalvate').textContent) + position) +'_remove'; 
         icon.onclick = function() {confermaEliminazione(this)}; 
         icon.src = "./Icon/removeX_RED.png";
+        
+        
+        //creazione bottone di invio Submit
+        var deleteButton = document.createElement('input');
+        deleteButton.type = 'submit';
+
+        //composizione form eliminazione carta
+        formDelete.appendChild(service); formDelete.appendChild(numbCard); formDelete.appendChild(icon); formDelete.appendChild(deleteButton);
+        
+        
+        
+    
         
         //contenitore content
         var content = document.createElement('div'); 
@@ -126,7 +147,7 @@ function createCardDinamic(){
         //numero della carta
         var numberCard = document.createElement('p'); 
         numberCard.className = 'numberCard'; 
-        numberCard.innerHTML = '****  ****  ****  777' + i++;            //prendere numero carta dal db
+        numberCard.innerHTML = cifreNC;            //prendere numero carta dal db
         
         //contenitore scritte
         var NameExpiration = document.createElement('div'); 
@@ -144,7 +165,7 @@ function createCardDinamic(){
         //proprietario
         var owner = document.createElement('p'); 
         owner.className = 'owner'; 
-        owner.innerHTML = 'VITIELLO CATELLO'                        //prendere nome proprietario dal db
+        owner.innerHTML = proprieNP;                        //prendere nome proprietario dal db
         
         //scritta VALID THRU
         var valid = document.createElement('p'); 
@@ -154,13 +175,13 @@ function createCardDinamic(){
         //scadena
         var expiration = document.createElement('p');
         expiration.className = 'expiration'; 
-        expiration.innerHTML = '19/12';                         //prendere scadenza dal db
+        expiration.innerHTML = scadenNP;                         //prendere scadenza dal db
 
 
         row.appendChild(owner), row.appendChild(valid), row.appendChild(expiration);
         NameExpiration.appendChild(monthyear); NameExpiration.appendChild(row);
         content.appendChild(numberCard); content.appendChild(NameExpiration);
-        card.appendChild(icon); card.appendChild(content);
+        card.appendChild(formDelete); card.appendChild(content);
 
 
         //Aggiungi l'elemento all'elemento genitore 
@@ -168,7 +189,7 @@ function createCardDinamic(){
         
 
 
-    }
+   
     
     
     var addCards = document.createElement('div');

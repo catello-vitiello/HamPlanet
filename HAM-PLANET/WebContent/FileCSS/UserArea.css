@@ -29,12 +29,35 @@ body{
 
 
 
+/*@@@@@@   BARRA LATERALE SCORRIMENTO   @@@@@@*/
+::-webkit-scrollbar{
+    background: transparent;
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #d8d8d8;
+    margin: 20px;
+    z-index: 4;
+
+}
+
+
+::-webkit-scrollbar-thumb{
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(.5, #d02d0e), color-stop(1, #faa202));
+    border-radius: 10px;
+}
+
 /*#########################   BOX AREA   #########################*/
 .boxArea{
     width: calc(100vw - 10vh);
     height: 90vh;
     display: flex;
     position: relative;
+    
+	overflow-y: auto;
+	overflow-x: hidden;
     
     margin: 44px 0 0;
     
@@ -156,9 +179,12 @@ body{
     height: 50px;
     width: 80%;
     margin: 4% 0 2%;
-
-    
 }
+
+#LogOut:hover{
+	scale: 1.1;
+}
+
 
 #LogOut input[type=submit]{
 	height: 100%;
@@ -600,7 +626,7 @@ body{
 
 
 
-/*#########################   INDIRIZZI   #########################*/
+/*#########################   CARTE   #########################*/
 #three{
     display: none;
     flex-direction: column;
@@ -1528,6 +1554,22 @@ body{
 }
 
 
+
+@media (max-width: 768px){
+	.boxArea{
+		display: flow-root;
+
+	}
+	
+	.left,
+	.right{
+		width: 96%;
+		height: 90vh;
+		
+		margin: 2% 2%
+	}
+	
+}
 
 
 
