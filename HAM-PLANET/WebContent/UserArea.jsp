@@ -1,12 +1,13 @@
-<%@page import="java.util.Collection"%>
+<%@page import="model_carta.CartaBean"%>
+<%@page import="java.util.*"%>
 <%@page import="gestione_funz.CercaCarteClienteBean"%>
 <%@page import="model_cliente.ClienteBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
 <%
-ClienteBean user = (ClienteBean) session.getAttribute("user");
-String nCard = (String) request.getAttribute("Ncard");
+ClienteBean user = (ClienteBean) session.getAttribute("user"); //campi user
+String nCard = (String) request.getAttribute("Ncard"); //quante carte ha l'user
 if(nCard == null){
 	if(user != null){
 	request.setAttribute("email", user.getEmail());
@@ -15,7 +16,7 @@ if(nCard == null){
 	}
 }
 
-Collection<?> listaCarte = (Collection<?>) request.getAttribute("carte");
+Collection<?> listaCarte = (Collection<?>) request.getAttribute("carte"); //lista delle carte registrate dell'utente
 if (user == null) {
 	response.sendRedirect("Login.jsp");
 	return;
@@ -576,8 +577,19 @@ if (user == null) {
 			<p class="title">Carte</p>
 
 			<!-- CONTENITORE OGGETTI -->
+			<%
+				int i=0;
+				if(listaCarte != null && listaCarte.size()>0){
+				Iterator<?> iterator = listaCarte.iterator();
+				while(iterator.hasNext()){
+				CartaBean bean = (CartaBean)iterator.next();
+				++i;
+			%>
+				
 			<div id="contenitoreCarte" class="boxCarte"></div>
-
+			<%
+				}}
+			%>
 		</div>
 </body>
 

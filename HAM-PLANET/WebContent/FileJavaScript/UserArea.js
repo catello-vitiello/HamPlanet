@@ -58,13 +58,14 @@ function changePage (value){
         document.getElementById('order').style.fontWeight = 600;
         document.getElementById('creditCard').style.fontWeight = 300;
 
-        createOrderDinamic();
+        //createOrderDinamic();
     }
 
 
     //terza pagina -> CARTE
     else if (value == 2){
-
+	
+		
 
         if (one.style.display != 'none'){
             one.style.opacity = '0%';
@@ -87,7 +88,7 @@ function changePage (value){
         document.getElementById('order').style.fontWeight = 300;
         document.getElementById('creditCard').style.fontWeight = 600;
         
-        createCardDinamic();
+        //createCardDinamic();
     }
 }
 
@@ -99,8 +100,9 @@ function changePage (value){
 function createCardDinamic(position, cifreNC, proprieNP, scadenNP){
 	var carteRegistrate = parseInt(document.getElementById('CarteSalvate').textContent);
         
+	alert('funzione chiamata con numero ' + position);
 
-    boxCarte.innerHTML = '';
+   // boxCarte.innerHTML = '';
 
 
         //creazione carta
@@ -115,11 +117,11 @@ function createCardDinamic(position, cifreNC, proprieNP, scadenNP){
 
         //creazione campo input -> servizio
         var service = document.createElement('input');
-        service.type = 'text'; service.name = 'servizio'; service.value = 'delete'; service.hidden;
+        service.type = 'text'; service.name = 'servizio'; service.value = 'delete'; //service.hidden;
 
         //creazione campo input -> NumeroCarta
         var numbCard = document.getElementById('input');
-        numbCard.type = 'text'; numbCard.name = 'NumeroCarta'; numbCard.hidden; numbCard.value = cifreNC;   //valore da prendere da DB
+        numbCard.type = 'text'; numbCard.name = 'NumeroCarta'; /*numbCard.hidden;*/ numbCard.value = cifreNC;   //valore da prendere da DB
 
         //icona per rimuovere
         var icon = document.createElement('img'); 
@@ -1478,5 +1480,4 @@ function closeCard(buttonX, form, cardBox, box, textBox){
 
     
 }
-
 
