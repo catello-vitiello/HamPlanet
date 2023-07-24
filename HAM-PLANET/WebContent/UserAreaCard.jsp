@@ -7,10 +7,13 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%
-ClienteBean user = (ClienteBean) session.getAttribute("user"); //campi user
+ClienteBean user = (ClienteBean) session.getAttribute("user");
 String nCard = (String) session.getAttribute("Ncard1"); //quante carte ha l'user
-Collection<?> listaCarte = (Collection<?>) session.getAttribute("listaCarte1"); //lista delle carte registrate dell'utente
-
+LinkedList<?> listaCarte1 = (LinkedList<?>) request.getAttribute("listaCarte1"); //lista delle carte registrate dell'utente
+if(listaCarte1 == null){
+	response.sendRedirect("RecuperaCarteControl");
+	return;
+}
 %>
 
 
@@ -204,6 +207,15 @@ Collection<?> listaCarte = (Collection<?>) session.getAttribute("listaCarte1"); 
 
 			<!-- CONTENITORE OGGETTI -->
 			<div id="contenitoreCarte" class="boxCarte">
+			
+				<%
+				if(listaCarte1 != null && listaCarte1.size()>0){
+				Iterator<?> iterator = listaCarte1.iterator();
+				while(iterator.hasNext()){
+					CercaCarteClienteBean bean = (CercaCarteClienteBean)iterator.next();
+				%>
+				
+			
 				<!--CARTA 1-->
                     <div id="cardN1" class="card">
 
@@ -221,7 +233,7 @@ Collection<?> listaCarte = (Collection<?>) session.getAttribute("listaCarte1"); 
                         <div class="content">
 
                             <!--NUMERO CARTA-->
-                            <p class="numberCard">**** **** **** 1234</p>
+                            <p class="numberCard"><%= bean.getNc() %></p>
                             <div class="NameExpiration">
 
                                 <!--SCRITTA MESE/ANNO-->
@@ -229,19 +241,19 @@ Collection<?> listaCarte = (Collection<?>) session.getAttribute("listaCarte1"); 
                                 <div class="row">
 
                                     <!--COGNOME NOME-->
-                                    <p class="owner">COGNOME NOME</p>
+                                    <p class="owner"><%= bean.getTitolare() %></p>
 
                                     <!--SCRITTA VALID THRU-->
                                     <p class="valid">VALID<br>THRU</p>
 
                                     <!--DATA SCADENZA-->
-                                    <p class="expiration">00/00</p>
+                                    <p class="expiration"><%= bean.getScadenza() %></p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-
+					<%}} %>
 
 					<!-- #############  FORM NUOVA CARTA  ############# -->
                     <div class="addCard" onclick="addCard()"></div>

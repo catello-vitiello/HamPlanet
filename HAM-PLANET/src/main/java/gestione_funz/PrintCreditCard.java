@@ -29,13 +29,12 @@ public class PrintCreditCard extends HttpServlet {
 		DataSource ds = (DataSource) getServletContext().getAttribute("DataSource");
 		CercaCarteModelDS modelDS = new CercaCarteModelDS(ds);
 		HttpSession session = request.getSession(false);
+		utils.UtilityClass.print("sessione: " + session.getId());
 		
 		try {
 			//if (op.equals("carte")) {
-				LinkedList<CercaCarteClienteBean> carte = (LinkedList<CercaCarteClienteBean>) modelDS
-						.getCardByEmail(email);
+				LinkedList<CercaCarteClienteBean> carte = (LinkedList<CercaCarteClienteBean>) modelDS.getCardByEmail(email);
 				request.setAttribute("ListaCarte", carte); //setto l'attributo che contiene una lista di carte nella mappa della richiesta e lo passo
-				session.setAttribute("ListaCarte1", carte);
 				/*for (int x = 0; x < carte.size(); x++) {
 					CercaCarteClienteBean bean = carte.get(x);
 					out.println(bean.toString());

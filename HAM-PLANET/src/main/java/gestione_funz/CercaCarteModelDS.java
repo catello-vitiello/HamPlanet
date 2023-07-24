@@ -28,11 +28,11 @@ public class CercaCarteModelDS implements CercaCardModel<CercaCarteClienteBean>{
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String sql = "SELECT c.numeroCarta, c.cvv, c.scadenza "
+		String sql = "SELECT c.numeroCarta, c.cvv, c.scadenza, c.nomeTitolare "
 				+ "FROM cliente cl, carta c, Ha h "
 				+ "WHERE h.n_card=c.numeroCarta AND "
 				+ "h.email_u=cl.e_mail AND "
-				+ "e_mail = ?";
+				+ "cl.e_mail = ?";
 		Collection<CercaCarteClienteBean> listaCarte = new LinkedList<CercaCarteClienteBean>();
 		
 		try {
@@ -46,9 +46,10 @@ public class CercaCarteModelDS implements CercaCardModel<CercaCarteClienteBean>{
 			ResultSet rs = preparedStatement.executeQuery();
 			while(rs.next()) {
 				CercaCarteClienteBean ccb = new CercaCarteClienteBean();
-				ccb.setNc(rs.getString("numeroCarta"));
-				ccb.setCvv(rs.getInt("cvv"));
-				ccb.setScadenza(rs.getString("scadenza"));
+				ccb.setNc(rs.getString("c.numeroCarta"));
+				ccb.setCvv(rs.getInt("c.cvv"));
+				ccb.setScadenza(rs.getString("c.scadenza"));
+				ccb.setTitolare(rs.getString("c.nomeTitolare"));
 				
 				listaCarte.add(ccb);
 			}
