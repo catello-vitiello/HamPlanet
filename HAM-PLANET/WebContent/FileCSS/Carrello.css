@@ -228,6 +228,28 @@ body{
     border-radius:0 20px 20px 0;
 }
 
+.menoButton input[type="submit"]{
+	height: 100%;
+	width: 100%;
+	
+	border: none;
+	border-radius: 20px 0 0 20px;
+	cursor: pointer;
+	
+	background: transparent;
+}
+
+.piuButton input[type="submit"]{
+	height: 100%;
+	width: 100%;
+	
+	border: none;
+	border-radius: 0 20px 20px 0;
+	cursor: pointer;
+	
+	background: transparent;
+}
+
 .menoButton:active,
 .piuButton:active{
     color: gray;
@@ -284,6 +306,17 @@ body{
     align-items: center;
     justify-content: space-between;
     margin: 1.5%;
+}
+
+
+.rowSummary select{
+    height: auto;
+    width: 50%;
+
+    border: 2px solid #b6b6b6;
+    border-radius: 20px;
+
+    outline: none;
 }
 
 #finishOrder{

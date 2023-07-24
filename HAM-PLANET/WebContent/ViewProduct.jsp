@@ -65,7 +65,7 @@
                        		<input type="text" name="serv" value="addKartProd" hidden>
                             <input type="submit" value="Aggiungi al carrello">
                             
-                            <p >La quantit&agrave; del prodotto &egrave; modificabile direttamente al carrello.</p>
+                            <p style="color: #888888">La quantit&agrave; del prodotto &egrave; modificabile direttamente al carrello.</p>
                         </div>
                         
                     </div>
