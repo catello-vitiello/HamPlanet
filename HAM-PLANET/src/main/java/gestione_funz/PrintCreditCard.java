@@ -35,6 +35,7 @@ public class PrintCreditCard extends HttpServlet {
 			//if (op.equals("carte")) {
 				LinkedList<CercaCarteClienteBean> carte = (LinkedList<CercaCarteClienteBean>) modelDS.getCardByEmail(email);
 				request.setAttribute("ListaCarte", carte); //setto l'attributo che contiene una lista di carte nella mappa della richiesta e lo passo
+				session.setAttribute("ListaCarte1", carte);
 				/*for (int x = 0; x < carte.size(); x++) {
 					CercaCarteClienteBean bean = carte.get(x);
 					out.println(bean.toString());
@@ -44,13 +45,12 @@ public class PrintCreditCard extends HttpServlet {
 				// out.println("\nNumero carte");
 				request.setAttribute("Ncard", modelDS.getNumCarte(email)); //setto l'attributo che contiene il numero di
 				session.setAttribute("Ncard1", modelDS.getNumCarte(email));															//carte nella mappa della richiesta e lo passo
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/UserArea.jsp");
+		        requestDispatcher.forward(request, response);
 				//}
 		} catch (SQLException e) {
 			utils.UtilityClass.print(e);
 		}
-
-		RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/UserArea.jsp");
-        requestDispatcher.forward(request, response);
 
 	}
 

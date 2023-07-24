@@ -32,6 +32,7 @@ if (prodotti == null) {
 }
 
 Collection<?> card = (Collection<?>) session.getAttribute("ListaCarte1");
+session.setAttribute("ListaCarte1", card);
 %>
 
 

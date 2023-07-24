@@ -17,7 +17,7 @@ if(nCard == null){
 	}
 }
 
-Collection<?> listaCarte = (Collection<?>) request.getAttribute("carte"); //lista delle carte registrate dell'utente
+Collection<?> listaCarte = (Collection<?>) request.getAttribute("ListaCarte"); //lista delle carte registrate dell'utente
 if (user == null) {
 	response.sendRedirect("Login.jsp");
 	return;
