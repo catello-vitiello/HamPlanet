@@ -9,7 +9,6 @@
 <%
 ClienteBean user = (ClienteBean) session.getAttribute("user"); //campi user
 String nCard = (String) session.getAttribute("Ncard1"); //quante carte ha l'user
-Collection<?> listaCarte = (Collection<?>) session.getAttribute("listaCarte1"); //lista delle carte registrate dell'utente
 %>
 
 
