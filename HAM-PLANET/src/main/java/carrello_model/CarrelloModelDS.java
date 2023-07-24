@@ -26,7 +26,7 @@ public class CarrelloModelDS implements CarrelloModel<CarrelloBean> {
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null, ps = null;
-		String sql = "select max(id) as max from composto";
+		String sql = "select max(id_c) as max from composto";
 		String sql1 = " ALTER TABLE composto AUTO_INCREMENT = ?";
 		
 		try {
@@ -319,6 +319,7 @@ public class CarrelloModelDS implements CarrelloModel<CarrelloBean> {
 			
 			//controllo se la quantità va a zero
 			//in tal caso elimino il prodotto direttamente
+			utils.UtilityClass.print("#############################################################Quantità = " + quant);
 			if(quant < 1) {
 				deleteProductFromKart(ian, email); //passo all'eliminazione del prodotto
 				return;

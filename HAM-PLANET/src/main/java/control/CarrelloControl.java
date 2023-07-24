@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
+import org.apache.jasper.tagplugins.jstl.core.If;
+
 import carrello_model.CarrelloModelDS;
 import model_cliente.ClienteBean;
 
@@ -55,6 +57,40 @@ public class CarrelloControl extends HttpServlet {
 				utils.UtilityClass.print(e);
 			}
 		}
+		
+		/****************************************************************************************/
+		/*								 		+1												*/
+		/****************************************************************************************/	
+		if(serv != null && serv.equals("plus")) {
+			
+			int ian = Integer.parseInt(request.getParameter("ian"));
+			try {
+				model.plusQuantity(ian, user.getEmail());
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");
+				requestDispatcher.forward(request, response);
+				return;
+			}catch (SQLException e) {
+				utils.UtilityClass.print(e);
+			}
+			
+		}
+		
+		/****************************************************************************************/
+		/*								 		-1												*/
+		/****************************************************************************************/	
+		if(serv != null && serv.equals("minus")) {
+			
+			int ian = Integer.parseInt(request.getParameter("ian"));
+			try {
+				model.minuQuantity(ian, user.getEmail());
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/Carrello.jsp");
+				requestDispatcher.forward(request, response);
+				return;
+			}catch (SQLException e) {
+				utils.UtilityClass.print(e);
+			}
+			
+		}
 
 		/****************************************************************************************/
 		/*								VEDI ORDINI PER EMAIL									*/
@@ -73,5 +109,7 @@ public class CarrelloControl extends HttpServlet {
 			throws ServletException, IOException{ 
 			doGet(request,response);
 	}
+	
+	
 
 }
