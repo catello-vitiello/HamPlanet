@@ -163,3 +163,31 @@ body{
 
     margin: 0 1% 0;
 }
+
+
+
+
+
+
+@media (max-width: 1000px){
+    .section{
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+    }
+
+    .sonTwo{
+        width: 90%;
+    }
+
+    .saluti img{
+        height: auto;
+        width: 20%;
+    }
+
+}
+
+
+
+
+

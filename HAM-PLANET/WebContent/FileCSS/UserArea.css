@@ -153,14 +153,17 @@ body{
 
 }
 
-.listSez button{
+.listSez a{
     background: transparent;
     outline: none;
     border: none;
+	text-decoration: none;
     margin-left: 10%;
     cursor: pointer;
     font-size: 15px;
     letter-spacing: 1.5px;
+    
+    color: black;
 }
 
 
@@ -711,6 +714,33 @@ body{
 
     transition: all .4s;
 }
+
+
+/*@@@@@@@@@@@@@@@@  ICONA PER RIMUOVERE    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ò*/
+.formDelete{
+    height: auto;
+    width: auto;
+    top: 0;
+    right: 0;
+    position: absolute;
+}
+
+
+.formDelete input[type="submit"]{
+    height: 38px;
+    width: 38px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    opacity: 0;
+
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+}
+
 
 .iconRemoveCard{
     position: absolute;

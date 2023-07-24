@@ -341,13 +341,13 @@ if (user == null) {
 			<div class="down">
 				<div class="listSez">
 					<ul>
-						<a href="UserArea.jsp" id="infPers">Dati Personali</a>
+						<a href="UserArea.jsp" id="infPers" style="font-weight: 800;">Dati Personali</a>
 					</ul>
 					<ul>
-						<a href="UserAreaOrder.jsp" id="order">Ordini</a>
+						<a href="UserAreaOrder.jsp" id="order" style="font-weight: 400;">Ordini</a>
 					</ul>
 					<ul>
-						<a href="./UserAreaCard.jsp" id="creditCard">Carte</a>
+						<a href="./UserAreaCard.jsp" id="creditCard" style="font-weight: 400;">Carte</a>
 						<p id="CarteSalvate"><%=nCard%></p>
 					</ul>
 					<!-- STRINGA DA RECUPERARE DAL DB -->

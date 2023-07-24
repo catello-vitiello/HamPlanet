@@ -246,11 +246,22 @@ body{
     }
 
 
-    .section3{
+    .section3,
+    .section4{
         flex-direction: column;
+        height: auto;
     }
 
     .sonTwo{
         width: 90%;
     }
 
+    .sonTwo img{
+        height: auto;
+        width: 90%;
+
+        margin: 2% 0;
+    }
+
+
+}

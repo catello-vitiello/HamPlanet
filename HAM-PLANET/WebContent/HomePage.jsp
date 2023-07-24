@@ -63,8 +63,7 @@
                 <div class="sonTwo">
                     <h2>Ham Planet Town</h2>
 
-                    <p>Nostro centro operativo.....
-                        Quartier generale
+                    <p>Nostro centro operativo...quartier generale dove tutto nasce ed ogni idea viene messa in pratica.
                     </p>
                 </div>
 
