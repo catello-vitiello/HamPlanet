@@ -37,7 +37,7 @@ public class RecuperaCarteControl extends HttpServlet {
 		LinkedList<CercaCarteClienteBean> carte = null;
 		try {
 			carte = (LinkedList<CercaCarteClienteBean>) modelDS.getCardByEmail(user.getEmail());
-			request.setAttribute("ListaCarte1", carte);
+			request.setAttribute("ListaCarte0", carte);
 			RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/UserAreaCard.jsp");
 	        requestDispatcher.forward(request, response);
 	        return;
