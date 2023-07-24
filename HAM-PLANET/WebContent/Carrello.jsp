@@ -157,29 +157,16 @@
 					<p id="total">
 						&euro;<%= numeroFormattato  %></p>
 				</div>
-				<% } else { %>
-				<p id="spediction">
-					&euro;
-					<%= sped %>
-				</p>
-
-
-			<div class="rowSummary" style="font-weight: 600;">
-				<p>Totale</p>
-				<p id="total">
-					&euro;<%= numeroFormattato1  %></p>
-			</div>
-			
+				<% } %>
 			<div class="rowSummary">
                         <p>Seleziona carta</p>
-                        <select name="" id=""></select>
+                        <select name="" id="">ciao</select>
 			</div>
-			<% } %>
-			<button type="submit" id="finishOrder">Continua per pagare</button>
 
+			<button type="submit" id="finishOrder">Continua per pagare</button>
 		</form>
 
-
 	</div>
+</div>
 </body>
 </html>
