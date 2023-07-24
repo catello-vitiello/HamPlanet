@@ -10,10 +10,10 @@
 ClienteBean user = (ClienteBean) session.getAttribute("user");
 String nCard = (String) session.getAttribute("Ncard1"); //quante carte ha l'user
 LinkedList<?> listaCarte1 = (LinkedList<?>) session.getAttribute("listaCarte0"); //lista delle carte registrate dell'utente
-if(listaCarte1 == null){
-	response.sendRedirect("RecuperaCarteControl");
-	return;
-}
+//if(listaCarte1 == null){
+	//response.sendRedirect("RecuperaCarteControl");
+	//return;
+//}
 %>
 
 
