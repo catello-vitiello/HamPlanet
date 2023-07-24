@@ -58,7 +58,7 @@ function changePage (value){
         document.getElementById('order').style.fontWeight = 600;
         document.getElementById('creditCard').style.fontWeight = 300;
 
-        //createOrderDinamic();
+        createOrderDinamic();
     }
 
 
@@ -88,7 +88,7 @@ function changePage (value){
         document.getElementById('order').style.fontWeight = 300;
         document.getElementById('creditCard').style.fontWeight = 600;
         
-        //createCardDinamic();
+        createCardDinamic();
     }
 }
 

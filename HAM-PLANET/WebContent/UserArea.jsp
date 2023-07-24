@@ -1,3 +1,4 @@
+<%@page import="utils.UtilityClass"%>
 <%@page import="model_carta.CartaBean"%>
 <%@page import="java.util.*"%>
 <%@page import="gestione_funz.CercaCarteClienteBean"%>
@@ -577,19 +578,8 @@ if (user == null) {
 			<p class="title">Carte</p>
 
 			<!-- CONTENITORE OGGETTI -->
-			<%
-				int i=0;
-				if(listaCarte != null && listaCarte.size()>0){
-				Iterator<?> iterator = listaCarte.iterator();
-				while(iterator.hasNext()){
-				CartaBean bean = (CartaBean)iterator.next();
-				++i;
-			%>
-				
 			<div id="contenitoreCarte" class="boxCarte"></div>
-			<%
-				}}
-			%>
+			
 		</div>
 </body>
 
