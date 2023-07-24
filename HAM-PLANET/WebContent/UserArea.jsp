@@ -341,14 +341,13 @@ if (user == null) {
 			<div class="down">
 				<div class="listSez">
 					<ul>
-						<button id="infPers" onclick="changePage(0)">Dati
-							Personali</button>
+						<a href="UserArea.jsp" id="infPers">Dati Personali</a>
 					</ul>
 					<ul>
-						<button id="order" onclick="changePage(1)">Ordini</button>
+						<a href="UserAreaOrder.jsp" id="order">Ordini</a>
 					</ul>
 					<ul>
-						<button id="creditCard" onclick="changePage(2); prova(listaCarte);">Carte</button>
+						<a href="./UserAreaCard.jsp" id="creditCard">Carte</a>
 						<p id="CarteSalvate"><%=nCard%></p>
 					</ul>
 					<!-- STRINGA DA RECUPERARE DAL DB -->
@@ -560,27 +559,6 @@ if (user == null) {
 
 		</div>
 
-		<!--################################   ORDINI  ########################################################################-->
-		<div id="two" class="right">
-
-			<!-- TITOLO -->
-			<p class="title">Ordini</p>
-
-			<!-- CONTENITORE ORDINI -->
-			<div id="boxOrder" class="boxOrdini"></div>
-
-		</div>
-
-		<!--################################   CARTE  ########################################################################-->
-		<div id="three" class="right">
-
-			<!-- TITOLO -->
-			<p class="title">Carte</p>
-
-			<!-- CONTENITORE OGGETTI -->
-			<div id="contenitoreCarte" class="boxCarte"></div>
-			
-		</div>
 </body>
 
 </html>

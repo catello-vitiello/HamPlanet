@@ -27,7 +27,7 @@
                     	</a>
                     	
                     	
-                    	<a href="">
+                    	<a href="https://twitter.com/HamPlanet1996?t=1TMiL_1B9h83r7tjSA5ymg&s=09">
                     		<img class="socialFooter" src="./Icon/twitter_RED.png" alt="TWITTER">
                     	</a>
                     	                                      

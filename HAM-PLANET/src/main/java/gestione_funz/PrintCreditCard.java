@@ -44,7 +44,7 @@ public class PrintCreditCard extends HttpServlet {
 			//if (op.equals("number")) {
 				// out.println("\nNumero carte");
 				request.setAttribute("Ncard", modelDS.getNumCarte(email)); //setto l'attributo che contiene il numero di
-																			//carte nella mappa della richiesta e lo passo
+				session.setAttribute("Ncard1", modelDS.getNumCarte(email));															//carte nella mappa della richiesta e lo passo
 				//}
 		} catch (SQLException e) {
 			utils.UtilityClass.print(e);

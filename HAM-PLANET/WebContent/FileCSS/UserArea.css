@@ -397,7 +397,8 @@ body{
 
 /*#########################   ORDINI   #########################*/
 #two{
-    display: none;
+    display: flex;
+    opacity: 1;
     transition-property: opacity;
     transition-duration: .5s;
 }
@@ -628,7 +629,8 @@ body{
 
 /*#########################   CARTE   #########################*/
 #three{
-    display: none;
+    display: flex;
+    opacity: 1;
     flex-direction: column;
     transition-property: opacity;
     transition-duration: .5s;
