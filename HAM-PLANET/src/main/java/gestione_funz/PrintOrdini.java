@@ -35,7 +35,7 @@ public class PrintOrdini extends HttpServlet {
 		   
 		   
 	   }catch (SQLException e) {
-		   e.printStackTrace();
+		   utils.UtilityClass.print(e);
 	}
 	   
    }

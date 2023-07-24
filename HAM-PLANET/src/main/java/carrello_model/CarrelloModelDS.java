@@ -18,6 +18,44 @@ public class CarrelloModelDS implements CarrelloModel<CarrelloBean> {
 	public CarrelloModelDS(DataSource ds) {
 		this.ds = ds;
 	}
+	/********************************************************************************************************************************************/
+	/********************************************************/
+	/*	FUNZIONE AD HOC PER IL RESET DI AUTO_INCREMENT		*/
+	/********************************************************/
+	private void resetAuto_increment() throws SQLException {
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null, ps = null;
+		String sql = "select max(id) as max from composto";
+		String sql1 = " ALTER TABLE composto AUTO_INCREMENT = ?";
+		
+		try {
+			
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sql);
+			ps = connection.prepareStatement(sql1);
+			ResultSet rs = preparedStatement.executeQuery();
+			int val=0;
+			
+			while(rs.next()) {
+				val = rs.getInt("max");
+				utils.UtilityClass.print("Id massimo: " + val + "\n");
+			}
+			
+			ps.setInt(1, val+1);
+			ps.executeUpdate();
+			
+		} finally {
+			if(preparedStatement != null)
+				preparedStatement.close();
+			if(ps != null)
+				ps.close();
+			if(connection != null)
+				connection.close();
+		}
+		
+	}
+	/*********************************************************************************************************************************************/
 	
 	/********************************************************/
 	/*				CONTROLLO PRESENZA PRODOTTO				*/
@@ -278,6 +316,14 @@ public class CarrelloModelDS implements CarrelloModel<CarrelloBean> {
 			connection = ds.getConnection();
 			ps = connection.prepareStatement(sql);
 			quant-=1;
+			
+			//controllo se la quantità va a zero
+			//in tal caso elimino il prodotto direttamente
+			if(quant < 1) {
+				deleteProductFromKart(ian, email); //passo all'eliminazione del prodotto
+				return;
+			}
+			
 			ps.setInt(1, quant);
 			ps.setInt(2, id_c);
 			ps.executeUpdate();
@@ -288,5 +334,55 @@ public class CarrelloModelDS implements CarrelloModel<CarrelloBean> {
 			if(connection != null)
 				connection.close();
 		}
+	}
+	
+	/********************************************************/
+	/*		    ELIMINA UN PRODOTTO DAL CARRELLO			*/
+	/********************************************************/
+	public void deleteProductFromKart(int ian, String email) throws SQLException{
+		
+		int id_c=0;
+		String sqlString = "SELECT id_c "
+				+ "FROM composto, ordine, cliente, prodotto "
+				+ "WHERE composto.ian_prodotto = prodotto.IAN "
+				+ "AND composto.id_ordine = ordine.id "
+				+ "AND ordine.email = cliente.e_mail "
+				+ "AND prodotto.IAN = ? and cliente.e_mail = ?";
+		
+		String sql1 = "DELETE FROM composto WHERE id_c = ?";
+		
+		Connection connection = null;
+		PreparedStatement preparedStatement = null, ps = null;
+		
+		try {
+			connection = ds.getConnection();
+			preparedStatement = connection.prepareStatement(sqlString);
+			preparedStatement.setInt(1, ian);
+			preparedStatement.setString(2, email);
+			ResultSet rs = preparedStatement.executeQuery();
+			while(rs.next())
+				id_c = rs.getInt("id_c");
+		}finally {
+			if(preparedStatement != null)
+				preparedStatement.close();
+			if(connection != null)
+				connection.close();
+		}
+		
+		try {
+			connection = ds.getConnection();
+			ps = connection.prepareStatement(sql1);
+			ps.setInt(1, id_c);
+			ps.executeUpdate();
+			utils.UtilityClass.print(">:Eliminazione prodotto con IAN: " + ian + " del cliente: " + email + ", id_c: " + id_c);
+			resetAuto_increment();
+		}finally {
+			if(ps != null)
+				ps.close();
+			if(connection != null)
+				connection.close();
+		}
+		
+		
 	}
 }

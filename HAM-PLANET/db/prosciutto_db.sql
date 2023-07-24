@@ -67,11 +67,9 @@ CREATE TABLE composto
 CREATE TABLE carta
 (
 	nomeTitolare VARCHAR(60),
-    cognomeTitolare VARCHAR(60),
     numeroCarta VARCHAR(16) NOT NULL,
     scadenza VARCHAR(60),
     cvv INT,
-    visualizza INT NOT NULL, -- inserire 0 per non visualizzare la carta, 1 altrimenti
     PRIMARY KEY(numeroCarta)
 );
 

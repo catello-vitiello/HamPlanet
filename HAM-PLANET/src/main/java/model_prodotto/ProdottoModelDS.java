@@ -291,7 +291,7 @@ public class ProdottoModelDS implements ProdottoModel<ProdottoBean> {
 		
 		Connection connection = null;
         PreparedStatement preparedStatement = null;
-        String sql = "SELECT * FROM prodotto WHERE tipo = ?";
+        String sql = "SELECT * FROM prodotto WHERE tipo = ? AND visualizza = 1";
         Collection<ProdottoBean> prodotti = new LinkedList<ProdottoBean>();
         
         try {

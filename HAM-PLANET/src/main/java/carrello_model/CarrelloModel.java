@@ -12,5 +12,7 @@ public interface CarrelloModel<T> {
 	public void plusQuantity(int ian, String email) throws SQLException;
 	
 	public void minuQuantity(int ian, String email) throws SQLException;
+	
+	public void deleteProductFromKart(int ian, String email) throws SQLException;
 
 }
