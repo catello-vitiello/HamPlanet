@@ -98,13 +98,25 @@
 						</div>
 
 						<div class="thirdRow">
-							<button id="0meno" class="menoButton"
-								onclick="changeValue(0, event)">-</button>
+							
+						
+						<form action="CarrelloControl" method="post" class="menoButton">
+							<input type="text" name="ian" value="<%= bean.getIan() %>" hidden>
+							<input type="text" name="serv" value="minus" hidden>
+							<input type="submit" value="-" id="0meno">
+						</form>
+						
+					
 							<input id="numProdotti0" class="numProdotti"
 								oninput="inputControl(event)" onblur="minValue()" type="text"
-								value="<%= bean.getQuantity() %>">
-							<button id="0piu" class="piuButton"
-								onclick="changeValue(1, event)">+</button>
+								value="<%= bean.getQuantity() %>" readonly="readonly">
+
+
+						<form action="CarrelloControl" method="post" class="piuButton">
+							<input type="text" name="ian" value="<%= bean.getIan() %>" hidden>
+							<input type="text" name="serv" value="plus" hidden>
+							<input type="submit" value="+" id="0piu">
+						</form>
 						</div>
 					</div>
 

@@ -1476,8 +1476,12 @@ function closeCard(buttonX, form, cardBox, box, textBox){
         
 
     }, 400)
-
-
     
+}
+
+
+
+function prova (listaCarte){
+	alert('funzione')
 }
 

@@ -228,6 +228,28 @@ body{
     border-radius:0 20px 20px 0;
 }
 
+.menoButton input[type="submit"]{
+	height: 100%;
+	width: 100%;
+	
+	border: none;
+	border-radius: 20px 0 0 20px;
+	cursor: pointer;
+	
+	background: transparent;
+}
+
+.piuButton input[type="submit"]{
+	height: 100%;
+	width: 100%;
+	
+	border: none;
+	border-radius: 0 20px 20px 0;
+	cursor: pointer;
+	
+	background: transparent;
+}
+
 .menoButton:active,
 .piuButton:active{
     color: gray;
