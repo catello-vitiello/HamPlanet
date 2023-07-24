@@ -348,7 +348,7 @@ if (user == null) {
 						<button id="order" onclick="changePage(1)">Ordini</button>
 					</ul>
 					<ul>
-						<button id="creditCard" onclick="changePage(2) prova(listaCarte)">Carte</button>
+						<button id="creditCard" onclick="changePage(2); prova(listaCarte);">Carte</button>
 						<p id="CarteSalvate"><%=nCard%></p>
 					</ul>
 					<!-- STRINGA DA RECUPERARE DAL DB -->

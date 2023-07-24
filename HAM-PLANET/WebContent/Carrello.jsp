@@ -2,6 +2,8 @@
 <%@page import="java.util.Collection"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="model_cliente.ClienteBean"%>
+<%@page import="gestione_funz.*"%>
+<%@page import="java.util.*"%>
 <%@page import="javax.servlet.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -18,6 +20,8 @@
 		response.sendRedirect("CarrelloControl");
 		return;
 	}
+	
+	Collection<?> card = (Collection<?>) session.getAttribute("ListaCarte1");
     %>
 
 	<%
@@ -130,56 +134,64 @@
 			</div>
 
 			<!-- RIEPILOGO -->
-			<form action="CarrelloControl" method="post" class="boxRiepilogo">
+                <form action="CarrelloControl" method="post" class="boxRiepilogo">
+                
+                	<!-- VALORI NASCOSTI -->
+    				<input type="text" name="serv" value="finalizza" hidden>
+                    
+                    <h3>Riepilogo</h3>
+                    
+                    <!-- SUBTOTALE -->
+                    <div class="rowSummary">
+                        <p>Subtotale</p>
+                        <p id="subtotal" >&euro;<%= numeroFormattato %></p>
+                    </div>
 
-				<h3>Riepilogo</h3>
-				
-				
-				<!-- VALORI NASCOSTI -->
-				<input type="text" name="serv" value="finalizza" hidden>
-				
+                    <div class="rowSummary">
+                        <p>Spedizione</p>
+                        
+                        <% if(tot>=160){ %>
+        				<p id="spediction">Gratis</p>
+                    </div>
 
-				<div class="rowSummary">
-					<p>Subtotale</p>
-					<p id="subtotal">
-						&euro;<%= numeroFormattato %></p>
-				</div>
-
-				<div class="rowSummary">
-					<p>Spedizione</p>
-					<% if(tot>=160){ %>
-					<p id="spediction">GRATIS</p>
-
-				</div>
-
-				<div class="rowSummary" style="font-weight: 600;">
-					<p>Totale</p>
-					<p id="total">
-						&euro;<%= numeroFormattato  %></p>
-				</div>
-				<% } else { %>
-				<p id="spediction">
-					&euro;
-					<%= sped %>
-				</p>
-
-
-			<div class="rowSummary" style="font-weight: 600;">
-				<p>Totale</p>
-				<p id="total">
-					&euro;<%= numeroFormattato1  %></p>
-			</div>
+                    <div class="rowSummary" style="font-weight: 600;">
+                        <p>Totale</p>
+                        <p id="total">&euro;<%= numeroFormattato  %></p>
+                    </div>
+                    
+                    <% } else { %>
+        				<p id="spediction">&euro;<%= sped %></p>
+					</div>
+					
+					<!-- TOTALE 2 -->
+					<div class="rowSummary" style="font-weight: 600;">
+   						<p>Totale</p>
+    					<p id="total">&euro;<%= numeroFormattato1  %></p>
+					</div>
+                    
+					<% } %>
+					
+					<!-- SELEZIONE CARTA -->
+					<div class="rowSummary">
+    					<p>Seleziona carta</p>
+    					<select name="" id="">
+    					<%
 			
-			<div class="rowSummary">
-                        <p>Seleziona carta</p>
-                        <select name="" id=""></select>
-			</div>
-			<% } %>
-			<button type="submit" id="finishOrder">Continua per pagare</button>
-
-		</form>
-
-
+							if(card != null && card.size()>0){
+							Iterator<?> iterator = card.iterator();
+							while(iterator.hasNext()){
+							CercaCarteClienteBean c = (CercaCarteClienteBean)iterator.next();
+						%>
+							<option><%= c.getNc() %></option>
+						<% }} %>
+						</select>
+					</div>
+                    
+					<% if(size > 0) {%>
+                    <input type="submit" id="finishOrder" value="Continua per acquistare">
+					<% } %>
+                </form>
+	</div>
 	</div>
 </body>
 </html>
