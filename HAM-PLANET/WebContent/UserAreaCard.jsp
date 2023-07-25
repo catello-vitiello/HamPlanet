@@ -19,7 +19,6 @@ if(listaCarte1 == null){
 	response.sendRedirect("/PrintCreditCard");
 	return;
 }
-UtilityClass.print("Numero carte: " + listaCarte1.size());
 %>
 
 
