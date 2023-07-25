@@ -7,18 +7,19 @@ public class BigBean implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private String nomeProdotto;
-	private int quantity, id;
+	private int quantity, id, ian;
 	private double price;
 	
 	public BigBean () {
 		
 	}
 	
-	public BigBean(String nomeProdotto, int quantity, double price, int id) {
+	public BigBean(String nomeProdotto, int quantity, double price, int id, int ian) {
 		this.nomeProdotto = nomeProdotto;
 		this.quantity = quantity;
 		this.price = price;
 		this.id = id;
+		this.ian = ian;
 	}
 
 	public String getNomeProdotto() {
@@ -53,6 +54,14 @@ public class BigBean implements Serializable{
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public int getIan() {
+		return ian;
+	}
+
+	public void setIan(int ian) {
+		this.ian = ian;
 	}
 
 	@Override

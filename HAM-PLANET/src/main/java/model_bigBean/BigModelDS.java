@@ -21,7 +21,7 @@ public class BigModelDS implements BigModel<BigBean> {
 
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-		String sql = "SELECT prodotto.nomeProdotto, composto.quantity, prodotto.prezzo, ordine.id "
+		String sql = "SELECT prodotto.nomeProdotto, composto.quantity, prodotto.prezzo, ordine.id, prodotto.IAN "
 				+ "FROM composto, prodotto, ordine, cliente "
 				+ "WHERE cliente.e_mail = ordine.email "
 				+ "AND composto.id_ordine = ordine.id "
@@ -43,6 +43,7 @@ public class BigModelDS implements BigModel<BigBean> {
 				cb.setQuantity(rs.getInt("composto.quantity"));
 				cb.setPrice(rs.getDouble("prodotto.prezzo"));
 				cb.setId(rs.getInt("ordine.id"));
+				cb.setIan(rs.getInt("prodotto.IAN"));
 				
 				ordini.add(cb);
 			}

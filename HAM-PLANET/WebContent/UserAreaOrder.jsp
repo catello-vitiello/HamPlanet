@@ -1,3 +1,4 @@
+<%@page import="model_bigBean.BigBean"%>
 <%@page import="utils.UtilityClass"%>
 <%@page import="model_carta.CartaBean"%>
 <%@page import="java.util.*"%>
@@ -13,7 +14,14 @@ if(user == null){
 	return;
 }
 String nCard = (String) session.getAttribute("Ncard1"); //quante carte ha l'user
+Collection<?> ordinii = (Collection<?>) getServletContext().getAttribute("orders");
+if(ordinii == null || ordinii.size()==0){
+	session.setAttribute("servizio", "go");
+	response.sendRedirect("ShowOrderByEmail");
+	return;
+}
 
+UtilityClass.print("Size degli ordini: " + ordinii.size());
 %>
 
 
@@ -89,24 +97,33 @@ String nCard = (String) session.getAttribute("Ncard1"); //quante carte ha l'user
 					
 				<!--  ORDINE 1 -->
 				
+				<%
+					double tot=0;
+					if(ordinii != null && ordinii.size()>0){
+					Iterator<?> iterator = ordinii.iterator();
+					while(iterator.hasNext()){
+						BigBean bean = (BigBean) iterator.next();
+						tot+=bean.getPrice();
+				%>
+				
 				<div class="order">
 
                     <!--PARTE SOPRA ORDINE CON NUMERO, DATA, PRODOTTI-->
                     <div class="parteSopra">
                         <div class="orderID">
                             <p>ID Ordine:</p>
-                            <h4>10001</h4>					<!-- NUMERO ORDINE -->
+                            <h4><%= bean.getId() %></h4>					<!-- NUMERO ORDINE -->
                         </div>
 
 
                         <div class="orderData">
-                            <p>Ordine effettuato il</p>
-                            <h4>07-12-2022</h4>				<!--  DATA DELL'ORDINE -->
+                            <p></p>
+                            <h4></h4>				<!--  DATA DELL'ORDINE -->
                         </div>
 
                         <div class="orderNumberProduct">
                             <p>Prodotti:</p>
-                            <h4>4</h4>						<!-- NUMERO PRODOTTI DELL'ORDINE -->
+                            <h4><%= bean.getQuantity() %></h4>						<!-- NUMERO PRODOTTI DELL'ORDINE -->
                         </div>
 
                     </div>
@@ -122,8 +139,8 @@ String nCard = (String) session.getAttribute("Ncard1"); //quante carte ha l'user
                         
                         <!-- ITEM DEL CARRELLO RIPETERE N VOLTE IN BASE A QUANTI PRODOTTI -->
                         <div class="item">
-
-                            <img class="backgroundOrder" src="" alt="">			<!-- AGGIUNGERE IMMAGINE  -->
+							<!-- class="backgroundOrder" -->
+                            <img  src="./ImageProductServlet?id=<%= bean.getIan() %>" style="height: 180px;">			<!-- AGGIUNGERE IMMAGINE  -->
 
 
                             <!--PARTE SINISTRA-->
@@ -133,12 +150,12 @@ String nCard = (String) session.getAttribute("Ncard1"); //quante carte ha l'user
                             <div class="rightOrder">
                                 <div class="orderRow">
                                     <div class="itemNome">
-                                        <h3>Prosciutto Crudo di Bassiano con osso</h3>			<!--  NOME ORDINE -->
+                                        <h3><%= bean.getNomeProdotto() %></h3>			<!--  NOME ORDINE -->
                                     </div>
 
                                     <div class="itemPrezzo">
                                         <h3>&euro;</h3>	
-                                        <h3>22,99</h3>					<!-- PREZZO -->
+                                        <h3><%= bean.getPrice() %></h3>					<!-- PREZZO -->
                                     </div>
                                 </div>
 
@@ -149,8 +166,8 @@ String nCard = (String) session.getAttribute("Ncard1"); //quante carte ha l'user
                                     </div>
 
                                     <div class="itemQuantita">
-                                        <p>Quantità:</p>
-                                        <h4>2</h4>							<!--  QUANTITA    -->
+                                        <p>Quantit&agrave;:</p>
+                                        <h4><%= bean.getQuantity() %></h4>							<!--  QUANTITA    -->
                                     </div>
                                 </div>
 
@@ -168,12 +185,13 @@ String nCard = (String) session.getAttribute("Ncard1"); //quante carte ha l'user
                     <div class="parteSotto">
                             
                         <p>Totale &euro;</p>
-                        <h4>99,99</h4>				<!--  TOTALE SPESO -->
+                        <h4><%= bean.getPrice()*bean.getQuantity() %></h4>				<!--  TOTALE SPESO -->
                         
                     </div>
 
                 </div>
 				
+				<%}} %>
 			</div>
 
 		</div>

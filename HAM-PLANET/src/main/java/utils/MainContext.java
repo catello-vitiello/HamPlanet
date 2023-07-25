@@ -60,6 +60,7 @@ public class MainContext implements ServletContextListener {
 		ServletContext context = sce.getServletContext();
 		
 		context.removeAttribute("DataSource");
+		context.removeAttribute("orders");
 		
 		UtilityClass.print("Shutdown Web Application");
 	}
