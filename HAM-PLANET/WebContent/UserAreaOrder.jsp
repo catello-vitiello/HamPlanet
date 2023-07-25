@@ -7,7 +7,11 @@
 	pageEncoding="ISO-8859-1"%>
 
 <%
-ClienteBean user = (ClienteBean) session.getAttribute("user"); //campi user
+ClienteBean user = (ClienteBean) session.getAttribute("user");
+if(user == null){
+	response.sendRedirect("Login.jsp");
+	return;
+}
 String nCard = (String) session.getAttribute("Ncard1"); //quante carte ha l'user
 
 %>

@@ -26,22 +26,35 @@
 			<td>NOME PRODOTTO</td>
 			<td>QUANTIT&Aacute;</td>
 			<td>PREZZO</td>
+			<td>ID ORDINE</td>
+			<td>TOT</td>
 		</tr>
 		
 		<%
+			double tot = 0;
 			if(OrdiniView != null && OrdiniView.size()>0){
 				Iterator<?> iterator = OrdiniView.iterator();
 				while(iterator.hasNext()){
 					BigBean bean = (BigBean) iterator.next();
+					tot+=bean.getPrice();
 		%>
 			<tr>
 				<td><%= bean.getNomeProdotto() %></td>
 				<td><%= bean.getQuantity() %></td>
 				<td><%= bean.getPrice() %></td>
+				<td><%= bean.getId() %></td>
+				<td>-</td>
 			</tr>
 		<%
 			}}
 		%>
+		<tr>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td>-</td>
+				<td><%= tot %></td>
+			</tr>
 	</table>
 
 	<hr>

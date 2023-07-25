@@ -8,12 +8,18 @@
 
 <%
 ClienteBean user = (ClienteBean) session.getAttribute("user");
-String nCard = (String) session.getAttribute("Ncard1"); //quante carte ha l'user
-LinkedList<?> listaCarte1 = (LinkedList<?>) session.getAttribute("listaCarte0"); //lista delle carte registrate dell'utente
-if(listaCarte1 == null){
-	response.sendRedirect("RecuperaCarteControl");
+if(user == null){
+	response.sendRedirect("Login.jsp");
 	return;
 }
+String nCard = (String) session.getAttribute("Ncard1"); //quante carte ha l'user
+UtilityClass.print("Carte dell'utente: " + nCard);
+LinkedList<?> listaCarte1 = (LinkedList<?>) getServletContext().getAttribute("ListaCarte0"); //lista delle carte registrate dell'utente
+if(listaCarte1 == null){
+	response.sendRedirect("/PrintCreditCard");
+	return;
+}
+UtilityClass.print("Numero carte: " + listaCarte1.size());
 %>
 
 
@@ -219,14 +225,17 @@ if(listaCarte1 == null){
 				<!--CARTA 1-->
                     <div id="cardN1" class="card">
 
+						<!-- ######################### DELETE CARD	################################################ -->
                         <form class="formDelete" action="CartaControl" method="post">
-                            <input class="shadowCampi" type="text" name="servizio" value="delete" hidden>
+                            <input class="shadowCampi" type="text" name="op" value="delete" hidden>
 
-                            <input class="shadowCampi" type="text" name="NumeroCarta" value="" hidden>
+                            <input class="shadowCampi" type="text" name="NumeroCarta" value="<%= bean.getNc() %>" hidden>
 
                             <img id="cardN1_remove" class="iconRemoveCard" onclick="confermaEliminazione(this)"
                                 src="./Icon/X_V1.png" alt="X">
-                            
+                                
+                             <input class="shadowCampi" type="text" name="email" value="<%= user.getEmail() %>" hidden>
+                             <input class="shadowCampi" type="text" name="pass" value="<%= user.getPass() %>" hidden>
                             <input type="submit">
                         </form>
 

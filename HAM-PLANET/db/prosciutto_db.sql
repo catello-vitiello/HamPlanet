@@ -24,7 +24,7 @@ CREATE TABLE cliente
     data_nascita VARCHAR(60),
     paese VARCHAR(60),
     provincia VARCHAR(60),
-    cap VARCHAR(60)
+    cap VARCHAR(60),
     
     PRIMARY KEY(e_mail)
 );

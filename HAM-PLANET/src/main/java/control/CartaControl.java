@@ -67,6 +67,15 @@ public class CartaControl extends HttpServlet {
 			String numero = request.getParameter("NumeroCarta");
 			try {
 				modelDS.deleteCard(numero);
+				
+				String email = request.getParameter("email");
+				String pass = request.getParameter("pass");
+				utils.UtilityClass.print("Email: " + email + ", password: " + pass);
+				
+				request.setAttribute("email", email);
+				request.setAttribute("password", pass);
+				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/LoginServlet");
+				requestDispatcher.forward(request, response);
 			} catch (SQLException e) {
 				utils.UtilityClass.print(e);
 			}

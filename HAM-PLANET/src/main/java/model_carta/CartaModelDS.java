@@ -71,9 +71,9 @@ public class CartaModelDS implements CartaModel<CartaBean> {
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(sql);
-			utils.UtilityClass.print(">.ELEIMINAZIONE CARTA NUMERO " + numeroCarta);
 			
 			preparedStatement.setString(1, numeroCarta);
+			utils.UtilityClass.print(">.ELEIMINAZIONE CARTA NUMERO " + numeroCarta);
 			preparedStatement.executeUpdate();
 		}finally {
 

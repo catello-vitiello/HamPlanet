@@ -109,7 +109,7 @@ public class CercaCarteModelDS implements CercaCardModel<CercaCarteClienteBean>{
 		Connection connection_1 = null;
 		PreparedStatement preparedStatement = null;
 		PreparedStatement ps = null;
-		String sql = "INSERT INTO carta (nomeTitolare, numeroCarta, scadenza, cvv, visualizza) VALUES(?, ?, ?, ?, 1)";
+		String sql = "INSERT INTO carta (nomeTitolare, numeroCarta, scadenza, cvv) VALUES(?, ?, ?, ?)";
 		String sql_1 = "INSERT INTO Ha (email_u, n_card) VALUES (?, ?)";
 		
 		try {
