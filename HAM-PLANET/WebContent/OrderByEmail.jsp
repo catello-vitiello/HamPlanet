@@ -1,3 +1,4 @@
+<%@page import="java.util.LinkedList"%>
 <%@page import="model_bigBean.*"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.Collection"%>
@@ -32,10 +33,12 @@
 		
 		<%
 			double tot = 0;
+			int id1=0, id2=0;
 			if(OrdiniView != null && OrdiniView.size()>0){
 				Iterator<?> iterator = OrdiniView.iterator();
 				while(iterator.hasNext()){
 					BigBean bean = (BigBean) iterator.next();
+					id1=bean.getId();
 					tot+=bean.getPrice();
 		%>
 			<tr>
@@ -45,10 +48,12 @@
 				<td><%= bean.getId() %></td>
 				<td>-</td>
 			</tr>
-		<%
-			}}
-		%>
-		<tr>
+		</tr>
+				<%
+					}
+				} //fine while
+				%>
+			<tr>
 				<td>-</td>
 				<td>-</td>
 				<td>-</td>
