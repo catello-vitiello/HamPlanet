@@ -98,6 +98,7 @@ public class CarrelloControl extends HttpServlet {
 		if(serv != null && serv.equals("finalizza")) {
 			
 			try {
+				getServletContext().removeAttribute("orders");
 				model.finalizeShop(user.getEmail());
 				RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/Store.jsp");
 				requestDispatcher.forward(request, response);
